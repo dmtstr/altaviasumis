@@ -15,8 +15,8 @@
 
 <template>
     <div id="app">
-        <!--<layout-header></layout-header>-->
-        <!--<layout-section></layout-section>-->
+        <layout-header></layout-header>
+        <layout-view></layout-view>
     </div>
 </template>
 
@@ -27,14 +27,15 @@
 -->
 
 <script>
-    // Imports
-//    import layoutHeader from '@/components/layout/layout-header.vue'
-//    import layoutSection from '@/components/layout/layout-section.vue'
+
+    import layoutHeader from '@/components/layout/header.vue'
+    import layoutView from '@/components/layout/view.vue'
 
     export default {
-//        components: {
-//            layoutHeader,
-//            layoutSection
-//        }
+        components: {
+            layoutHeader,
+            layoutView
+        }
     }
+
 </script>

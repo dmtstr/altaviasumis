@@ -9,3 +9,18 @@
 .l-fr {
     float: right;
 }
+.l-vertical {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.l-container {
+    margin: 0 auto;
+    height: inherit;
+}
+.l-container-large {
+    max-width: 1140px;
+}
+.l-container-small {
+    max-width: 780px;
+}
