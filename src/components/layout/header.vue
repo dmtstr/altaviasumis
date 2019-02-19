@@ -18,6 +18,30 @@
     #header .logo img {
         width: 100%;
     }
+
+    #header nav {
+        font-family: 'Raleway', sans-serif;
+    }
+    #header nav a {
+        text-transform: uppercase;
+        margin-left: 28px;
+        line-height: 20px;
+        color: #363636;
+    }
+    #header nav a.icon {
+        margin-left: 56px;
+    }
+    #header nav a.icon svg {
+        height: 20px;
+
+    }
+
+    #header nav a:hover,
+    #header nav a.router-link-exact-active {
+        color: #d6001c;
+        fill: #d6001c;
+    }
+
 </style>
 
 
@@ -29,9 +53,15 @@
 <template>
     <header id="header">
         <div class="l-container l-container-large">
-            <a class="logo l-vertical">
+            <a class="logo l-fl l-vertical">
                 <img src="/assets/images/logo.png"/>
             </a>
+            <nav class="l-fr l-vertical">
+                <router-link class="l-fl t-small t-bold" to="/">Orders</router-link>
+                <router-link class="l-fl t-small t-bold" to="/stocks">Stocks</router-link>
+                <router-link class="l-fl icon" to="/login"><icon-logout></icon-logout></router-link>
+            </nav>
+
         </div>
 
     </header>
@@ -44,9 +74,13 @@
 -->
 
 <script>
+
+    import iconLogout from '@/components/icons/logout.vue'
     
     export default {
-        
+        components: {
+            iconLogout
+        }
     }
 
 </script>

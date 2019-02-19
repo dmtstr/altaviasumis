@@ -32,6 +32,16 @@ module.exports = {
     devServer: {
         contentBase: path.join(__dirname, 'dist'),
         compress: true,
-        port: 8000
+        port: 8000,
+        proxy: {
+            '/api/*': {
+                target: 'https://api.wms.altaviasumis.nl',
+                changeOrigin: true,
+                secure: false,
+                pathRewrite: {
+                    '^/api': ''
+                }
+            }
+        }
     }
 };

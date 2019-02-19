@@ -31,6 +31,7 @@
     import layoutHeader from '@/components/layout/header.vue'
     import layoutView from '@/components/layout/view.vue'
 
+
     export default {
         components: {
             layoutHeader,

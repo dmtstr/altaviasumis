@@ -4,6 +4,7 @@ input {
     padding: 14px 20px;
     font-family: 'Roboto', sans-serif;
     cursor: pointer;
+    margin-bottom: 30px;
 }
 input:focus {
     outline: none;
@@ -16,7 +17,7 @@ input[type=password] {
     color: #959595;
     border-radius: 3px;
     transition: border-color 0.2s;
-    margin-bottom: 30px;
+
 }
 input[type=text]:focus,
 input[type=text]:hover,
@@ -32,6 +33,7 @@ input[type=password]:hover {
     font-size: 14px;
     font-weight: 800;
     padding: 14px 25px;
+    font-family: 'Raleway', sans-serif;
 }
 .button.primary {
     background-color: #d6001c;
@@ -46,6 +48,4 @@ label {
     display: block;
     margin-bottom: 18px;
 }
-label i {
-    color: #e80000;
-}
+
