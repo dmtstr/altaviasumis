@@ -1,3 +1,8 @@
+
+/*
+    Floats
+*/
+
 .l-clear:after {
     content: '';
     display: block;
@@ -9,21 +14,43 @@
 .l-fr {
     float: right;
 }
+
+
+
+/*
+    Alignment
+*/
+
 .l-vertical {
     position: relative;
     top: 50%;
     transform: translateY(-50%);
 }
+
+
+
+/*
+    Container
+*/
+
 .l-container {
     margin: 0 auto;
+    padding: 0 30px;
     height: inherit;
 }
 .l-container-large {
-    max-width: 1140px;
+    max-width: 1200px;
 }
 .l-container-small {
-    max-width: 780px;
+    max-width: 840px;
 }
+
+
+
+/*
+    Loading
+*/
+
 .l-loading {
     position: relative;
 }

@@ -13,13 +13,13 @@
 -->
 
 <template>
-    <form id="login" @submit.prevent="login" :class="{'l-loading': loading}">
+    <form @submit.prevent="login">
 
 
         <!-- email -->
 
         <label class="t-bold">
-            <span>Email</span>
+            <span class="t-black">Email</span>
             <i class="t-red">*</i>
         </label>
 
@@ -29,7 +29,7 @@
         <!-- password -->
 
         <label class="t-bold">
-            <span>Password</span>
+            <span class="t-black">Password</span>
             <i class="t-red">*</i>
         </label>
 
@@ -59,13 +59,13 @@
 
     import API from '@/common/api';
     import Session from '@/common/session';
+    import Event from '@/common/event';
 
     export default {
         data () {
             return {
                 email: 'test@test.com',
                 password: 'secret',
-                loading: false,
                 error: null
             }
         },
@@ -77,8 +77,8 @@
         methods: {
             login () {
 
-                this.loading = true;
                 this.error = null;
+                Event.$emit('loading', true);
 
                 API.login({
                     email: this.email,

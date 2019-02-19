@@ -33,6 +33,9 @@
         mounted () {
 
             API.orders()
+//                .then((response) => {
+//                    console.log(response.data)
+//                })
 
 
         }

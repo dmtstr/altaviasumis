@@ -14,7 +14,12 @@
 
 <template>
     <div id="stocks">
-        stocks
+        <div class="l-fl">
+
+        </div>
+        <div class="l-ff">
+
+        </div>
     </div>
 </template>
 
@@ -27,7 +32,15 @@
 <script>
     
     export default {
-        
+        mounted () {
+
+//            API.orders()
+//                .then((response) => {
+//                    console.log(response)
+//                })
+
+
+        }
     }
 
 </script>

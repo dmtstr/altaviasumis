@@ -5,6 +5,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Session from '@/common/session'
+import API from '@/common/api'
+import Event from '@/common/event'
 import routeLogin from '@/components/routes/login.vue'
 import routeOrders from '@/components/routes/orders.vue'
 import routeStocks from '@/components/routes/stocks.vue'
@@ -31,24 +33,50 @@ function login(to, from, next) {
 
 
 // ------------------
+// Routes
+// ------------------
+
+const routes = [
+    {
+        path: '/',
+        component: routeOrders,
+        beforeEnter: login
+    },
+    {
+        path: '/stocks',
+        component: routeStocks,
+        beforeEnter: login
+    },
+    {
+        path: '/login',
+        component: routeLogin
+    }
+];
+
+
+
+// ------------------
+// Router
+// ------------------
+
+let router = new Router({routes});
+
+
+
+// ------------------
+// Listeners
+// ------------------
+
+router.beforeEach((to, from, next) => {
+    Event.$emit('loading', false);
+    API.abort();
+    next();
+});
+
+
+
+// ------------------
 // Exports
 // ------------------
 
-export default new Router({
-    routes: [
-        {
-            path: '/',
-            component: routeOrders,
-            beforeEnter: login
-        },
-        {
-            path: '/stocks',
-            component: routeStocks,
-            beforeEnter: login
-        },
-        {
-            path: '/login',
-            component: routeLogin
-        }
-    ]
-})
+export default router

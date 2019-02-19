@@ -4,7 +4,6 @@ export default {
 
     create (token) {
         axios.defaults.headers.common['Authorization'] = 'Bearer ' + token;
-        console.log(axios.defaults.headers.common['Authorization'])
         window.localStorage.setItem('token', token);
     },
 

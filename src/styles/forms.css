@@ -1,9 +1,12 @@
+
+/*
+    Inputs
+*/
+
 input {
-    display: block;
+    cursor: pointer;
     font-size: 14px;
     padding: 14px 20px;
-    font-family: 'Roboto', sans-serif;
-    cursor: pointer;
     margin-bottom: 30px;
 }
 input:focus {
@@ -12,12 +15,11 @@ input:focus {
 input[type=text],
 input[type=password] {
     width: 100%;
+    background-color: #fafafa;
     border: 1px solid #fafafa;
-    background: #fafafa;
     color: #959595;
     border-radius: 3px;
     transition: border-color 0.2s;
-
 }
 input[type=text]:focus,
 input[type=text]:hover,
@@ -27,25 +29,33 @@ input[type=password]:hover {
     border-color: #e1e1e1;
     color: #363636;
 }
+label {
+    margin-bottom: 18px;
+}
 
+
+
+/*
+    Buttons
+*/
 
 .button {
+    font-family: 'Raleway', sans-serif;
     font-size: 14px;
     font-weight: 800;
     padding: 14px 25px;
-    font-family: 'Raleway', sans-serif;
+    border-radius: 3px;
+    border: 1px solid transparent;
+    transition: background-color 0.1s;
 }
 .button.primary {
     background-color: #d6001c;
-    border-radius: 3px;
-    transition: background-color 0.1s;
-    border: 1px solid transparent;
-
     color: #fff;
 }
-
-label {
-    display: block;
-    margin-bottom: 18px;
+.button.primary:hover {
+    background-color: #a30015;
 }
+
+
+
 
