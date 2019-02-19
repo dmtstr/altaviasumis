@@ -29,3 +29,6 @@ input {
 label {
     display: block;
 }
+pre {
+    font-size: 12px;
+}

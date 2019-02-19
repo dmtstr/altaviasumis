@@ -3,7 +3,7 @@
 -->
 
 <style>
-    
+
 </style>
 
 
@@ -13,13 +13,12 @@
 -->
 
 <template>
-    <div id="stocks">
-        <div class="l-fl">
-
+    <div id="stocks" class="l-clear">
+        <p class="t-red" v-show="error">An error occurred: {{error}}</p>
+        <div class="l-fl t-black">
+            <p>{{stocks.CustNum}}</p>
         </div>
-        <div class="l-ff">
-
-        </div>
+        <pre class="l-ff" v-show="stocks">{{stocks}}</pre>
     </div>
 </template>
 
@@ -30,17 +29,37 @@
 -->
 
 <script>
-    
+
+    import API from '@/common/api'
+    import Event from '@/common/event'
+
     export default {
+
+        data () {
+            return {
+                error: null,
+                stocks: false
+            }
+        },
+
         mounted () {
 
-//            API.orders()
-//                .then((response) => {
-//                    console.log(response)
-//                })
+            Event.$emit('loading', true);
+
+            API.stocks()
+                .then((response) => {
+                    this.stocks = response.data;
+                })
+                .catch((error) => {
+                    this.error = error.message;
+                })
+                .then(() => {
+                    Event.$emit('loading', false);
+                })
 
 
         }
+
     }
 
 </script>

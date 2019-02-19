@@ -44,11 +44,11 @@ export default {
     },
 
     orders () {
-        return axios.get('/api/api/orders/', canceler());
+        return axios.get('/api/api/orders', canceler());
     },
 
     stocks () {
-        return axios.get('/api/api/stocks/', canceler());
+        return axios.get('/api/api/stocks', canceler());
     },
 
     abort () {
