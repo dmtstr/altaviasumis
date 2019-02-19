@@ -44,21 +44,3 @@
 .l-container-small {
     max-width: 840px;
 }
-
-
-
-/*
-    Loading
-*/
-
-.l-loading {
-    position: relative;
-}
-.l-loading:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}

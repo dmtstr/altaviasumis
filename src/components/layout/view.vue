@@ -5,9 +5,19 @@
 <style>
 
     #view {
-        max-width: 780px;
-        margin: 0 auto;
-        padding-top: 142px;
+        padding-top: 158px;
+        padding-bottom: 48px;
+    }
+    #view.loading {
+        position: relative;
+    }
+    #view.loading:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
     }
 
 </style>
@@ -19,7 +29,7 @@
 -->
 
 <template>
-    <section id="view">
+    <section id="view" class="l-container l-container-small" :class="{loading: loading}">
         <router-view></router-view>
     </section>
 </template>
@@ -31,9 +41,18 @@
 -->
 
 <script>
-    
+
+    import Event from '@/common/event';
+
     export default {
-        
+        data() {
+            return {
+                loading: false
+            }
+        },
+        mounted() {
+            Event.$on('loading', value => this.loading = value);
+        }
     }
 
 </script>

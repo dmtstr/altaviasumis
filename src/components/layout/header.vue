@@ -23,7 +23,6 @@
     #header .logo {
         width: 220px;
     }
-
     #header .logo img {
         width: 100%;
     }
@@ -34,18 +33,15 @@
     #header nav {
         font-family: 'Raleway', sans-serif;
     }
-
     #header nav a {
         text-transform: uppercase;
         margin-left: 28px;
         line-height: 20px;
         color: #363636;
     }
-
     #header nav a.icon {
         margin-left: 56px;
     }
-
     #header nav a.icon svg {
         height: 20px;
     }
@@ -58,7 +54,6 @@
         color: #d6001c;
         fill: #d6001c;
     }
-
     #header nav a.router-link-exact-active {
         cursor: default;
     }
@@ -124,6 +119,7 @@
 </style>
 
 
+
 <!--
     Template
 -->
@@ -131,9 +127,11 @@
 <template>
     <header id="header" :class="{loading: loading}">
         <div class="l-container l-container-large">
-            <a class="logo l-fl l-vertical">
+
+            <router-link class="logo l-fl l-vertical" to="/">
                 <img src="/assets/images/logo.png"/>
-            </a>
+            </router-link>
+
             <nav class="l-fr l-vertical">
                 <router-link class="l-fl t-small t-bold" to="/">Orders</router-link>
                 <router-link class="l-fl t-small t-bold" to="/stocks">Stocks</router-link>
@@ -143,9 +141,9 @@
             </nav>
 
         </div>
-
     </header>
 </template>
+
 
 
 <!--
