@@ -5,6 +5,7 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "sticky-sidebar": "^3.3.1",
     "terser": "^3.14.1",
     "vue": "^2.5.22",
     "vue-router": "^3.0.2"

@@ -15,6 +15,7 @@
         height: 110px;
         box-shadow: 0 2px 1px -1px #e1e1e1;
         background: #ffffff;
+        z-index: 1;
     }
 
 
