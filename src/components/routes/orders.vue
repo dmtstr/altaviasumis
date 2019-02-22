@@ -20,6 +20,11 @@
         <p class="t-red" v-show="error">An error occurred: {{error}}</p>
 
         <div class="l-fl l-column">
+
+
+            <ui-create></ui-create>
+
+
             <ui-tab v-for="(order, index) in orders"
                     :large="order.customer_id"
                     :small="order.content.BODY.HEAD.ORDER_NO + ' / ' + order.state"
@@ -50,12 +55,14 @@
     import Event from '@/common/event'
     import uiTab from '@/components/ui/tab.vue'
     import uiSidebar from '@/components/ui/sidebar.vue'
+    import uiCreate from '@/components/ui/create.vue'
 
     export default {
 
         components: {
             uiTab,
-            uiSidebar
+            uiSidebar,
+            uiCreate
         },
 
         data () {
