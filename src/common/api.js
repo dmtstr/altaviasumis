@@ -3,6 +3,8 @@
 // ------------------
 
 import axios from 'axios';
+import Session from '@/common/session';
+import Router from '@/common/router';
 
 
 
@@ -11,8 +13,17 @@ import axios from 'axios';
 // ------------------
 
 axios.interceptors.response.use(undefined, function(error) {
-    if (axios.isCancel(error)) error.message = null;
-    else error.message = error.response && error.response.data && error.response.data.status && error.response.data.status.error || error.message;
+    if (axios.isCancel(error)) {
+        error.message = null;
+    }
+    else if (error.request && error.request.status === 401) {
+        error.message = null;
+        Session.destroy();
+        Router.push('/login')
+    }
+    else {
+        error.message = error.response && error.response.data && error.response.data.status && error.response.data.status.error || error.message;
+    }
     return Promise.reject(error);
 });
 
