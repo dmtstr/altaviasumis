@@ -24,6 +24,7 @@
                     :large="stock.CustItem"
                     :small="stock.StckStatus"
                     :active="index === selected"
+                    :key="index"
                     @click.native="select(index)">
             </ui-tab>
         </div>

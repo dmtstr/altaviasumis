@@ -24,6 +24,7 @@
                     :large="order.customer_id"
                     :small="order.content.BODY.HEAD.ORDER_NO + ' / ' + order.state"
                     :active="index === selected"
+                    :key="index"
                     @click.native="select(index)">
             </ui-tab>
         </div>
