@@ -3,7 +3,7 @@
 -->
 
 <style>
-
+    
 </style>
 
 
@@ -13,39 +13,36 @@
 -->
 
 <template>
-    <form @submit.prevent="login">
-
+    <form @submit.prevent="create">
 
         <!-- email -->
 
         <label class="t-bold">
-            <span class="t-black">Email</span>
+            <span class="t-black">ID</span>
             <i class="t-red">*</i>
         </label>
 
-        <input type="text" v-model="email"/>
+        <input type="text" v-model="id" />
 
 
         <!-- password -->
 
         <label class="t-bold">
-            <span class="t-black">Password</span>
+            <span class="t-black">Quantity</span>
             <i class="t-red">*</i>
         </label>
 
-        <input type="password" v-model="password"/>
+        <input type="text" v-model="quantity"/>
 
 
         <!-- submit -->
 
-        <input type="submit" :value="status" class="button primary"/>
+        <input type="submit" value="Create" class="button primary"/>
 
 
         <!-- error -->
 
         <p class="t-small t-red" v-show="error">An error occurred: {{error}}</p>
-
-
     </form>
 </template>
 
@@ -58,35 +55,37 @@
 <script>
 
     import API from '@/common/api';
-    import Session from '@/common/session';
     import Event from '@/common/event';
 
+
     export default {
+
+
         data () {
             return {
-                email: 'test@test.com',
-                password: 'secret',
+                id: '',
+                quantity: '',
                 error: null
             }
         },
-        computed: {
-            status () {
-                return this.loading ? 'Processing...' : 'Sign in'
-            }
-        },
+
         methods: {
-            login () {
+
+            create () {
+
+                if (!this.id) return (this.error = 'ID is required');
+                if (!this.quantity) return (this.error = 'Quantity is required');
+                if (!+this.quantity) return (this.error = 'Quantity must be a number');
 
                 this.error = null;
                 Event.$emit('loading', true);
 
-                API.login({
-                    email: this.email,
-                    password: this.password
+                API.createOrder({
+                    id: this.id,
+                    quantity: this.quantity
                 })
                 .then((response) => {
-                    Session.create(response.data.token);
-                    this.$router.push('/');
+                    // ???
                 })
                 .catch((error) => {
                     this.error = error.message;
@@ -94,12 +93,8 @@
                 .then(() => {
                     Event.$emit('loading', false);
                 });
-
-
             }
-        },
-        mounted () {
-            Session.destroy();
+
         }
     }
 

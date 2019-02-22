@@ -32,6 +32,13 @@
     .create:hover .line {
         background: #d6001c;
     }
+    .create.active {
+        background: #a30015;
+        border-color: #a30015;
+    }
+    .create.active .line {
+        background: #ffffff;
+    }
 
 </style>
 
@@ -43,7 +50,7 @@
 
 <template>
 
-    <a class="create">
+    <a class="create" :class="{active: active}">
         <div class="l-center">
             <div class="l-stretch line vertical "></div>
             <div class="l-stretch line horizontal"></div>
@@ -61,7 +68,9 @@
 <script>
     
     export default {
-        
+        props: [
+            'active'
+        ]
     }
 
 </script>

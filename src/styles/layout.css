@@ -78,3 +78,6 @@
     width: 240px;
     margin-right: 30px;
 }
+.l-relative {
+    position: relative;
+}

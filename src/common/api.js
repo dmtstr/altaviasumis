@@ -58,6 +58,10 @@ export default {
         return axios.get('/api/api/orders', canceler());
     },
 
+    createOrder () {
+        return axios.post('/api/api/orders', canceler());
+    },
+
     stocks () {
         return axios.get('/api/api/stocks', canceler());
     },

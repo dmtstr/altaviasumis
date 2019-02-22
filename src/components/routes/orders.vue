@@ -18,13 +18,9 @@
     <div id="orders" class="l-clear">
 
         <p class="t-red" v-show="error">An error occurred: {{error}}</p>
+        <ui-create @click.native="select(-1)" :active="selected === -1"></ui-create>
 
         <div class="l-fl l-column">
-
-
-            <ui-create></ui-create>
-
-
             <ui-tab v-for="(order, index) in orders"
                     :large="order.customer_id"
                     :small="order.content.BODY.HEAD.ORDER_NO + ' / ' + order.state"
@@ -35,8 +31,9 @@
         </div>
 
         <div class="l-ff">
-            <ui-sidebar>
-                <pre>{{orders[selected]}}</pre>
+            <ui-sidebar v-if="orders.length">
+                <form-order v-show="selected === -1"></form-order>
+                <pre v-show="selected > -1">{{orders[selected]}}</pre>
             </ui-sidebar>
         </div>
 
@@ -56,13 +53,15 @@
     import uiTab from '@/components/ui/tab.vue'
     import uiSidebar from '@/components/ui/sidebar.vue'
     import uiCreate from '@/components/ui/create.vue'
+    import formOrder from '@/components/forms/order.vue'
 
     export default {
 
         components: {
             uiTab,
             uiSidebar,
-            uiCreate
+            uiCreate,
+            formOrder
         },
 
         data () {

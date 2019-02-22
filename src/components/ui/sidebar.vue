@@ -44,6 +44,10 @@
 
         methods: {
 
+            resize() {
+                this.$el.style.width = this.$el.parentNode.offsetWidth + 'px'
+            },
+
             scroll() {
 
 
@@ -54,6 +58,7 @@
                 const rect = this.$el.getBoundingClientRect();
                 this.saved = top;
 
+                console.log(rect.height + this.top + this.bottom, window.innerHeight)
 
                 // element fully visible
 
@@ -62,6 +67,7 @@
                     this.$el.style.position = 'fixed';
                     this.$el.style.top = this.top + 'px';
                     this.$el.style.bottom = 'auto';
+                    console.log('1')
                     return;
                 }
 
@@ -74,6 +80,7 @@
                         this.$el.style.position = 'fixed';
                         this.$el.style.top = 'auto';
                         this.$el.style.bottom = this.bottom + 'px';
+                        console.log('2')
                         return
                     }
                 }
@@ -86,6 +93,7 @@
                     this.$el.style.position = 'absolute';
                     this.$el.style.top = top - (this.$el.offsetHeight - window.innerHeight + this.bottom) + 'px';
                     this.$el.style.bottom = 'auto';
+                    console.log('3')
                     return;
                 }
 
@@ -98,6 +106,7 @@
                         this.$el.style.position = 'fixed';
                         this.$el.style.top = this.top + 'px';
                         this.$el.style.bottom = 'auto';
+                        console.log('4')
                         return
                     }
                 }
@@ -110,6 +119,7 @@
                     this.$el.style.position = 'absolute';
                     this.$el.style.top = top + this.top + 'px';
                     this.$el.style.bottom = 'auto';
+                    console.log('5')
                 }
 
 
@@ -121,7 +131,9 @@
             this.bottom = 48;
             this.top = this.$el.getBoundingClientRect().top;
             this.scroll();
+            this.resize();
             window.addEventListener('scroll', this.scroll);
+            window.addEventListener('resize', this.resize);
         },
 
         destroyed() {
