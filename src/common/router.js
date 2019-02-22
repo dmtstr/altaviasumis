@@ -70,7 +70,7 @@ let router = new Router({routes});
 router.beforeEach((to, from, next) => {
     Event.$emit('loading', false);
     API.abort();
-    next();
+    setTimeout(next, 0);
 });
 
 
