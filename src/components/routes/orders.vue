@@ -31,7 +31,7 @@
         </div>
 
         <div class="l-ff">
-            <ui-sidebar v-if="orders.length">
+            <ui-sidebar ref="sidebar">
                 <form-order v-show="selected === -1"></form-order>
                 <pre v-show="selected > -1">{{orders[selected]}}</pre>
             </ui-sidebar>
@@ -68,7 +68,7 @@
             return {
                 error: null,
                 orders: false,
-                selected: 0
+                selected: false
             }
         },
 
@@ -76,6 +76,7 @@
 
             select (index) {
                 this.selected = index;
+                this.$refs.sidebar.scroll();
             }
 
         },
@@ -87,6 +88,7 @@
             API.orders()
                 .then((response) => {
                     this.orders = response.data;
+                    this.select(0);
                 })
                 .catch((error) => {
                     this.error = error.message;

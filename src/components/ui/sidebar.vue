@@ -6,11 +6,11 @@
 
     .sidebar {
         position: absolute;
+        /*position: sticky; bottom: 0;*/
     }
 
 
 </style>
-
 
 
 <!--
@@ -24,13 +24,12 @@
 </template>
 
 
-
 <!--
     Scripts
 -->
 
 <script>
-    
+
     export default {
 
         data() {
@@ -38,7 +37,9 @@
                 fixed: false,
                 saved: window.scrollY,
                 top: 0,
-                bottom: 0
+                bottom: 0,
+                max: 0,
+                initial: 0
             }
         },
 
@@ -51,75 +52,108 @@
             scroll() {
 
 
-                // values
+
+//                if (this.saved === window.scrollY) return;
 
                 const top = window.scrollY;
                 const delta = top > this.saved ? 1 : -1;
                 const rect = this.$el.getBoundingClientRect();
+                const visible = rect.height + this.top + this.bottom < window.innerHeight;
                 this.saved = top;
 
-                console.log(rect.height + this.top + this.bottom, window.innerHeight)
 
-                // element fully visible
+                if (visible && delta > 0 && !this.fixed) {
 
-                if (rect.height + this.top + this.bottom < window.innerHeight) {
-                    this.fixed = 'top';
-                    this.$el.style.position = 'fixed';
-                    this.$el.style.top = this.top + 'px';
-                    this.$el.style.bottom = 'auto';
-                    console.log('1')
-                    return;
-                }
-
-
-                // scroll down & not fixed
-
-                if (this.fixed === false && delta > 0) {
-                    if (rect.top + rect.height < window.innerHeight - this.bottom) {
-                        this.fixed = 'bottom';
-                        this.$el.style.position = 'fixed';
-                        this.$el.style.top = 'auto';
-                        this.$el.style.bottom = this.bottom + 'px';
-                        console.log('2')
-                        return
-                    }
-                }
-
-
-                // scroll up & fixed to bottom
-
-                if (this.fixed === 'bottom' && delta < 0) {
-                    this.fixed = false;
-                    this.$el.style.position = 'absolute';
-                    this.$el.style.top = top - (this.$el.offsetHeight - window.innerHeight + this.bottom) + 'px';
-                    this.$el.style.bottom = 'auto';
-                    console.log('3')
-                    return;
-                }
-
-
-                // scroll up & not fixed
-
-                if (this.fixed === false && delta < 0) {
-                    if (rect.top > this.top) {
-                        this.fixed = 'top';
+                    if (rect.top < this.top) {
+                        this.fixed = true;
                         this.$el.style.position = 'fixed';
                         this.$el.style.top = this.top + 'px';
-                        this.$el.style.bottom = 'auto';
-                        console.log('4')
-                        return
+                        return;
                     }
+
                 }
 
 
-                // scroll down & fixed to top
+                if (visible && delta < 0 && this.fixed) {
 
-                if (this.fixed === 'top' && delta > 0) {
-                    this.fixed = false;
-                    this.$el.style.position = 'absolute';
-                    this.$el.style.top = top + this.top + 'px';
-                    this.$el.style.bottom = 'auto';
-                    console.log('5')
+                    if (this.initial - top > this.top) {
+                        this.fixed = false;
+                        this.$el.style.position = 'absolute';
+                        this.$el.style.top = this.initial + 'px';
+                        return
+                    }
+
+                }
+
+
+
+                if (!visible && delta > 0 && !this.fixed) {
+
+                    if (rect.top + rect.height + this.bottom < window.innerHeight) {
+
+                        console.log(1);
+
+                        this.fixed = true;
+                        this.$el.style.position = 'fixed';
+                        this.$el.style.top = window.innerHeight - rect.height - this.bottom  + 'px';
+                        return;
+                    }
+
+                }
+
+
+                if (!visible && delta < 0 && this.fixed) {
+
+                    if (rect.top ===  window.innerHeight - rect.height - this.bottom) {
+
+                        console.log(2);
+
+                        this.fixed = false;
+                        this.$el.style.position = 'absolute';
+                        this.$el.style.top = top - (this.$el.offsetHeight - window.innerHeight + this.bottom) + 'px';
+                        return
+                    }
+
+
+                    if (this.initial - top > this.top) {
+
+                        console.log(3);
+
+                        this.fixed = false;
+                        this.$el.style.position = 'absolute';
+                        this.$el.style.top = this.initial + 'px';
+                        return
+                    }
+
+                }
+
+
+                if (!visible && delta < 0 && !this.fixed) {
+
+                    console.log(4);
+
+                    if (rect.top > this.top && this.initial - top < this.top) {
+                        this.fixed = true;
+                        this.$el.style.position = 'fixed';
+                        this.$el.style.top = this.top + 'px';
+                        return;
+                    }
+
+                }
+
+                if (!visible && delta > 0 && this.fixed) {
+
+                    if (rect.top === this.top) {
+
+                        console.log(5);
+
+                        this.fixed = false;
+                        this.$el.style.position = 'absolute';
+                        this.$el.style.top = top + this.top + 'px';
+
+                    }
+
+
                 }
 
 
@@ -128,8 +162,15 @@
         },
 
         mounted() {
+
+            const rect = this.$el.getBoundingClientRect();
+
+            this.max = rect.top + rect.height + 48 - window.innerHeight;
+
             this.bottom = 48;
-            this.top = this.$el.getBoundingClientRect().top;
+            this.top = 158;
+
+            this.initial = this.$el.getBoundingClientRect().top;
             this.scroll();
             this.resize();
             window.addEventListener('scroll', this.scroll);
