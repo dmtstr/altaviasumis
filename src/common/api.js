@@ -51,19 +51,19 @@ function canceler() {
 export default {
 
     login (data) {
-        return axios.post('/api/login', data, canceler());
+        return axios.post(API_ORIGIN + '/login', data, canceler());
     },
 
     orders () {
-        return axios.get('/api/api/orders', canceler());
+        return axios.get(API_ORIGIN + '/api/orders', canceler());
     },
 
     createOrder () {
-        return axios.post('/api/api/orders', canceler());
+        return axios.post(API_ORIGIN + '/api/orders', canceler());
     },
 
     stocks () {
-        return axios.get('/api/api/stocks', canceler());
+        return axios.get(API_ORIGIN + '/api/stocks', canceler());
     },
 
     abort () {
