@@ -22,7 +22,7 @@ module.exports = {
     plugins: [
         new VueLoaderPlugin(),
         new webpack.DefinePlugin({
-            API_ORIGIN: JSON.stringify('https://api.wms.altaviasumis.nl')
+            API_ORIGIN: JSON.stringify('/api')
         })
     ],
     resolve: {
