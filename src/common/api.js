@@ -55,15 +55,15 @@ export default {
     },
 
     orders () {
-        return axios.get('/api/orders', canceler());
+        return axios.get('/api/api/orders', canceler());
     },
 
     createOrder () {
-        return axios.post('/api/orders', canceler());
+        return axios.post('/api/api/orders', canceler());
     },
 
     stocks () {
-        return axios.get('/api/stocks', canceler());
+        return axios.get('/api/api/stocks', canceler());
     },
 
     abort () {
