@@ -9,10 +9,20 @@ import Router from '@/common/router';
 
 
 // ------------------
+// Instance
+// ------------------
+
+const API = axios.create({
+    baseURL: API_ORIGIN
+});
+
+
+
+// ------------------
 // Interceptor
 // ------------------
 
-axios.interceptors.response.use(undefined, function(error) {
+API.interceptors.response.use(undefined, function(error) {
     if (axios.isCancel(error)) {
         error.message = null;
     }
@@ -22,7 +32,7 @@ axios.interceptors.response.use(undefined, function(error) {
         Router.push('/login')
     }
     else {
-        error.message = error.response && error.response.data && error.response.data.status && error.response.data.status.error || error.message;
+        error.message = error.response && error.response.data && error.response.data.error.message || error.message;
     }
     return Promise.reject(error);
 });
@@ -51,19 +61,19 @@ function canceler() {
 export default {
 
     login (data) {
-        return axios.post(API_ORIGIN + '/login', data, canceler());
+        return API.post('/auth/authenticate', data, canceler());
     },
 
     orders () {
-        return axios.get(API_ORIGIN + '/api/orders', canceler());
+        return API.get('/items/messages', canceler());
     },
 
     createOrder () {
-        return axios.post(API_ORIGIN + '/api/orders', canceler());
+        return API.post(API_ORIGIN + '/api/orders', canceler());
     },
 
     stocks () {
-        return axios.get(API_ORIGIN + '/api/stocks', canceler());
+        return API.get(API_ORIGIN + '/api/stocks', canceler());
     },
 
     abort () {

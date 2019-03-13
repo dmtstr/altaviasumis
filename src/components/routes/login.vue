@@ -64,8 +64,8 @@
     export default {
         data () {
             return {
-                email: 'test@test.com',
-                password: 'secret',
+                email: 'dmitriy@dmitriy.com',
+                password: 'test',
                 error: null
             }
         },
@@ -85,7 +85,7 @@
                     password: this.password
                 })
                 .then((response) => {
-                    Session.create(response.data.token);
+                    Session.create(response.data.data.token);
                     this.$router.push('/');
                 })
                 .catch((error) => {
