@@ -10,14 +10,15 @@
     }
 
     .tab p.small {
-        font-size: 14px;
+        font-size: 12px;
         color: #d4d4d4;
-        margin-bottom: 8px;
     }
     .tab p.large {
         font-size: 18px;
         font-weight: 700;
+        margin-bottom: 8px;
     }
+
     .tab:hover {
         background: #d6001c;
     }
@@ -47,8 +48,12 @@
 
 <template>
     <a class="tab" :class="{active: active}">
-        <p class="small">{{small}}</p>
-        <p class="large t-black">{{large}}</p>
+        <p class="large t-black">{{data.shop_id.name}}</p>
+        <p class="small">
+            <span>{{data.modified_by.first_name}}</span>
+            <span>&#9679;</span>
+            <span>{{data.modified_on}}</span>
+        </p>
     </a>
 </template>
 
@@ -62,8 +67,7 @@
     
     export default {
         props: [
-            'small',
-            'large',
+            'data',
             'active'
         ]
     }

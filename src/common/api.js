@@ -65,15 +65,11 @@ export default {
     },
 
     orders () {
-        return API.get('/items/messages', canceler());
-    },
-
-    createOrder () {
-        return API.post(API_ORIGIN + '/api/orders', canceler());
+        return API.get('/items/orders?fields=*.*', canceler());
     },
 
     stocks () {
-        return API.get(API_ORIGIN + '/api/stocks', canceler());
+        return API.get('/items/stocks?fields=*.*', canceler());
     },
 
     abort () {

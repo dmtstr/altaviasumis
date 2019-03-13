@@ -21,10 +21,9 @@
 
         <div class="l-fl l-column">
             <ui-tab v-for="(stock, index) in stocks"
-                    :large="stock.CustItem"
-                    :small="stock.StckStatus"
+                    :data="stock"
                     :active="index === selected"
-                    :key="index"
+                    :key="stock.id"
                     @click.native="select(index)">
             </ui-tab>
         </div>
@@ -80,7 +79,7 @@
 
             API.stocks()
                 .then((response) => {
-                    this.stocks = response.data.StockUpdate;
+                    this.stocks = response.data.data;
                 })
                 .catch((error) => {
                     this.error = error.message;

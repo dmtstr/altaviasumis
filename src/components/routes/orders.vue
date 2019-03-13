@@ -22,10 +22,9 @@
 
         <div class="l-fl l-column">
             <ui-tab v-for="(order, index) in orders"
-                    :large="order.customer_id"
-                    :small="order.content.BODY.HEAD.ORDER_NO + ' / ' + order.state"
+                    :data="order"
                     :active="index === selected"
-                    :key="index"
+                    :key="order.id"
                     @click.native="select(index)">
             </ui-tab>
         </div>
@@ -87,7 +86,7 @@
 
             API.orders()
                 .then((response) => {
-                    this.orders = response.data;
+                    this.orders = response.data.data;
                     this.select(0);
                 })
                 .catch((error) => {
