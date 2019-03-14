@@ -12,7 +12,7 @@
         left: 0;
         top: 0;
         width: 100%;
-        height: 110px;
+        height: 72px;
         box-shadow: 0 2px 1px -1px #e1e1e1;
         background: #ffffff;
         z-index: 1;
@@ -21,11 +21,8 @@
 
     /* logo */
 
-    #header .logo {
-        width: 220px;
-    }
     #header .logo img {
-        width: 100%;
+        height: 14px;
     }
 
 
@@ -34,16 +31,18 @@
     #header nav {
         font-family: 'Raleway', sans-serif;
     }
-    #header nav a {
-        text-transform: uppercase;
+    #header nav .link {
         margin-left: 28px;
-        line-height: 20px;
+        padding: 4px 0 2px 0;
         color: #363636;
+        font-size: 13px;
+        font-weight: 700;
+        text-transform: uppercase;
     }
-    #header nav a.icon {
+    #header nav .icon {
         margin-left: 56px;
     }
-    #header nav a.icon svg {
+    #header nav .icon svg {
         height: 20px;
     }
 
@@ -134,9 +133,9 @@
             </router-link>
 
             <nav class="l-fr l-vertical">
-                <router-link class="l-fl t-small t-bold" to="/">Orders</router-link>
-                <router-link class="l-fl t-small t-bold" to="/stocks">Stocks</router-link>
-                <router-link class="l-fl icon" to="/login">
+                <router-link class="link l-fl" to="/">Orders</router-link>
+                <router-link class="link l-fl" to="/stocks">Stocks</router-link>
+                <router-link class="icon l-fl" to="/login">
                     <icon-logout></icon-logout>
                 </router-link>
             </nav>
