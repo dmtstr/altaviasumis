@@ -30,7 +30,11 @@
 
         <div class="l-ff">
             <ui-sidebar>
-                <pre>{{stocks[selected]}}</pre>
+                <table v-if="stocks[selected]">
+                    <tr v-for="row in stocks[selected].content">
+                        <td v-for="cell in row">{{cell}}</td>
+                    </tr>
+                </table>
             </ui-sidebar>
         </div>
 
@@ -49,6 +53,13 @@
     import Event from '@/common/event'
     import uiTab from '@/components/ui/tab.vue'
     import uiSidebar from '@/components/ui/sidebar.vue'
+
+
+    function csvToArray(csv) {
+        const rows = csv.replace(/"/g, '').split('\n');
+        return rows.map(row => row.split(','))
+    }
+
 
     export default {
 
@@ -79,7 +90,10 @@
 
             API.stocks()
                 .then((response) => {
-                    this.stocks = response.data.data;
+                    this.stocks = response.data.data.map(item => {
+                        item.content = csvToArray(item.content);
+                        return item;
+                    });
                 })
                 .catch((error) => {
                     this.error = error.message;
