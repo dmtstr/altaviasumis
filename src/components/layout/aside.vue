@@ -58,6 +58,21 @@
     }
 
 
+    /* scrollbar */
+
+    #aside::-webkit-scrollbar {
+        -webkit-appearance: none;
+    }
+    #aside::-webkit-scrollbar:vertical {
+        width: 12px;
+    }
+    #aside::-webkit-scrollbar-thumb {
+        border-radius: 8px;
+        border: 4px solid #FFF;
+        background-color: #eeeeee;
+    }
+
+
 </style>
 
 
