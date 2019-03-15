@@ -4,7 +4,6 @@
 
 <style>
     #login {
-        top: 72px;
         width: 640px;
         margin: 0 auto;
     }
