@@ -105,7 +105,7 @@
                 API.stocks()
                     .then((response) => {
                         this.stocks = response.data.data.map(item => {
-                            item.content = Util.csvToArray(item.content);
+                            item.content = Util.csvToTable(item.content);
                             return item;
                         });
                     })

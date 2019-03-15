@@ -127,6 +127,7 @@
         computed: {
 
             filtered () {
+                if (!this.search) return this.results;
                 return this.results.filter(cells => {
                     for (let i = 0; i < cells.length; i++) {
                         if (cells[i].indexOf(this.search) !== -1) return cells;
