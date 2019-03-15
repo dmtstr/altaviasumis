@@ -5,9 +5,10 @@
 <style>
 
     #content {
-        position: relative;
-        top: 178px;
-        padding-bottom: 30px;
+        position: absolute;
+        top: 106px;
+        left: 300px;
+        width: 630px;
     }
 
 </style>
@@ -20,10 +21,7 @@
 
 <template>
     <div id="content">
-        <div class="l-fl l-aside"></div>
-        <div class="l-ff l-split">
-            <slot></slot>
-        </div>
+        <slot></slot>
     </div>
 </template>
 

@@ -52,7 +52,7 @@
 .l-container {
     margin: 0 auto;
     padding: 0 30px;
-    max-width: 960px;
+    width: 960px;
     height: inherit;
 }
 

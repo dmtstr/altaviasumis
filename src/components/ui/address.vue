@@ -4,6 +4,13 @@
 
 <style>
 
+    .ui-address {
+        position: fixed;
+        width: inherit;
+        background: #ffffff;
+        padding-top: 36px;
+    }
+
 
     /* heading */
 

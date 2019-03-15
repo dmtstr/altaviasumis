@@ -2,10 +2,10 @@
     Styles
 -->
 
-<style scoped>
+<style>
 
-    #content {
-        padding-top: 30px;
+    #orders .ui-table {
+        padding-top: 122px;
     }
 
 </style>
@@ -17,7 +17,7 @@
 -->
 
 <template>
-    <div>
+    <div id="orders">
 
         <layout-toolbar
                 :create="create"
@@ -31,10 +31,8 @@
         </layout-aside>
 
         <layout-content v-if="selected !== false">
-            <div v-show="selected > -1">
-                <ui-address :data="orders[selected].content.address"></ui-address>
-                <ui-table :data="orders[selected].content.order"></ui-table>
-            </div>
+            <ui-address v-show="selected > -1" :data="orders[selected].content.address"></ui-address>
+            <ui-table v-show="selected > -1" :data="orders[selected].content.order"></ui-table>
             <form-order v-show="selected === -1"></form-order>
         </layout-content>
 
