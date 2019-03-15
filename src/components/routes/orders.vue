@@ -30,9 +30,12 @@
                 :click="select">
         </layout-aside>
 
-        <layout-content>
+        <layout-content v-if="selected !== false">
+            <div v-show="selected > -1">
+                <ui-address :data="orders[selected].content.address"></ui-address>
+                <ui-table :data="[['id', 'quantity'], ['8555NL31722', '1'], ['8555NL24803', '98']]" :search="''"></ui-table>
+            </div>
             <form-order v-show="selected === -1"></form-order>
-            <pre v-show="selected > -1">{{orders[selected]}}</pre>
         </layout-content>
 
     </div>
@@ -52,6 +55,9 @@
     import layoutToolbar from '@/components/layout/toolbar.vue'
     import layoutContent from '@/components/layout/content.vue'
     import formOrder from '@/components/forms/order.vue'
+    import uiTable from '@/components/ui/table.vue'
+    import uiAddress from '@/components/ui/address.vue'
+
 
     export default {
 
@@ -59,7 +65,9 @@
             layoutAside,
             layoutToolbar,
             layoutContent,
-            formOrder
+            formOrder,
+            uiTable,
+            uiAddress
         },
 
         data () {
@@ -88,7 +96,10 @@
 
                 API.orders()
                     .then((response) => {
-                        this.orders = response.data.data;
+                        this.orders = response.data.data.map(item => {
+                            item.content = JSON.parse(item.content);
+                            return item;
+                        });
                         this.select(0);
                     })
                     .catch((error) => {

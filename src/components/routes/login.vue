@@ -9,6 +9,9 @@
         padding: 48px 0;
         margin: 0 auto;
     }
+    #login .button.primary {
+        width: 100px;
+    }
 </style>
 
 
