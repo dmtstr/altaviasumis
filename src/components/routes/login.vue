@@ -6,8 +6,6 @@
     #login {
         top: 72px;
         width: 640px;
-        padding-top: 48px;
-        padding-bottom: 48px;
         margin: 0 auto;
     }
     #login .button.primary {

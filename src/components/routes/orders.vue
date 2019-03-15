@@ -31,8 +31,8 @@
         </layout-aside>
 
         <layout-content v-if="selected !== false">
-            <ui-address v-show="selected > -1" :data="orders[selected].content.address"></ui-address>
-            <ui-table v-show="selected > -1" :data="orders[selected].content.order"></ui-table>
+            <ui-address v-if="selected > -1" :data="orders[selected].content.address"></ui-address>
+            <ui-table v-if="selected > -1" :data="orders[selected].content.order"></ui-table>
             <form-order v-show="selected === -1"></form-order>
         </layout-content>
 
