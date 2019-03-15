@@ -29,14 +29,13 @@
         font-size: 13px;
         line-height: 18px;
         color: #959595;
-        margin-bottom: 30px;
     }
 
 
     /* contact */
 
     .ui-address .contact {
-        margin-right: 30px;
+        margin-left: 30px;
     }
     .ui-address .contact .icon {
         width: 36px;
@@ -75,44 +74,37 @@
     <div class="ui-address l-clear">
 
 
-        <!-- heading -->
+        <div class="l-clear">
 
-        <p class="heading">{{data.name}}</p>
+            <p class="l-fl heading">{{data.name}}</p>
 
+            <div class="contact l-fr l-clear">
+                <div class="l-fl icon">
+                    <svg-email></svg-email>
+                </div>
+                <div class="l-fl text">
+                    <p>{{data.contact.email.name}}</p>
+                    <a :href="`mailto:${data.contact.email.value}`">{{data.contact.email.value}}</a>
+                </div>
+            </div>
 
-        <!-- address -->
+            <div class="l-fr contact l-clear">
+                <div class="l-fl icon">
+                    <svg-phone></svg-phone>
+                </div>
+                <div class="l-fl text">
+                    <p>{{data.contact.telephone.name}}</p>
+                    <a :href="`tel:${data.contact.telephone.value}`">{{data.contact.telephone.value}}</a>
+                </div>
+            </div>
+
+        </div>
+
 
         <div class="address">
             <p>{{data.street}} {{data.house_number}} {{data.house_add}}</p>
             <p>{{data.zip}} {{data.city}}, {{data.country_code}}</p>
         </div>
-
-
-        <!-- email -->
-
-        <div class="contact l-fl l-clear">
-            <div class="l-fl icon">
-                <svg-email></svg-email>
-            </div>
-            <div class="l-fl text">
-                <p>{{data.contact.email.name}}</p>
-                <a :href="`mailto:${data.contact.email.value}`">{{data.contact.email.value}}</a>
-            </div>
-        </div>
-
-
-        <!-- phone -->
-
-        <div class="l-fl contact l-clear">
-            <div class="l-fl icon">
-                <svg-phone></svg-phone>
-            </div>
-            <div class="l-fl text">
-                <p>{{data.contact.telephone.name}}</p>
-                <a :href="`tel:${data.contact.telephone.value}`">{{data.contact.telephone.value}}</a>
-            </div>
-        </div>
-
 
     </div>
 </template>
