@@ -6,8 +6,7 @@
 input {
     cursor: pointer;
     font-size: 14px;
-    padding: 14px 20px;
-    margin-bottom: 30px;
+    padding: 0 20px;
 }
 input:focus {
     outline: none;
@@ -16,8 +15,9 @@ input[type=text],
 input[type=number],
 input[type=password] {
     width: 100%;
+    height: 42px;
     background-color: #fafafa;
-    border: 1px solid #fafafa;
+    border: 1px solid transparent;
     color: #959595;
     border-radius: 3px;
     transition: border-color 0.2s;
@@ -43,13 +43,28 @@ label {
 */
 
 .button {
+    height: 42px;
+    padding: 10px;
     font-family: 'Raleway', sans-serif;
-    font-size: 14px;
-    font-weight: 800;
-    padding: 14px 25px;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 600;
+    fill: #ffffff;
+    color: #ffffff;
     border-radius: 3px;
     border: 1px solid transparent;
     transition: background-color 0.1s;
+}
+.button svg {
+    display: inline-block;
+    vertical-align: middle;
+    width: 20px;
+    height: 20px;
+}
+.button span {
+    display: inline-block;
+    vertical-align: middle;
+    padding: 4px 0 3px 4px;
 }
 .button.primary {
     background-color: #d6001c;
@@ -58,7 +73,14 @@ label {
 .button.primary:hover {
     background-color: #a30015;
 }
+.button.secondary {
+    background-color: #363636;
+}
+.button.secondary:hover {
+    background-color: #a30015;
+}
 
 
-
-
+.form input {
+    margin-bottom: 30px;
+}

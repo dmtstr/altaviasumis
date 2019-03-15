@@ -8,8 +8,9 @@ body {
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
     line-height: 1;
-    color: #959595;
+    color: #363636;
     background: #ffffff;
+    overflow-y: scroll;
 }
 a {
     display: block;
@@ -17,6 +18,9 @@ a {
     cursor: pointer;
 }
 img {
+    display: block;
+}
+svg {
     display: block;
 }
 p {
@@ -32,7 +36,4 @@ label {
 pre {
     font-size: 12px;
     margin: 0;
-}
-svg {
-    display: block;
 }

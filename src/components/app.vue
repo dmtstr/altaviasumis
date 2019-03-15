@@ -3,7 +3,18 @@
 -->
 
 <style>
-
+    #header {
+        z-index: 3;
+    }
+    #toolbar {
+        z-index: 4;
+    }
+    #aside {
+        z-index: 2;
+    }
+    #content {
+        z-index: 1;
+    }
 </style>
 
 

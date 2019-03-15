@@ -4,8 +4,6 @@
 
 <style>
 
-
-
 </style>
 
 
@@ -15,28 +13,31 @@
 -->
 
 <template>
-    <div id="orders" class="l-clear">
+    <div>
 
-        <p class="t-red" v-show="error">An error occurred: {{error}}</p>
+        <layout-toolbar
+                :create="create"
+                :reload="load"
+                :search="search"
+                @input="input">
+        </layout-toolbar>
 
-        <div class="l-fl l-column">
-            <ui-tab v-for="(stock, index) in stocks"
-                    :data="stock"
-                    :active="index === selected"
-                    :key="stock.id"
-                    @click.native="select(index)">
-            </ui-tab>
-        </div>
+        <layout-aside
+                v-if="stocks"
+                :data="stocks"
+                :active="selected"
+                :click="select">
+        </layout-aside>
 
-        <div class="l-ff">
-            <ui-sidebar>
-                <table v-if="stocks[selected]">
-                    <tr v-for="row in stocks[selected].content">
-                        <td v-for="cell in row">{{cell}}</td>
-                    </tr>
-                </table>
-            </ui-sidebar>
-        </div>
+        <layout-content v-if="stocks[selected]">
+            <ui-table :data="stocks[selected].content" :search="search"></ui-table>
+        </layout-content>
+
+        <layout-error
+                v-if="error"
+                :error="error">
+        </layout-error>
+
 
     </div>
 </template>
@@ -49,30 +50,33 @@
 
 <script>
 
+
     import API from '@/common/api'
     import Event from '@/common/event'
-    import uiTab from '@/components/ui/tab.vue'
-    import uiSidebar from '@/components/ui/sidebar.vue'
-
-
-    function csvToArray(csv) {
-        const rows = csv.replace(/"/g, '').split('\n');
-        return rows.map(row => row.split(','))
-    }
+    import Util from '@/common/util'
+    import layoutAside from '@/components/layout/aside.vue'
+    import layoutToolbar from '@/components/layout/toolbar.vue'
+    import layoutContent from '@/components/layout/content.vue'
+    import layoutError from '@/components/layout/error.vue'
+    import uiTable from '@/components/ui/table.vue'
 
 
     export default {
 
         components: {
-            uiTab,
-            uiSidebar
+            uiTable,
+            layoutAside,
+            layoutToolbar,
+            layoutContent,
+            layoutError
         },
 
         data () {
             return {
                 error: null,
                 stocks: false,
-                selected: 0
+                selected: 0,
+                search: ''
             }
         },
 
@@ -80,30 +84,45 @@
 
             select (index) {
                 this.selected = index;
+                window.scrollTo(0, 0);
+            },
+
+            create () {
+
+            },
+
+            input (value) {
+                this.search = value;
+            },
+
+            load () {
+
+                this.stocks = false;
+                this.error = false;
+                this.search = '';
+                Event.$emit('loading', true);
+
+                API.stocks()
+                    .then((response) => {
+                        this.stocks = response.data.data.map(item => {
+                            item.content = Util.csvToArray(item.content);
+                            return item;
+                        });
+                    })
+                    .catch((error) => {
+                        this.error = error.message;
+                    })
+                    .then(() => {
+                        Event.$emit('loading', false);
+                    });
+
             }
+
 
         },
 
         mounted () {
-
-            Event.$emit('loading', true);
-
-            API.stocks()
-                .then((response) => {
-                    this.stocks = response.data.data.map(item => {
-                        item.content = csvToArray(item.content);
-                        return item;
-                    });
-                })
-                .catch((error) => {
-                    this.error = error.message;
-                })
-                .then(() => {
-                    Event.$emit('loading', false);
-                });
-
-
-
+            this.load();
         }
 
     }

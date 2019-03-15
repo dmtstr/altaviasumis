@@ -2,9 +2,11 @@
     Styles
 -->
 
-<style>
+<style scoped>
 
-
+    #content {
+        padding-top: 30px;
+    }
 
 </style>
 
@@ -15,26 +17,23 @@
 -->
 
 <template>
-    <div id="orders" class="l-clear">
+    <div>
 
-        <p class="t-red" v-show="error">An error occurred: {{error}}</p>
-        <ui-create @click.native="select(-1)" :active="selected === -1"></ui-create>
+        <layout-toolbar
+                :create="create"
+                :reload="load">
+        </layout-toolbar>
 
-        <div class="l-fl l-column">
-            <ui-tab v-for="(order, index) in orders"
-                    :data="order"
-                    :active="index === selected"
-                    :key="order.id"
-                    @click.native="select(index)">
-            </ui-tab>
-        </div>
+        <layout-aside
+                :data="orders"
+                :active="selected"
+                :click="select">
+        </layout-aside>
 
-        <div class="l-ff">
-            <ui-sidebar ref="sidebar">
-                <form-order v-show="selected === -1"></form-order>
-                <pre v-show="selected > -1">{{orders[selected]}}</pre>
-            </ui-sidebar>
-        </div>
+        <layout-content>
+            <form-order v-show="selected === -1"></form-order>
+            <pre v-show="selected > -1">{{orders[selected]}}</pre>
+        </layout-content>
 
     </div>
 </template>
@@ -49,17 +48,17 @@
 
     import API from '@/common/api'
     import Event from '@/common/event'
-    import uiTab from '@/components/ui/tab.vue'
-    import uiSidebar from '@/components/ui/sidebar.vue'
-    import uiCreate from '@/components/ui/create.vue'
+    import layoutAside from '@/components/layout/aside.vue'
+    import layoutToolbar from '@/components/layout/toolbar.vue'
+    import layoutContent from '@/components/layout/content.vue'
     import formOrder from '@/components/forms/order.vue'
 
     export default {
 
         components: {
-            uiTab,
-            uiSidebar,
-            uiCreate,
+            layoutAside,
+            layoutToolbar,
+            layoutContent,
             formOrder
         },
 
@@ -75,29 +74,36 @@
 
             select (index) {
                 this.selected = index;
-                this.$refs.sidebar.scroll();
+            },
+
+            create () {
+                this.selected = -1;
+            },
+
+            load () {
+
+                this.error = null;
+                this.orders = false;
+                Event.$emit('loading', true);
+
+                API.orders()
+                    .then((response) => {
+                        this.orders = response.data.data;
+                        this.select(0);
+                    })
+                    .catch((error) => {
+                        this.error = error.message;
+                    })
+                    .then(() => {
+                        Event.$emit('loading', false);
+                    });
+
             }
 
         },
 
         mounted () {
-
-            Event.$emit('loading', true);
-
-            API.orders()
-                .then((response) => {
-                    this.orders = response.data.data;
-                    this.select(0);
-                })
-                .catch((error) => {
-                    this.error = error.message;
-                })
-                .then(() => {
-                    Event.$emit('loading', false);
-                });
-
-
-
+            this.load();
         }
 
     }

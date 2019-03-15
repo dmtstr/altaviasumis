@@ -4,9 +4,8 @@
 
 <style>
 
-    #view {
-        padding-top: 158px;
-        padding-bottom: 48px;
+    #view > * {
+        position: relative;
     }
     #view.loading {
         position: relative;
@@ -29,7 +28,7 @@
 -->
 
 <template>
-    <section id="view" class="l-container l-container-small" :class="{loading: loading}">
+    <section id="view" class="l-container" :class="{loading: loading}">
         <router-view></router-view>
     </section>
 </template>

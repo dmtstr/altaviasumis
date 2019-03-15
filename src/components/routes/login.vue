@@ -3,7 +3,12 @@
 -->
 
 <style>
-
+    #login {
+        top: 72px;
+        max-width: 640px;
+        padding: 48px 0;
+        margin: 0 auto;
+    }
 </style>
 
 
@@ -13,7 +18,8 @@
 -->
 
 <template>
-    <form @submit.prevent="login">
+    <form id="login" class="form" @submit.prevent="login">
+
 
 
         <!-- email -->
