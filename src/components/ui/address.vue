@@ -19,6 +19,9 @@
         text-transform: uppercase;
         font-weight: 800;
         margin-bottom: 12px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
     .ui-address .heading:after {
         content: '';
@@ -83,8 +86,6 @@
 
         <div class="l-clear">
 
-            <p class="l-fl heading">{{data.name}}</p>
-
             <div class="contact l-fr l-clear">
                 <div class="l-fl icon">
                     <svg-email></svg-email>
@@ -104,6 +105,8 @@
                     <a :href="`tel:${data.contact.telephone.value}`">{{data.contact.telephone.value}}</a>
                 </div>
             </div>
+
+            <p class="l-ff heading">{{data.name}}</p>
 
         </div>
 
