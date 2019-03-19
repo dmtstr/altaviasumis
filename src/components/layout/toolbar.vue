@@ -20,6 +20,57 @@
     #toolbar input:focus {
         border-color: #d6001c;
     }
+    #toolbar .content {
+        margin-left: 30px;
+    }
+
+
+    #toolbar .frame svg {
+        width: 20px;
+        height: 20px;
+        margin: 10px;
+    }
+    #toolbar .frame input {
+        height: 40px;
+        padding: 0;
+        background: none;
+        border: none;
+    }
+    #toolbar .frame .dropdown {
+        position: relative;
+        padding: 0 20px;
+    }
+    #toolbar .frame .dropdown .current {
+        line-height: 40px;
+        font-size: 12px;
+    }
+    #toolbar .frame .dropdown .current.active {
+        color: #363636;
+    }
+    #toolbar .frame .dropdown .current span {
+        display: inline-block;
+        width: 10px;
+        text-align: right;
+    }
+    #toolbar .frame .dropdown .popup {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        margin-top: 8px;
+        background: #ffffff;
+        z-index: 1000;
+        padding: 14px 30px 14px 20px;
+        border-radius: 3px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+    #toolbar .frame .dropdown .popup a {
+        white-space: nowrap;
+        font-size: 12px;
+        padding: 6px 0;
+    }
+    #toolbar .frame .dropdown .popup a.active {
+        color: #363636;
+    }
 
 </style>
 
@@ -43,8 +94,45 @@
                 </a>
             </div>
 
-            <div class="l-ff l-split">
-                <input type="text" placeholder="Search..." v-if="searchable" :value="search" @input="input($event)"/>
+            <div class="content l-content l-fl" v-if="filter">
+
+                <div class="frame l-clear">
+
+                    <svg-search class="l-fl"></svg-search>
+
+
+                    <div class="l-fr dropdown" v-if="filter.fields">
+
+
+                        <a @click="toggle" class="current t-grey" :class="{active: filter.active}">
+                            {{filter.fields[filter.active]}}
+                            <span>&#x25BE;</span>
+                        </a>
+
+                        <div class="popup" v-show="popup">
+                            <a v-for="(name, key) in filter.fields" :class="{active: key === filter.active}" @click="activate(key)">{{name}}</a>
+                        </div>
+
+
+                        <!--<div>-->
+                            <!--<p></p>-->
+                            <!---->
+                        <!--</div>-->
+                        <!--<div>-->
+                            <!--<a></a>-->
+                            <!--<a></a>-->
+                        <!--</div>-->
+                    </div>
+
+                    <div class="l-ff">
+                        <input type="text" placeholder="Search..." v-model="filter.query"/>
+                    </div>
+
+
+
+                </div>
+
+                <!--<input type="text" placeholder="Search..." v-if="filter" :value="search" @input="input($event)"/>-->
             </div>
 
         </div>
@@ -61,35 +149,55 @@
 
     import svgPlus from '@/assets/icons/plus.svg';
     import svgReload from '@/assets/icons/reload.svg';
+    import svgSearch from '@/assets/icons/search.svg';
 
     export default {
 
         components: {
             svgPlus,
-            svgReload
+            svgReload,
+            svgSearch
         },
 
         props: [
             'create',
             'reload',
-            'search'
+            'filter'
         ],
 
-        computed: {
-
-            searchable() {
-                return this.search !== undefined;
+        data () {
+            return {
+                popup: false
             }
-
         },
+
+        watch: {
+            'filter.query' () {
+                this.emit();
+            },
+            'filter.active' () {
+                this.emit();
+            }
+        },
+
 
         methods: {
 
-            input(event) {
-                this.$emit('input', event.target.value);
+            toggle () {
+                this.popup = !this.popup;
+            },
+
+            activate(index) {
+                this.filter.active = index;
+                this.popup = false;
+            },
+
+            emit() {
+                this.$emit('filter', this.filter.query, this.filter.active);
             }
 
         }
+
 
     }
 

@@ -4,7 +4,7 @@
 
 <style>
     #error {
-        padding-top: 208px;
+        padding-top: 136px;
         text-align: center;
     }
 </style>

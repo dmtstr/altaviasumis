@@ -55,6 +55,18 @@ function canceler() {
 
 
 // ------------------
+// Helpers
+// ------------------
+
+function filter(query, field) {
+    if (!field && !query) return '';
+    if (!field) return `&q=${query}`;
+    return `&filter[${field}][like]=${query}`;
+}
+
+
+
+// ------------------
 // Exports
 // ------------------
 
@@ -64,8 +76,8 @@ export default {
         return API.post('/auth/authenticate', data, canceler());
     },
 
-    orders () {
-        return API.get('/items/orders?fields=*.*', canceler());
+    orders (query, field) {
+        return API.get(`/items/orders?fields=*.*${filter(query, field)}&meta=*`, canceler());
     },
 
     stocks () {

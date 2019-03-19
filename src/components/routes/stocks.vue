@@ -18,8 +18,7 @@
         <layout-toolbar
                 :create="create"
                 :reload="load"
-                :search="search"
-                @input="input">
+                :search="search">
         </layout-toolbar>
 
         <layout-aside
@@ -76,7 +75,9 @@
                 error: null,
                 stocks: false,
                 selected: 0,
-                search: ''
+                search: {
+                    value: ''
+                }
             }
         },
 

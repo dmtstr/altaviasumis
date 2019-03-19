@@ -21,7 +21,9 @@
 
         <layout-toolbar
                 :create="create"
-                :reload="load">
+                :reload="load"
+                :filter="filter"
+                @filter="load">
         </layout-toolbar>
 
         <layout-aside
@@ -31,10 +33,17 @@
         </layout-aside>
 
         <layout-content v-if="selected !== false">
-            <ui-address v-if="selected > -1" :data="orders[selected].content.address"></ui-address>
-            <ui-table v-if="selected > -1" :data="orders[selected].content.order"></ui-table>
+            <div class="l-content" v-if="selected > -1 && orders[selected]">
+                <ui-address :data="orders[selected].content.address"></ui-address>
+                <ui-table :data="orders[selected].content.order"></ui-table>
+            </div>
             <form-order v-show="selected === -1"></form-order>
         </layout-content>
+
+        <layout-error
+                v-if="error"
+                :error="error">
+        </layout-error>
 
     </div>
 </template>
@@ -53,6 +62,7 @@
     import layoutAside from '@/components/layout/aside.vue'
     import layoutToolbar from '@/components/layout/toolbar.vue'
     import layoutContent from '@/components/layout/content.vue'
+    import layoutError from '@/components/layout/error.vue'
     import formOrder from '@/components/forms/order.vue'
     import uiTable from '@/components/ui/table.vue'
     import uiAddress from '@/components/ui/address.vue'
@@ -64,6 +74,7 @@
             layoutAside,
             layoutToolbar,
             layoutContent,
+            layoutError,
             formOrder,
             uiTable,
             uiAddress
@@ -72,8 +83,17 @@
         data () {
             return {
                 error: null,
-                orders: false,
-                selected: false
+                selected: false,
+                orders: [],
+                filter: {
+                    query: '',
+                    active: '',
+                    fields: {
+                        '': 'All fields',
+                        'content': 'Content',
+                        'shop_id.name': 'Shop name'
+                    }
+                }
             }
         },
 
@@ -87,13 +107,14 @@
                 this.selected = -1;
             },
 
-            load () {
+            load (query, field) {
 
                 this.error = null;
-                this.orders = false;
+
+                API.abort();
                 Event.$emit('loading', true);
 
-                API.orders()
+                API.orders(query, field)
                     .then((response) => {
                         this.orders = response.data.data.map(item => {
                             item.content = JSON.parse(item.content);
@@ -104,9 +125,11 @@
                     })
                     .catch((error) => {
                         this.error = error.message;
+
                     })
                     .then(() => {
                         Event.$emit('loading', false);
+
                     });
 
             }

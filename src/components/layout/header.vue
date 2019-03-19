@@ -16,6 +16,9 @@
         background: #ffffff;
         box-shadow: 0 2px 1px -1px #e1e1e1;
     }
+    #header .container {
+        height: inherit;
+    }
 
 
     /* logo */
@@ -67,7 +70,7 @@
 
 <template>
     <header id="header" :class="{loading: loading}">
-        <div class="l-container">
+        <div class="container l-container">
 
             <router-link class="logo l-fl l-vertical" to="/">
                 <img src="images/logo.png"/>

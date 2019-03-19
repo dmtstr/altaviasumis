@@ -8,7 +8,6 @@
         position: absolute;
         top: 106px;
         left: 300px;
-        width: 630px;
     }
 
 </style>
@@ -20,7 +19,7 @@
 -->
 
 <template>
-    <div id="content">
+    <div id="content" class="l-content">
         <slot></slot>
     </div>
 </template>
