@@ -95,44 +95,25 @@
             </div>
 
             <div class="content l-content l-fl" v-if="filter">
-
                 <div class="frame l-clear">
 
                     <svg-search class="l-fl"></svg-search>
 
-
                     <div class="l-fr dropdown" v-if="filter.fields">
-
-
                         <a @click="toggle" class="current t-grey" :class="{active: filter.active}">
                             {{filter.fields[filter.active]}}
                             <span>&#x25BE;</span>
                         </a>
-
                         <div class="popup" v-show="popup">
                             <a v-for="(name, key) in filter.fields" :class="{active: key === filter.active}" @click="activate(key)">{{name}}</a>
                         </div>
-
-
-                        <!--<div>-->
-                            <!--<p></p>-->
-                            <!---->
-                        <!--</div>-->
-                        <!--<div>-->
-                            <!--<a></a>-->
-                            <!--<a></a>-->
-                        <!--</div>-->
                     </div>
 
                     <div class="l-ff">
                         <input type="text" placeholder="Search..." v-model="filter.query"/>
                     </div>
 
-
-
                 </div>
-
-                <!--<input type="text" placeholder="Search..." v-if="filter" :value="search" @input="input($event)"/>-->
             </div>
 
         </div>
