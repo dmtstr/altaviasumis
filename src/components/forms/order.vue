@@ -18,7 +18,7 @@
         <!-- email -->
 
         <label class="t-bold">
-            <span class="t-black">ID</span>
+            <span>ID</span>
             <i class="t-red">*</i>
         </label>
 
@@ -28,7 +28,7 @@
         <!-- password -->
 
         <label class="t-bold">
-            <span class="t-black">Quantity</span>
+            <span>Quantity</span>
             <i class="t-red">*</i>
         </label>
 

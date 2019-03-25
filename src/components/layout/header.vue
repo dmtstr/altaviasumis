@@ -39,6 +39,7 @@
         font-size: 13px;
         font-weight: 700;
         text-transform: uppercase;
+        color: #363636;
     }
     #header nav .icon {
         margin-left: 56px;
@@ -77,9 +78,9 @@
             </router-link>
 
             <nav class="l-fr l-vertical">
-                <router-link class="link l-fl t-black" to="/">Orders</router-link>
-                <router-link class="link l-fl t-black" to="/stocks">Stocks</router-link>
-                <router-link class="icon l-fl t-black" to="/login">
+                <router-link class="link l-fl" to="/">Orders</router-link>
+                <router-link class="link l-fl" to="/stocks">Stocks</router-link>
+                <router-link class="icon l-fl" to="/login">
                     <icon-logout></icon-logout>
                 </router-link>
             </nav>

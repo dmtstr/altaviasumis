@@ -26,7 +26,7 @@
         <!-- email -->
 
         <label class="t-bold">
-            <span class="t-black">Email</span>
+            <span>Email</span>
             <i class="t-red">*</i>
         </label>
 
@@ -36,7 +36,7 @@
         <!-- password -->
 
         <label class="t-bold">
-            <span class="t-black">Password</span>
+            <span>Password</span>
             <i class="t-red">*</i>
         </label>
 
