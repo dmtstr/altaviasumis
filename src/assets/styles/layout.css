@@ -46,27 +46,40 @@
 
 
 /*
-    Container
+    Flex
 */
 
-.l-container {
-    margin: 0 auto;
-    padding: 0 30px;
-    width: 960px;
+.l-col {
+    display: flex;
+    flex-flow: column nowrap;
+    min-height: 0;
 }
-
-
+.l-row {
+    display: flex;
+    flex-flow: row nowrap;
+    min-height: 0;
+}
+.l-flex {
+    flex: 1 1 auto;
+}
 
 
 
 /*
-    Other
+    Containers
 */
 
-.l-aside {
-    min-height: 1px;
-    width: 240px;
+.l-container {
+    margin: 0 auto;
+    padding-left: 30px;
+    padding-right: 30px;
+    width: 960px;
 }
-.l-content {
-    width: 630px;
+.l-aside {
+    margin-right: 30px;
+    flex: 0 0 240px;
+}
+article.l-container {
+    padding-top: 30px;
+    padding-bottom: 30px;
 }

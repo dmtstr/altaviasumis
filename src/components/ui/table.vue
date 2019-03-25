@@ -7,50 +7,75 @@
 
     /* main */
 
-    .ui-table {
+    .ui-table table {
         width: 100%;
+        table-layout: fixed;
+        border-collapse: collapse;
         font-size: 14px;
     }
-    .ui-table table {
-        border-collapse: collapse;
-    }
-    .ui-table table td {
+
+
+    /* cells */
+
+    .ui-table td {
         padding: 0 10px;
+        height: 36px;
     }
-    .ui-table table td:first-child {
+    .ui-table td:first-child {
         padding-left: 0;
     }
-    .ui-table table td:last-child {
+    .ui-table td:last-child {
         padding-right: 0;
     }
 
 
+    /* heading */
 
-    /* headings */
-
-    .ui-table .headings {
-        position: fixed;
-        background: var(--bg-white);
-        border-bottom: 2px solid var(--bg-border);
+    .ui-table .heading {
+        border-bottom: 1px solid var(--bg-border);
     }
-    .ui-table .headings td {
-        height: 66px;
-        padding-top: 30px;
+    .ui-table .heading td {
+        position: relative;
+    }
+    .ui-table .heading span {
+        position: absolute;
+        top: 10px;
         text-transform: uppercase;
         font-weight: 600;
+        line-height: 16px;
+        transform-origin: 0 0;
+        transition: transform 0.2s ease;
     }
-    .ui-table .headings + div {
-        height: 72px;
+    .ui-table .heading input {
+        position: relative;
+        height: 100%;
+        background: none;
+        border: none;
+        padding: 0;
+        z-index: 1;
+        color: var(--color-red);
+    }
+    .ui-table .heading input:focus + span,
+    .ui-table .heading input:valid + span {
+        transform: translateY(-10px) scale(0.5);
     }
 
 
-    /* results */
+    /* scroll */
 
-    .ui-table .results {
-        width: 100%;
+    .ui-table .scroll {
+        overflow: auto;
     }
-    .ui-table .results td {
-        height: 36px;
+    .ui-table .scroll::-webkit-scrollbar {
+        -webkit-appearance: none;
+    }
+    .ui-table .scroll::-webkit-scrollbar:vertical {
+        width: 4px;
+        background: var(--bg-white-dark);
+    }
+    .ui-table .scroll::-webkit-scrollbar-thumb {
+        border-radius: 2px;
+        background-color: var(--bg-red);
     }
 
 
@@ -63,21 +88,24 @@
 -->
 
 <template>
-    <div class="ui-table">
+    <div class="ui-table l-col">
 
-        <table class="headings" :style="{width: width.row}">
+        <table class="heading">
             <tr>
-                <td v-for="(heading, index) in headings" :style="{width: width.cell[index]}">{{heading}}</td>
+                <td v-for="(heading, index) in headings">
+                    <input type="text" required v-model="filters[index]"/>
+                    <span>{{heading}}</span>
+                </td>
             </tr>
         </table>
 
-        <div></div>
-
-        <table class="results">
-            <tr v-for="row in filtered" ref="row">
-                <td v-for="cell in row">{{cell}}</td>
-            </tr>
-        </table>
+        <div class="l-flex scroll" ref="scroll">
+            <table>
+                <tr v-for="row in filtered" ref="row">
+                    <td v-for="cell in row">{{cell}}</td>
+                </tr>
+            </table>
+        </div>
 
     </div>
 </template>
@@ -93,31 +121,21 @@
     export default {
 
         props: [
-            'data',
-            'search'
+            'data'
         ],
 
         data () {
             return {
-                results: null,
-                headings: null,
-                width: {
-                    row: 0,
-                    cell: []
-                }
+                results: [],
+                headings: [],
+                filters: []
             }
         },
 
         methods: {
 
-            resize () {
-                const $row = this.$refs.row[0];
-                if (!$row) return;
-                this.width.row = $row.offsetWidth + 'px';
-                this.width.cell = [];
-                for (let i = 0; i < $row.children.length; i++) {
-                    this.width.cell.push($row.children[i].offsetWidth + 'px');
-                }
+            scrollTop () {
+                this.$refs.scroll.scrollTop = 0;
             }
 
         },
@@ -125,11 +143,9 @@
         computed: {
 
             filtered () {
-                if (!this.search) return this.results;
                 return this.results.filter(cells => {
-                    for (let i = 0; i < cells.length; i++) {
-                        if (cells[i].indexOf(this.search) !== -1) return cells;
-                    }
+                    let valid = cells.filter((cell, index) => cell.indexOf(this.filters[index]) !== -1);
+                    if (valid.length === cells.length) return cells;
                 })
             }
 
@@ -141,13 +157,10 @@
                 immediate: true,
                 handler () {
                     this.headings = this.data[0];
+                    this.filters = this.headings.map(heading => '');
                     this.results = this.data.slice(1, this.data.length);
-                    this.$nextTick(this.resize);
+                    this.$nextTick(this.scrollTop);
                 }
-            },
-
-            filtered () {
-                this.$nextTick(this.resize);
             }
 
         }

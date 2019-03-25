@@ -2,10 +2,10 @@
     Styles
 -->
 
-<style>
+<style scoped>
 
-    #orders .ui-table {
-        padding-top: 122px;
+    .ui-address {
+        padding-bottom: 30px;
     }
 
 </style>
@@ -17,7 +17,10 @@
 -->
 
 <template>
-    <div id="orders">
+    <section class="l-col">
+
+
+        <!-- toolbar -->
 
         <layout-toolbar
                 :create="create"
@@ -26,26 +29,35 @@
                 @filter="load">
         </layout-toolbar>
 
-        <layout-aside
-                :data="orders"
-                :active="selected"
-                :click="select">
-        </layout-aside>
 
-        <layout-content v-if="selected !== false">
-            <div class="l-content" v-if="selected > -1 && orders[selected]">
+        <!-- error -->
+
+        <article class="l-container l-flex" v-show="error">
+            <layout-error :error="error"></layout-error>
+        </article>
+
+
+        <!-- content -->
+
+        <article class="l-container l-flex l-row" v-show="!error">
+
+           <layout-aside
+               :data="orders"
+               :active="selected"
+               :click="select">
+           </layout-aside>
+
+            <div class="l-col l-flex" v-if="selected > -1 && orders[selected]">
                 <ui-address :data="orders[selected].content.address"></ui-address>
-                <ui-table :data="orders[selected].content.order"></ui-table>
+                <ui-table class="l-flex" :data="orders[selected].content.order"></ui-table>
             </div>
-            <form-order v-show="selected === -1"></form-order>
-        </layout-content>
 
-        <layout-error
-                v-if="error"
-                :error="error">
-        </layout-error>
+            <form-order class="l-flex" v-if="selected === -1"></form-order>
 
-    </div>
+        </article>
+
+
+    </section>
 </template>
 
 
@@ -61,7 +73,6 @@
     import Util from '@/common/util'
     import layoutAside from '@/components/layout/aside.vue'
     import layoutToolbar from '@/components/layout/toolbar.vue'
-    import layoutContent from '@/components/layout/content.vue'
     import layoutError from '@/components/layout/error.vue'
     import formOrder from '@/components/forms/order.vue'
     import uiTable from '@/components/ui/table.vue'
@@ -73,7 +84,6 @@
         components: {
             layoutAside,
             layoutToolbar,
-            layoutContent,
             layoutError,
             formOrder,
             uiTable,

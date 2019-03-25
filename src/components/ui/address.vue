@@ -4,48 +4,12 @@
 
 <style>
 
-    .ui-address {
-        position: fixed;
-        width: inherit;
-        background: var(--bg-white);
-        padding-top: 36px;
-    }
-
-
-    /* heading */
-
-    .ui-address .heading {
-        font-size: 24px;
-        text-transform: uppercase;
-        font-weight: 800;
-        margin-bottom: 12px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-    .ui-address .heading:after {
-        content: '';
-        display: block;
-        height: 2px;
-        width: 70px;
-        margin-top: 12px;
-        background: var(--bg-red);
-    }
-
-
-    /* address */
-
-    .ui-address .address {
-        font-size: 13px;
-        line-height: 18px;
-        color: var(--color-grey);
-    }
-
 
     /* contact */
 
     .ui-address .contact {
-        margin-left: 30px;
+        margin-right: 30px;
+        margin-bottom: 30px;
     }
     .ui-address .contact .icon {
         width: 36px;
@@ -72,6 +36,37 @@
     }
 
 
+    /* heading */
+
+    .ui-address .heading {
+        font-size: 24px;
+        line-height: 32px;
+        text-transform: uppercase;
+        font-weight: 800;
+        margin-bottom: 8px;
+    }
+
+
+    /* line */
+
+    .ui-address .line {
+        height: 2px;
+        width: 70px;
+        margin: 16px 0;
+        background: var(--bg-red);
+    }
+
+
+    /* address */
+
+    .ui-address .address {
+        font-size: 13px;
+        line-height: 18px;
+        color: var(--color-grey);
+    }
+
+
+
 </style>
 
 
@@ -83,33 +78,29 @@
 <template>
     <div class="ui-address l-clear">
 
-
-        <div class="l-clear">
-
-            <div class="contact l-fr l-clear">
-                <div class="l-fl icon">
-                    <svg-email></svg-email>
-                </div>
-                <div class="l-fl text">
-                    <p>{{data.contact.email.name}}</p>
-                    <a :href="`mailto:${data.contact.email.value}`">{{data.contact.email.value}}</a>
-                </div>
+        <div class="contact l-fl l-clear">
+            <div class="l-fl icon">
+                <svg-email></svg-email>
             </div>
-
-            <div class="l-fr contact l-clear">
-                <div class="l-fl icon">
-                    <svg-phone></svg-phone>
-                </div>
-                <div class="l-fl text">
-                    <p>{{data.contact.telephone.name}}</p>
-                    <a :href="`tel:${data.contact.telephone.value}`">{{data.contact.telephone.value}}</a>
-                </div>
+            <div class="l-fl text">
+                <p>{{data.contact.email.name || '&mdash;'}}</p>
+                <a :href="`mailto:${data.contact.email.value}`">{{data.contact.email.value}}</a>
             </div>
-
-            <p class="l-ff heading">{{data.name}}</p>
-
         </div>
 
+        <div class="l-fl contact l-clear">
+            <div class="l-fl icon">
+                <svg-phone></svg-phone>
+            </div>
+            <div class="l-fl text">
+                <p>{{data.contact.telephone.name || '&mdash;'}}</p>
+                <a :href="`tel:${data.contact.telephone.value}`">{{data.contact.telephone.value}}</a>
+            </div>
+        </div>
+
+        <div class="l-clear"></div>
+        <p class="heading">{{data.name}}</p>
+        <div class="line"></div>
 
         <div class="address">
             <p>{{data.street}} {{data.house_number}} {{data.house_add}}</p>

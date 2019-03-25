@@ -43,8 +43,16 @@ input[type=password]:hover {
     border-color: var(--bg-border);
     color: var(--color-black)
 }
+
+
+
+/*
+    Label
+*/
+
 label {
-    margin-bottom: 18px;
+    display: block;
+    font-weight: 700;
 }
 
 
@@ -96,9 +104,9 @@ label {
     Form
 */
 
-.form {
-    padding-top: 48px;
-}
 .form input {
     margin-bottom: 30px;
+}
+.form label {
+    margin-bottom: 18px;
 }

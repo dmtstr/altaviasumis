@@ -5,12 +5,10 @@
 <style>
 
 
+
     /* main */
 
     #aside {
-        position: fixed;
-        top: 208px;
-        bottom: 30px;
         overflow: auto;
     }
 
@@ -70,7 +68,7 @@
     #aside::-webkit-scrollbar-thumb {
         border-radius: 8px;
         border: 4px solid var(--bg-white);
-        background-color: var(--bg-grey-light)
+        background-color: var(--bg-grey-light);
     }
 
 

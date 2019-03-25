@@ -10,7 +10,7 @@
     --color-grey: #959595;
     --color-grey-light: #c8c8c8;
     --color-white: #ffffff;
-    --color-red: #e80000;
+    --color-red: #d6001c;
 
 
 
@@ -28,6 +28,19 @@
     --bg-border: #e1e1e1;
 
 
+
+    /*
+        Shadow
+    */
+
+    --shadow: 0 1px 1px 0 rgba(0,0,0,0.15);
+
+
+    /*
+        Font
+    */
+
+    --font-secondary: 'Raleway', sans-serif;
 
 }
 

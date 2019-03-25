@@ -4,11 +4,10 @@
 
 <style>
 
+
+    /* main */
+
     #toolbar {
-        position: fixed;
-        top: 72px;
-        left: 0;
-        width: 100%;
         height: 106px;
         background: var(--bg-black);
         padding: 32px 0;
@@ -18,9 +17,6 @@
         margin-left: 12px;
     }
 
-    #toolbar .content {
-        margin-left: 30px;
-    }
 
 
     #toolbar .frame svg {
@@ -60,7 +56,7 @@
         z-index: 1000;
         padding: 14px 30px 14px 20px;
         border-radius: 3px;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        box-shadow: var(--shadow);
     }
     #toolbar .frame .dropdown .popup a {
         white-space: nowrap;
@@ -81,38 +77,45 @@
 
 <template>
     <div id="toolbar">
-        <div class="l-container l-clear">
+        <div class="l-container l-row">
 
-            <div class="l-fl l-aside l-clear">
+
+            <!-- aside -->
+
+            <div class="l-aside l-clear">
+
                 <a class="l-fr button secondary" v-if="reload" @click="reload">
                     <svg-reload></svg-reload>
                 </a>
+
                 <a class="l-ff button primary" v-if="create" @click="create">
                     <svg-plus></svg-plus>
                     <span>Create</span>
                 </a>
+
             </div>
 
-            <div class="content l-content l-fl" v-if="filter">
-                <div class="frame l-clear">
 
-                    <svg-search class="l-fl"></svg-search>
+            <!-- frame -->
 
-                    <div class="l-fr dropdown" v-if="filter.fields">
-                        <a @click="toggle" class="current" :class="{active: filter.active}">
-                            {{filter.fields[filter.active]}}
-                            <span>&#x25BE;</span>
-                        </a>
-                        <div class="popup" v-show="popup">
-                            <a v-for="(name, key) in filter.fields" :class="{active: key === filter.active}" @click="activate(key)">{{name}}</a>
-                        </div>
+            <div class="frame l-flex l-clear" v-if="filter">
+
+                <svg-search class="l-fl"></svg-search>
+
+                <div class="l-fr dropdown" v-if="filter.fields">
+                    <a @click="toggle" class="current" :class="{active: filter.active}">
+                        {{filter.fields[filter.active]}}
+                        <span>&#x25BE;</span>
+                    </a>
+                    <div class="popup" v-show="popup">
+                        <a v-for="(name, key) in filter.fields" :class="{active: key === filter.active}" @click="activate(key)">{{name}}</a>
                     </div>
-
-                    <div class="l-ff">
-                        <input type="text" placeholder="Search..." v-model="filter.query"/>
-                    </div>
-
                 </div>
+
+                <div class="l-ff">
+                    <input type="text" placeholder="Search..." v-model="filter.query"/>
+                </div>
+
             </div>
 
         </div>

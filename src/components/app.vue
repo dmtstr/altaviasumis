@@ -3,18 +3,11 @@
 -->
 
 <style>
-    #header {
-        z-index: 3;
+
+    #app {
+        height: 100%;
     }
-    #toolbar {
-        z-index: 4;
-    }
-    #aside {
-        z-index: 2;
-    }
-    #content {
-        z-index: 1;
-    }
+
 </style>
 
 
@@ -24,9 +17,9 @@
 -->
 
 <template>
-    <div id="app">
+    <div id="app" class="l-col">
         <layout-header></layout-header>
-        <layout-view></layout-view>
+        <layout-view class="l-flex"></layout-view>
     </div>
 </template>
 
@@ -40,7 +33,6 @@
 
     import layoutHeader from '@/components/layout/header.vue'
     import layoutView from '@/components/layout/view.vue'
-
 
     export default {
         components: {

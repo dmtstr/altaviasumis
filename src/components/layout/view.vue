@@ -2,25 +2,18 @@
     Styles
 -->
 
-<style>
+<style scoped>
 
-    #view {
-        position: relative;
-        top: 72px;
-    }
-    #view.loading {
+    .loading {
         position: relative;
     }
-    #view.loading:after {
+    .loading:after {
         content: '';
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-    }
-    #view > * {
-        position: relative;
     }
 
 </style>
@@ -32,9 +25,7 @@
 -->
 
 <template>
-    <section id="view" :class="{loading: loading}">
-        <router-view class="l-container"></router-view>
-    </section>
+    <router-view :class="{loading: loading}"></router-view>
 </template>
 
 

@@ -2,13 +2,12 @@
     Styles
 -->
 
-<style>
-    #login {
-        width: 640px;
+<style scoped>
+    form {
+        max-width: 640px;
         margin: 0 auto;
-    }
-    #login .button.primary {
-        width: 100px;
+        padding-top: 48px;
+        padding-bottom: 48px;
     }
 </style>
 
@@ -19,41 +18,9 @@
 -->
 
 <template>
-    <form id="login" class="form" @submit.prevent="login">
-
-
-
-        <!-- email -->
-
-        <label class="t-bold">
-            <span>Email</span>
-            <i class="t-red">*</i>
-        </label>
-
-        <input type="text" v-model="email"/>
-
-
-        <!-- password -->
-
-        <label class="t-bold">
-            <span>Password</span>
-            <i class="t-red">*</i>
-        </label>
-
-        <input type="password" v-model="password"/>
-
-
-        <!-- submit -->
-
-        <input type="submit" :value="status" class="button primary"/>
-
-
-        <!-- error -->
-
-        <p class="t-small t-red" v-show="error">An error occurred: {{error}}</p>
-
-
-    </form>
+    <section>
+        <form-login @success="success"></form-login>
+    </section>
 </template>
 
 
@@ -64,50 +31,26 @@
 
 <script>
 
-    import API from '@/common/api';
     import Session from '@/common/session';
-    import Event from '@/common/event';
+    import formLogin from '@/components/forms/login.vue';
 
     export default {
-        data () {
-            return {
-                email: 'dmitriy@dmitriy.com',
-                password: 'test',
-                error: null
-            }
+
+        components: {
+            formLogin
         },
-        computed: {
-            status () {
-                return this.loading ? 'Processing...' : 'Sign in'
-            }
-        },
+
         methods: {
-            login () {
-
-                this.error = null;
-                Event.$emit('loading', true);
-
-                API.login({
-                    email: this.email,
-                    password: this.password
-                })
-                .then((response) => {
-                    Session.create(response.data.data.token);
-                    this.$router.push('/');
-                })
-                .catch((error) => {
-                    this.error = error.message;
-                })
-                .then(() => {
-                    Event.$emit('loading', false);
-                });
-
-
+            success (response) {
+                Session.create(response.data.data.token);
+                this.$router.push('/');
             }
         },
+
         mounted () {
             Session.destroy();
         }
+
     }
 
 </script>

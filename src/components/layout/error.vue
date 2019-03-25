@@ -4,8 +4,8 @@
 
 <style>
     #error {
-        padding-top: 136px;
         text-align: center;
+        color: var(--color-red);
     }
 </style>
 
@@ -16,9 +16,7 @@
 -->
 
 <template>
-    <div id="error">
-        <p class="t-red">An error occurred: {{error}}</p>
-    </div>
+    <div id="error">An error occurred: {{error}}</div>
 </template>
 
 

@@ -13,32 +13,40 @@
 -->
 
 <template>
-    <div>
+    <section class="l-col">
+
+
+        <!-- toolbar -->
 
         <layout-toolbar
                 :create="create"
-                :reload="load"
-                :search="search">
+                :reload="load">
         </layout-toolbar>
 
-        <layout-aside
-                v-if="stocks"
-                :data="stocks"
-                :active="selected"
-                :click="select">
-        </layout-aside>
 
-        <layout-content v-if="stocks[selected]">
-            <ui-table :data="stocks[selected].content" :search="search"></ui-table>
-        </layout-content>
+        <!-- error -->
 
-        <layout-error
-                v-if="error"
-                :error="error">
-        </layout-error>
+        <article class="l-container l-flex" v-show="error">
+            <layout-error :error="error"></layout-error>
+        </article>
 
 
-    </div>
+        <!-- content -->
+
+        <article class="l-container l-flex l-row" v-show="!error">
+
+            <layout-aside
+                    :data="stocks"
+                    :active="selected"
+                    :click="select">
+            </layout-aside>
+
+            <ui-table class="l-flex" v-if="stocks[selected]" :data="stocks[selected].content"></ui-table>
+
+        </article>
+
+
+    </section>
 </template>
 
 
@@ -73,7 +81,7 @@
         data () {
             return {
                 error: null,
-                stocks: false,
+                stocks: [],
                 selected: 0,
                 search: {
                     value: ''

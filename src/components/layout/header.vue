@@ -8,13 +8,9 @@
     /* main */
 
     #header {
-        position: fixed;
-        left: 0;
-        top: 0;
-        width: 100%;
         height: 72px;
         background: var(--bg-white);
-        box-shadow: 0 2px 1px -1px var(--bg-border);
+        box-shadow: var(--shadow);
     }
     #header .container {
         height: inherit;
@@ -31,9 +27,10 @@
     /* nav */
 
     #header nav {
-        font-family: 'Raleway', sans-serif;
+        font-family: var(--font-secondary);
     }
     #header nav .link {
+        position: relative;
         margin-left: 28px;
         padding: 4px 0 2px 0;
         font-size: 13px;
