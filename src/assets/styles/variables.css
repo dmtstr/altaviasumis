@@ -1,0 +1,33 @@
+:root {
+
+
+
+    /*
+        Colors
+    */
+
+    --color-black: #363636;
+    --color-grey: #959595;
+    --color-grey-light: #c8c8c8;
+    --color-white: #ffffff;
+    --color-red: #e80000;
+
+
+
+    /*
+        Backgrounds
+    */
+
+    --bg-white: #ffffff;
+    --bg-white-dark: #fafafa;
+    --bg-red: #d6001c;
+    --bg-red-dark: #a30015;
+    --bg-black: #252525;
+    --bg-black-light: #363636;
+    --bg-grey-light: #ededed;
+    --bg-border: #e1e1e1;
+
+
+
+}
+

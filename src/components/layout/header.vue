@@ -13,8 +13,8 @@
         top: 0;
         width: 100%;
         height: 72px;
-        background: #ffffff;
-        box-shadow: 0 2px 1px -1px #e1e1e1;
+        background: var(--bg-white);
+        box-shadow: 0 2px 1px -1px var(--bg-border);
     }
     #header .container {
         height: inherit;
@@ -38,8 +38,8 @@
         padding: 4px 0 2px 0;
         font-size: 13px;
         font-weight: 700;
-        text-transform: uppercase;
-        color: #363636;
+        text-transform: uppercase;;
+        color: var(--color-black)
     }
     #header nav .icon {
         margin-left: 56px;
@@ -53,8 +53,8 @@
 
     #header nav a:hover,
     #header nav a.router-link-exact-active {
-        color: #d6001c;
-        fill: #d6001c;
+        color: var(--color-red);
+        fill: var(--color-red);
     }
     #header nav a.router-link-exact-active {
         cursor: default;

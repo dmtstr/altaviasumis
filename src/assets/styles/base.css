@@ -8,8 +8,8 @@ body {
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
     line-height: 1;
-    color: #363636;
-    background: #ffffff;
+    color: var(--color-black);
+    background: var(--bg-white);
     overflow-y: scroll;
 }
 a {

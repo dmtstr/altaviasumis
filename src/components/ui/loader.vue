@@ -15,7 +15,7 @@
         height: 2px;
     }
     .ui-loader span {
-        background-color: #d6001c;
+        background-color: var(--bg-red);
     }
 
 

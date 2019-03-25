@@ -30,8 +30,8 @@
 
     .ui-table .headings {
         position: fixed;
-        background: #fff;
-        border-bottom: 2px solid #ededed;
+        background: var(--bg-white);
+        border-bottom: 2px solid var(--bg-border);
     }
     .ui-table .headings td {
         height: 66px;

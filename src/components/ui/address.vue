@@ -7,7 +7,7 @@
     .ui-address {
         position: fixed;
         width: inherit;
-        background: #ffffff;
+        background: var(--bg-white);
         padding-top: 36px;
     }
 
@@ -29,7 +29,7 @@
         height: 2px;
         width: 70px;
         margin-top: 12px;
-        background: #d6001c;
+        background: var(--bg-red);
     }
 
 
@@ -38,7 +38,7 @@
     .ui-address .address {
         font-size: 13px;
         line-height: 18px;
-        color: #959595;
+        color: var(--color-grey);
     }
 
 
@@ -50,12 +50,12 @@
     .ui-address .contact .icon {
         width: 36px;
         height: 36px;
-        background: #363636;
+        background: var(--bg-black-light);
         margin-right: 12px;
         border-radius: 18px;
     }
     .ui-address .contact .icon svg {
-        fill: #fff;
+        fill: var(--bg-white);
         width: 16px;
         height: 16px;
         margin: 10px;
@@ -65,7 +65,7 @@
         line-height: 18px;
     }
     .ui-address .contact .text a {
-        color: #d6001c;
+        color: var(--color-red);
     }
     .ui-address .contact .text a:hover {
         text-decoration: underline;

@@ -18,7 +18,7 @@
     /* link */
 
     #aside a {
-        background-color: #fafafa;
+        background-color: var(--bg-white-dark);
         margin-bottom: 4px;
         padding: 24px 30px;
         border: 1px solid transparent;
@@ -30,6 +30,7 @@
         text-transform: uppercase;
     }
     #aside a p.small {
+        color: var(--color-grey-light);
         font-size: 12px;
     }
 
@@ -37,10 +38,10 @@
     /* hover state */
 
     #aside a:hover p.large {
-        color: #d6001c
+        color: var(--color-red)
     }
     #aside a:hover p.small {
-        color: #959595
+        color: var(--color-grey)
     }
 
 
@@ -48,13 +49,13 @@
 
     #aside a.active {
         position: relative;
-        background: #eee;
+        background: var(--bg-grey-light);
     }
     #aside a.active p.large {
-        color: #d6001c;
+        color: var(--color-red);
     }
     #aside a.active p.small {
-        color: #959595;
+        color: var(--color-grey);
     }
 
 
@@ -68,8 +69,8 @@
     }
     #aside::-webkit-scrollbar-thumb {
         border-radius: 8px;
-        border: 4px solid #FFF;
-        background-color: #eeeeee;
+        border: 4px solid var(--bg-white);
+        background-color: var(--bg-grey-light)
     }
 
 
@@ -91,7 +92,7 @@
 
             <p class="large t-bold">{{item.shop_id.name}}</p>
 
-            <p class="small t-grey">
+            <p class="small">
                 <span class="t-bold">{{item.modified_by.first_name}}</span>
                 <span>-</span>
                 <span>{{item.modified_on}}</span>

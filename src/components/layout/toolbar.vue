@@ -10,16 +10,14 @@
         left: 0;
         width: 100%;
         height: 106px;
-        background: #252525;
+        background: var(--bg-black);
         padding: 32px 0;
     }
 
     #toolbar .button.secondary {
         margin-left: 12px;
     }
-    #toolbar input:focus {
-        border-color: #d6001c;
-    }
+
     #toolbar .content {
         margin-left: 30px;
     }
@@ -43,9 +41,10 @@
     #toolbar .frame .dropdown .current {
         line-height: 40px;
         font-size: 12px;
+        color: var(--color-grey-light);
     }
     #toolbar .frame .dropdown .current.active {
-        color: #363636;
+        color: var(--color-black);
     }
     #toolbar .frame .dropdown .current span {
         display: inline-block;
@@ -57,7 +56,7 @@
         top: 100%;
         right: 0;
         margin-top: 8px;
-        background: #ffffff;
+        background: var(--bg-white);
         z-index: 1000;
         padding: 14px 30px 14px 20px;
         border-radius: 3px;
@@ -69,7 +68,7 @@
         padding: 6px 0;
     }
     #toolbar .frame .dropdown .popup a.active {
-        color: #363636;
+        color: var(--color-black);
     }
 
 </style>
@@ -100,7 +99,7 @@
                     <svg-search class="l-fl"></svg-search>
 
                     <div class="l-fr dropdown" v-if="filter.fields">
-                        <a @click="toggle" class="current t-grey" :class="{active: filter.active}">
+                        <a @click="toggle" class="current" :class="{active: filter.active}">
                             {{filter.fields[filter.active]}}
                             <span>&#x25BE;</span>
                         </a>
