@@ -122,15 +122,13 @@
                             return item;
                         });
                         this.select(0);
+                        Event.$emit('loading', false);
                     })
                     .catch((error) => {
+                        if (!error.message) return;
                         this.error = error.message;
-
-                    })
-                    .then(() => {
                         Event.$emit('loading', false);
-
-                    });
+                    })
 
             }
 
