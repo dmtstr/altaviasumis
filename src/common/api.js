@@ -80,8 +80,8 @@ export default {
         return API.get(`/items/orders?fields=*.*${filter(query, field)}&meta=*`, canceler());
     },
 
-    stocks () {
-        return API.get('/items/stocks?fields=*.*', canceler());
+    stocks (query, field) {
+        return API.get(`/items/stocks?fields=*.*${filter(query, field)}&meta=*`, canceler());
     },
 
     abort () {

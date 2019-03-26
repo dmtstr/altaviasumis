@@ -20,7 +20,9 @@
 
         <layout-toolbar
                 :create="create"
-                :reload="load">
+                :reload="load"
+                :filter="filter"
+                @filter="load">
         </layout-toolbar>
 
 
@@ -81,10 +83,16 @@
         data () {
             return {
                 error: null,
+                selected: false,
                 stocks: [],
-                selected: 0,
-                search: {
-                    value: ''
+                filter: {
+                    query: '',
+                    active: '',
+                    fields: {
+                        '': 'All fields',
+                        'content': 'Content',
+                        'shop_id.name': 'Shop name'
+                    }
                 }
             }
         },
@@ -93,7 +101,6 @@
 
             select (index) {
                 this.selected = index;
-                window.scrollTo(0, 0);
             },
 
             create () {
@@ -104,19 +111,20 @@
                 this.search = value;
             },
 
-            load () {
+            load (query, field) {
 
-                this.stocks = false;
-                this.error = false;
-                this.search = '';
+                this.error = null;
+
+                API.abort();
                 Event.$emit('loading', true);
 
-                API.stocks()
+                API.stocks(query, field)
                     .then((response) => {
                         this.stocks = response.data.data.map(item => {
                             item.content = Util.csvToTable(item.content);
                             return item;
                         });
+                        this.select(0);
                     })
                     .catch((error) => {
                         this.error = error.message;
