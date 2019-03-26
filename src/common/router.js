@@ -11,6 +11,10 @@ import routeLogin from '@/components/routes/login.vue'
 import routeOrders from '@/components/routes/orders.vue'
 import routeStocks from '@/components/routes/stocks.vue'
 
+import routeDashboard from '@/components/routes/dashboard.vue'
+import routeDashboardStock from '@/components/routes/dashboard/stock.vue'
+import routeDashboardOrder from '@/components/routes/dashboard/order.vue'
+
 
 
 // ------------------
@@ -37,20 +41,41 @@ function login(to, from, next) {
 // ------------------
 
 const routes = [
-    {
-        path: '/',
-        component: routeOrders,
-        beforeEnter: login
-    },
-    {
-        path: '/stocks',
-        component: routeStocks,
-        beforeEnter: login
-    },
+    // {
+    //     path: '/',
+    //     component: routeOrders,
+    //     beforeEnter: login
+    // },
+    // {
+    //     path: '/stocks',
+    //     component: routeStocks,
+    //     beforeEnter: login
+    // },
+
+
     {
         path: '/login',
         component: routeLogin
+    },
+    {
+        path: '/',
+        component: routeDashboard,
+        beforeEnter: login,
+        children: [
+            {
+                path: '',
+                component: routeDashboardOrder,
+                props: {test: 'orders'}
+            },
+            {
+                path: 'stocks',
+                component: routeDashboardStock,
+                props: {test: 'stocks'}
+            }
+        ]
     }
+
+
 ];
 
 
