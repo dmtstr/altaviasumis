@@ -13,11 +13,15 @@
         padding: 32px 0;
     }
 
-    #toolbar .button.secondary {
+
+    /* aside */
+
+    #toolbar .l-aside .button.secondary {
         margin-left: 12px;
     }
 
 
+    /* frame */
 
     #toolbar .frame svg {
         width: 20px;
@@ -34,20 +38,34 @@
         position: relative;
         padding: 0 20px;
     }
-    #toolbar .frame .dropdown .current {
+
+
+    /* dropdown .current */
+
+    #toolbar .frame .current {
         line-height: 40px;
         font-size: 12px;
         color: var(--color-grey-light);
     }
-    #toolbar .frame .dropdown .current.active {
+    #toolbar .frame .current.selected {
         color: var(--color-black);
     }
-    #toolbar .frame .dropdown .current span {
+    #toolbar .frame .current:hover {
+        color: var(--color-red);
+    }
+    #toolbar .frame .current.active {
+        color: var(--color-red);
+    }
+    #toolbar .frame .current span {
         display: inline-block;
         width: 10px;
         text-align: right;
     }
-    #toolbar .frame .dropdown .popup {
+
+
+    /* popup */
+
+    #toolbar .frame .popup {
         position: absolute;
         top: 100%;
         right: 0;
@@ -58,14 +76,18 @@
         border-radius: 3px;
         box-shadow: var(--shadow);
     }
-    #toolbar .frame .dropdown .popup a {
+    #toolbar .frame .popup a {
         white-space: nowrap;
         font-size: 12px;
         padding: 6px 0;
     }
-    #toolbar .frame .dropdown .popup a.active {
+    #toolbar .frame .popup a:hover {
+        color: var(--color-red);
+    }
+    #toolbar .frame .popup a.active {
         color: var(--color-black);
     }
+
 
 </style>
 
@@ -99,17 +121,18 @@
             <!-- frame -->
 
             <div class="frame l-flex l-clear" v-if="filter">
-
                 <svg-search class="l-fl"></svg-search>
 
                 <div class="l-fr dropdown" v-if="filter.fields">
-                    <a @click="toggle" class="current" :class="{active: filter.active}">
+
+                    <a @click="toggle" class="current" :class="{selected: filter.active, active: popup}">
                         {{filter.fields[filter.active]}}
                         <span>&#x25BE;</span>
                     </a>
                     <div class="popup" v-show="popup">
                         <a v-for="(name, key) in filter.fields" :class="{active: key === filter.active}" @click="activate(key)">{{name}}</a>
                     </div>
+
                 </div>
 
                 <div class="l-ff">
