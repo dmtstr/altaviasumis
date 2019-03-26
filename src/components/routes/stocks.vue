@@ -69,6 +69,12 @@
     import uiTable from '@/components/ui/table.vue'
 
 
+    const parse = item => {
+        item.content = Util.csvToTable(item.content);
+        return item;
+    };
+
+
     export default {
 
         components: {
@@ -118,18 +124,16 @@
 
                 API.stocks(query, field)
                     .then((response) => {
-                        this.stocks = response.data.data.map(item => {
-                            item.content = Util.csvToTable(item.content);
-                            return item;
-                        });
-                        this.select(0);
+                        Event.$emit('loading', false);
+                        this.stocks = response.data.data.map(parse);
+                        if (this.stocks.length) this.select(0);
+                        else this.error = 'No results';
                     })
                     .catch((error) => {
+                        if (!error.message) return;
                         this.error = error.message;
-                    })
-                    .then(() => {
                         Event.$emit('loading', false);
-                    });
+                    })
 
             }
 

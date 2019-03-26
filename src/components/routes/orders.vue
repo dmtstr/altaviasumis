@@ -79,6 +79,13 @@
     import uiAddress from '@/components/ui/address.vue'
 
 
+    const parse = item => {
+        item.content = JSON.parse(item.content);
+        item.content.order = Util.arrayToTable(item.content.order);
+        return item;
+    };
+
+
     export default {
 
         components: {
@@ -126,13 +133,10 @@
 
                 API.orders(query, field)
                     .then((response) => {
-                        this.orders = response.data.data.map(item => {
-                            item.content = JSON.parse(item.content);
-                            item.content.order = Util.arrayToTable(item.content.order);
-                            return item;
-                        });
-                        this.select(0);
                         Event.$emit('loading', false);
+                        this.orders = response.data.data.map(parse);
+                        if (this.orders.length) this.select(0);
+                        else this.error = 'No results';
                     })
                     .catch((error) => {
                         if (!error.message) return;
