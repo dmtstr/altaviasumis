@@ -43,8 +43,9 @@
 
            <layout-aside
                :data="orders"
+               :meta="meta"
                :active="selected"
-               :click="select">
+               @select="select">
            </layout-aside>
 
             <div class="l-col l-flex" v-if="selected > -1 && orders[selected]">
@@ -101,6 +102,7 @@
             return {
                 error: null,
                 selected: false,
+                meta: null,
                 orders: [],
                 filter: {
                     query: '',
@@ -134,6 +136,7 @@
                 API.orders(query, field)
                     .then((response) => {
                         Event.$emit('loading', false);
+                        this.meta = response.data.meta;
                         this.orders = response.data.data.map(parse);
                         if (this.orders.length) this.select(0);
                         else this.error = 'No results';
