@@ -65,7 +65,6 @@
     import Util from '@/common/util'
     import layoutAside from '@/components/layout/aside.vue'
     import layoutToolbar from '@/components/layout/toolbar.vue'
-    import layoutContent from '@/components/layout/content.vue'
     import layoutError from '@/components/layout/error.vue'
     import uiTable from '@/components/ui/table.vue'
 
@@ -76,7 +75,6 @@
             uiTable,
             layoutAside,
             layoutToolbar,
-            layoutContent,
             layoutError
         },
 
