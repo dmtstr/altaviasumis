@@ -25,7 +25,7 @@ export default {
         })
     },
 
-    orders (filter) {
+    orders (filter, offset) {
         return Axios.call({
             method: 'GET',
             url: '/items/orders',
@@ -33,6 +33,7 @@ export default {
             params: params(filter, {
                 meta: '*',
                 fields: '*.*',
+                offset: offset
             })
         })
 

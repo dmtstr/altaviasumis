@@ -43,6 +43,10 @@
         fill: var(--color-red);
     }
 
+    .ui-pager a.disabled {
+        pointer-events: none;
+    }
+
 </style>
 
 
@@ -53,27 +57,25 @@
 
 <template>
     <div class="ui-pager l-col">
-        <a class="icon">
+        <a :class="{disabled: current === 1}" @click="update(1)">
             <svg-first></svg-first>
         </a>
-        <a class="icon">
+        <a :class="{disabled: current === 1}" @click="update(current - 1)">
             <svg-prev></svg-prev>
         </a>
-        <a class="">
-            <span>1</span>
+
+        <a v-for="page in pages" :class="{active: page === current}" @click="update(page)">
+            <span>{{page}}</span>
         </a>
-        <a class="active">
-            <span>2</span>
-        </a>
-        <a class="">
-            <span>13</span>
-        </a>
-        <a class="icon">
+
+        <a :class="{disabled: current === total}" @click="update(current + 1)">
             <svg-next></svg-next>
         </a>
-        <a class="icon">
+
+        <a :class="{disabled: current === total}" @click="update(total)">
             <svg-last></svg-last>
         </a>
+
     </div>
 </template>
 
@@ -89,6 +91,16 @@
     import svgLast from '@/assets/icons/last.svg';
     import svgNext from '@/assets/icons/next.svg';
     import svgPrev from '@/assets/icons/prev.svg';
+
+
+    function pages(from, to) {
+        let data = [];
+        for (let i = from; i <= to; i++) {
+            data.push(i);
+        }
+        return data;
+    }
+
     
     export default {
 
@@ -98,6 +110,40 @@
             svgNext,
             svgPrev
         },
+
+        data () {
+            return {
+                max: 200
+            }
+        },
+
+        computed: {
+
+            total () {
+                return Math.ceil(this.$store.state.pager.total / this.max);
+            },
+
+            current () {
+                return (this.$store.state.pager.offset || 0) / this.max + 1;
+            },
+
+            pages () {
+
+                if (this.current < 3) return pages(1, 3);
+                if (this.current > this.total - 2) return pages(this.total - 2, this.total);
+                return pages(this.current - 1, this.current + 1);
+
+            }
+
+        },
+
+        methods: {
+
+            update (page) {
+                this.$store.commit('pager', {offset: (page - 1) * this.max})
+            }
+
+        }
 
 
     }

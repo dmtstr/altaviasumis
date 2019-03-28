@@ -42,6 +42,7 @@
 
     import API from '@/common/api';
     import Store from '@/common/store';
+    import Axios from '@/common/axios';
     import layoutAside from '@/components/layout/aside.vue';
     import layoutToolbar from '@/components/layout/toolbar.vue';
 
@@ -66,10 +67,13 @@
     async function preload(key, callback) {
         Store.commit('loading', true);
         const config = Config[key];
-        const response = await config.API(Store.state.filter);
+        const response = await config.API(Store.state.filter, Store.state.pager.offset);
+        const data = response.data.data;
+        const meta = response.data.meta;
         Store.commit('loading', false);
-        Store.commit('items:update', response.data.data);
+        Store.commit('items:update', data);
         Store.commit('items:select', 0);
+        Store.commit('pager', {count: meta.result_count, total: meta.total_count});
         callback && callback();
     }
 
@@ -84,14 +88,14 @@
         },
 
         beforeRouteEnter (to, from, next) {
-            Store.commit('filter:reset');
+            Store.commit('reset');
             preload(to.name, next);
 
         },
 
         beforeRouteUpdate (to, from, next) {
             this.watch = false;
-            Store.commit('filter:reset');
+            Store.commit('reset');
             preload(to.name, next);
         },
 
@@ -105,6 +109,10 @@
 
             filter () {
                 return this.$store.state.filter;
+            },
+
+            offset () {
+                return this.$store.state.pager.offset;
             }
 
         },
@@ -112,6 +120,10 @@
         watch: {
 
             filter () {
+                this.load();
+            },
+
+            offset () {
                 this.load();
             },
 
@@ -125,7 +137,9 @@
         methods: {
 
             load () {
-                this.watch && preload(this.$route.name);
+                if (!this.watch) return;
+                Axios.abort();
+                preload(this.$route.name);
             }
 
         }

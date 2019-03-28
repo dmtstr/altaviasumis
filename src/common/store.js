@@ -9,11 +9,18 @@ export default new Vuex.Store({
 
         auth: localStorage.getItem('auth'),
         loading: false,
+
         filter: {},
 
         items: {
             data: [],
             selected: -1
+        },
+
+        pager: {
+            count: 200,
+            total: 2429,
+            offset: 0
         }
 
     },
@@ -24,12 +31,17 @@ export default new Vuex.Store({
             state.loading = value;
         },
 
-        'filter:set' (state, filter) {
-            state.filter = Object.assign({}, state.filter, filter);
+        reset (state) {
+            state.pager = {};
+            state.filter = {};
         },
 
-        'filter:reset' (state) {
-            state.filter = {};
+        pager (state, pager) {
+            state.pager = Object.assign({}, state.pager, pager);
+        },
+
+        'filter:set' (state, filter) {
+            state.filter = Object.assign({}, state.filter, filter);
         },
 
         'items:update' (state, data) {
