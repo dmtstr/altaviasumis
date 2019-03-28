@@ -8,6 +8,19 @@
         height: 100%;
     }
 
+    #app > .loading {
+        position: relative;
+    }
+
+    #app > .loading:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
 </style>
 
 
@@ -18,8 +31,9 @@
 
 <template>
     <div id="app" class="l-col">
+        <ui-loader v-show="loading"></ui-loader>
         <layout-header></layout-header>
-        <layout-view class="l-flex"></layout-view>
+        <router-view class="l-flex" :class="{loading: loading}"></router-view>
     </div>
 </template>
 
@@ -32,13 +46,21 @@
 <script>
 
     import layoutHeader from '@/components/layout/header.vue'
-    import layoutView from '@/components/layout/view.vue'
+    import uiLoader from '@/components/ui/loader.vue'
 
     export default {
+
         components: {
             layoutHeader,
-            layoutView
+            uiLoader
+        },
+
+        computed: {
+            loading () {
+                return this.$store.state.loading;
+            }
         }
+
     }
 
 </script>

@@ -67,12 +67,18 @@
 -->
 
 <template>
-    <header id="header" :class="{loading: loading}">
+    <header id="header">
         <div class="container l-container">
+
+
+            <!-- logo -->
 
             <router-link class="logo l-fl l-vertical" to="/">
                 <img src="images/logo.png"/>
             </router-link>
+
+
+            <!-- navigation -->
 
             <nav class="l-fr l-vertical">
                 <router-link class="link l-fl" to="/">Orders</router-link>
@@ -82,8 +88,8 @@
                 </router-link>
             </nav>
 
+
         </div>
-        <ui-loader v-show="loading"></ui-loader>
     </header>
 </template>
 
@@ -95,26 +101,14 @@
 
 <script>
 
-    import Event from '@/common/event';
     import iconLogout from '@/assets/icons/logout.svg'
-    import uiLoader from '@/components/ui/loader.vue'
 
     export default {
 
         components: {
-            iconLogout,
-            uiLoader
-        },
-
-        data() {
-            return {
-                loading: false
-            }
-        },
-
-        mounted() {
-            Event.$on('loading', value => this.loading = value);
+            iconLogout
         }
+
     }
 
 </script>

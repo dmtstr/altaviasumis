@@ -31,7 +31,6 @@
 
 <script>
 
-    import Session from '@/common/session';
     import formLogin from '@/components/forms/login.vue';
 
     export default {
@@ -42,13 +41,13 @@
 
         methods: {
             success (response) {
-                Session.create(response.data.data.token);
+                this.$store.commit('session:create', response.data.data.token);
                 this.$router.push('/');
             }
         },
 
         mounted () {
-            Session.destroy();
+            this.$store.commit('session:destroy');
         }
 
     }

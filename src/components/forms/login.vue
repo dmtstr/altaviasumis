@@ -38,7 +38,7 @@
 
         <!-- submit -->
 
-        <input type="submit" :value="status" class="button primary"/>
+        <input type="submit" value="Sign in" class="button primary"/>
 
 
         <!-- error -->
@@ -59,7 +59,6 @@
 
 
     import API from '@/common/api';
-    import Event from '@/common/event';
 
 
     export default {
@@ -72,35 +71,30 @@
             }
         },
 
-        computed: {
-            status () {
-                return this.loading ? 'Processing...' : 'Sign in'
-            }
-        },
-
         methods: {
+
             login () {
 
                 this.error = null;
-                Event.$emit('loading', true);
+                this.$store.commit('loading', true);
 
                 API.login({
                         email: this.email,
                         password: this.password
                     })
-                    .then((response) => {
+                    .then(response => {
                         this.$emit('success', response);
                     })
-                    .catch((error) => {
+                    .catch(error => {
+                        if (!error) return;
                         this.error = error.message;
+                        this.$store.commit('loading', false);
                     })
-                    .then(() => {
-                        Event.$emit('loading', false);
-                    });
-
 
             }
+
         }
+
     }
 
 </script>

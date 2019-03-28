@@ -3,13 +3,12 @@ import '@/assets/styles/app.css';
 import Vue from 'vue';
 import App from '@/components/app.vue';
 import Router from '@/common/router';
-import Session from '@/common/session'
-
-Session.restore();
+import Store from '@/common/store';
 
 new Vue({
     el: '#app',
     router: Router,
+    store: Store,
     render: function(h) {
         return h(App);
     }
