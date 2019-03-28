@@ -88,7 +88,8 @@ let router = new Router({routes});
 
 router.beforeEach((to, from, next) => {
     Axios.abort();
-    setTimeout(next, 0); // ???
+    Store.commit('loading', false);
+    next();
 });
 
 

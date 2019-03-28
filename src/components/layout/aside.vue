@@ -4,27 +4,13 @@
 
 <style>
 
-
-
-    /* main */
-
-    #aside {
-        /*align-items: flex-start;*/
-    }
     #aside .ui-pager {
         margin-right: 12px;
     }
-
-
-
     #aside .scroll {
         overflow-y: scroll;
     }
 
-
-
-
-    /* scrollbar */
 
     #aside .scroll::-webkit-scrollbar {
         -webkit-appearance: none;
@@ -37,10 +23,6 @@
         border: 4px solid var(--bg-white);
         background-color: var(--bg-grey-light);
     }
-
-
-
-
 
 </style>
 

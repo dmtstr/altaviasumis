@@ -18,6 +18,7 @@
 -->
 
 <template>
+
     <section class="l-col">
         <layout-toolbar @reload="load"></layout-toolbar>
         <div class="l-container l-flex l-row">
@@ -25,6 +26,7 @@
             <router-view class="l-flex"></router-view>
         </div>
     </section>
+
 </template>
 
 
@@ -61,10 +63,10 @@
 
     // helpers
 
-    async function preload(key, filter, callback) {
+    async function preload(key, callback) {
         Store.commit('loading', true);
         const config = Config[key];
-        const response = await config.API(filter);
+        const response = await config.API(Store.state.filter);
         Store.commit('loading', false);
         Store.commit('items:update', response.data.data);
         Store.commit('items:select', 0);
@@ -81,22 +83,23 @@
             layoutToolbar
         },
 
-        data () {
-            return {
-                config: {}
-            }
-        },
-
         beforeRouteEnter (to, from, next) {
-            preload(to.name, null, next);
+            Store.commit('filter:reset');
+            preload(to.name, next);
+
         },
 
         beforeRouteUpdate (to, from, next) {
-            this.$store.commit('filter:reset');
-            preload(to.name, null, next);
+            this.watch = false;
+            Store.commit('filter:reset');
+            preload(to.name, next);
         },
 
-
+        data () {
+            return {
+                watch: true
+            }
+        },
 
         computed: {
 
@@ -110,6 +113,10 @@
 
             filter () {
                 this.load();
+            },
+
+            $route () {
+                this.watch = true;
             }
 
         },
@@ -118,13 +125,8 @@
         methods: {
 
             load () {
-                preload(this.$route.name, this.filter);
+                this.watch && preload(this.$route.name);
             }
-
-
-        },
-
-        mounted () {
 
         }
 

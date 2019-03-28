@@ -57,6 +57,7 @@
     .ui-dropdown .popup a.active {
         color: var(--color-black);
     }
+
 </style>
 
 
@@ -116,7 +117,7 @@
             },
 
             activate (field) {
-                this.$store.commit('filter', {field});
+                this.$store.commit('filter:set', {field});
                 this.popup = false;
             },
 

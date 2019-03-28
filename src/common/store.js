@@ -24,7 +24,7 @@ export default new Vuex.Store({
             state.loading = value;
         },
 
-        filter (state, filter) {
+        'filter:set' (state, filter) {
             state.filter = Object.assign({}, state.filter, filter);
         },
 

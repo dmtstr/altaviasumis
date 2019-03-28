@@ -4,8 +4,6 @@
 
 <style>
 
-    /* frame */
-
     .ui-search svg {
         width: 20px;
         height: 20px;
@@ -61,7 +59,7 @@
                     return this.$store.state.filter.query
                 },
                 set (query) {
-                    this.$store.commit('filter', {query})
+                    this.$store.commit('filter:set', {query})
                 }
             }
         }
