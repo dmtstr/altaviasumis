@@ -33,6 +33,8 @@ input[type=password] {
     border-radius: 3px;
     transition: border-color 0.2s;
 }
+.frame:hover,
+.frame.focus,
 input[type=text]:focus,
 input[type=text]:hover,
 input[type=number]:focus,

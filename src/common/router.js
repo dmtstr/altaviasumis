@@ -2,14 +2,16 @@
 // imports
 // ------------------
 
-import Vue from 'vue'
-import Router from 'vue-router'
-import Session from '@/common/session'
-import API from '@/common/api'
-import Event from '@/common/event'
-import routeLogin from '@/components/routes/login.vue'
-import routeOrders from '@/components/routes/orders.vue'
-import routeStocks from '@/components/routes/stocks.vue'
+import Vue from 'vue';
+import Router from 'vue-router';
+import Store from '@/common/store';
+import Axios from '@/common/axios';
+
+import routeLogin from '@/components/routes/login.vue';
+import routeError from '@/components/routes/error.vue';
+import routeHome from '@/components/routes/home.vue';
+import routeStock from '@/components/routes/stock.vue';
+import routeOrder from '@/components/routes/order.vue';
 
 
 
@@ -26,7 +28,7 @@ Vue.use(Router);
 // ------------------
 
 function login(to, from, next) {
-    if (Session.exist()) return next();
+    if (Store.state.auth) return next();
     next('/login');
 }
 
@@ -37,20 +39,37 @@ function login(to, from, next) {
 // ------------------
 
 const routes = [
+
     {
-        path: '/',
-        component: routeOrders,
-        beforeEnter: login
-    },
-    {
-        path: '/stocks',
-        component: routeStocks,
-        beforeEnter: login
-    },
-    {
+        name: 'login',
         path: '/login',
         component: routeLogin
+    },
+    {
+        name: 'error',
+        path: '/error',
+        props: true,
+        component: routeError
+    },
+    {
+        path: '/',
+        component: routeHome,
+        beforeEnter: login,
+        children: [
+            {
+                name: 'orders',
+                path: '',
+                component: routeOrder
+            },
+            {
+                name: 'stocks',
+                path: 'stocks',
+                component: routeStock,
+            }
+        ]
     }
+
+
 ];
 
 
@@ -68,9 +87,9 @@ let router = new Router({routes});
 // ------------------
 
 router.beforeEach((to, from, next) => {
-    Event.$emit('loading', false);
-    API.abort();
-    setTimeout(next, 0);
+    Axios.abort();
+    Store.commit('loading', false);
+    next();
 });
 
 

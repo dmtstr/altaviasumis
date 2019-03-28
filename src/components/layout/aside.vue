@@ -4,73 +4,25 @@
 
 <style>
 
-
-
-    /* main */
-
-    #aside {
-        overflow: auto;
+    #aside .ui-pager {
+        margin-right: 12px;
+    }
+    #aside .scroll {
+        overflow-y: scroll;
     }
 
 
-    /* link */
-
-    #aside a {
-        background-color: var(--bg-white-dark);
-        margin-bottom: 4px;
-        padding: 24px 30px;
-        border: 1px solid transparent;
-    }
-
-    #aside a p.large {
-        font-size: 18px;
-        margin-bottom: 10px;
-        text-transform: uppercase;
-    }
-    #aside a p.small {
-        color: var(--color-grey-light);
-        font-size: 12px;
-    }
-
-
-    /* hover state */
-
-    #aside a:hover p.large {
-        color: var(--color-red)
-    }
-    #aside a:hover p.small {
-        color: var(--color-grey)
-    }
-
-
-    /* active state */
-
-    #aside a.active {
-        position: relative;
-        background: var(--bg-grey-light);
-    }
-    #aside a.active p.large {
-        color: var(--color-red);
-    }
-    #aside a.active p.small {
-        color: var(--color-grey);
-    }
-
-
-    /* scrollbar */
-
-    #aside::-webkit-scrollbar {
+    #aside .scroll::-webkit-scrollbar {
         -webkit-appearance: none;
     }
-    #aside::-webkit-scrollbar:vertical {
+    #aside .scroll::-webkit-scrollbar:vertical {
         width: 12px;
     }
-    #aside::-webkit-scrollbar-thumb {
+    #aside .scroll::-webkit-scrollbar-thumb {
         border-radius: 8px;
         border: 4px solid var(--bg-white);
         background-color: var(--bg-grey-light);
     }
-
 
 </style>
 
@@ -81,22 +33,18 @@
 -->
 
 <template>
-    <div id="aside" class="l-aside">
+    <div id="aside" class="l-aside l-row">
 
-        <a v-for="(item, index) in data"
-           :class="{active: index === active}"
-           :key="item.id"
-           @click="click(index)">
+        <ui-pager></ui-pager>
 
-            <p class="large t-bold">{{item.shop_id.name}}</p>
-
-            <p class="small">
-                <span class="t-bold">{{item.modified_by.first_name}}</span>
-                <span>-</span>
-                <span>{{item.modified_on}}</span>
-            </p>
-
-        </a>
+        <div class="scroll l-flex" @scroll="load" ref="scroll">
+            <ui-tile v-for="(item, index) in items.data"
+                     :data="item"
+                     :active="index === items.selected"
+                     :key="item.id"
+                     @click.native="select(index)">
+            </ui-tile>
+        </div>
 
     </div>
 </template>
@@ -108,14 +56,60 @@
 -->
 
 <script>
-    
+
+
+    import uiPager from '@/components/ui/pager.vue';
+    import uiTile from '@/components/ui/tile.vue';
+
+
     export default {
 
-        props: [
-            'data',
-            'active',
-            'click'
-        ]
+        components: {
+            uiPager,
+            uiTile
+        },
+
+        computed: {
+
+            items () {
+                return this.$store.state.items;
+            },
+
+            last () {
+                const total = this.$store.state.pager.total;
+                const offset = this.$store.state.pager.offset;
+                return total - offset < 200;
+            },
+
+            first () {
+                return this.$store.state.pager.offset;
+            }
+
+        },
+
+        watch: {
+
+            'items.data' () {
+                this.$refs.scroll.scrollTop = 0;
+            }
+
+        },
+
+        methods: {
+
+            select (index) {
+                this.$store.commit('items:select', index);
+            },
+
+            load () {
+
+                if (!this.last && this.$refs.scroll.offsetHeight + this.$refs.scroll.scrollTop === this.$refs.scroll.scrollHeight) {
+                    return this.$store.commit('pager', {offset: (this.$store.state.pager.offset || 0) + 200});
+                }
+
+            }
+
+        }
 
     }
 

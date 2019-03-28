@@ -55,7 +55,7 @@
 <script>
 
     import API from '@/common/api';
-    import Event from '@/common/event';
+//    import Event from '@/common/event';
 
 
     export default {
