@@ -9,7 +9,7 @@
         height: 20px;
         margin: 10px;
     }
-    .ui-search input {
+    .ui-search input[type=text] {
         height: 40px;
         padding: 0;
         background: none;
@@ -25,11 +25,11 @@
 -->
 
 <template>
-    <div class="ui-search frame l-clear">
+    <div class="ui-search frame l-clear" :class="{focus: focus}">
         <svg-search class="l-fl"></svg-search>
         <ui-dropdown class="l-fr"></ui-dropdown>
         <div class="l-ff">
-            <input type="text" placeholder="Search..." v-model="query"/>
+            <input type="text" placeholder="Search..." v-model="query" @focus="focus = true" @blur="focus = false"/>
         </div>
     </div>
 </template>
@@ -51,6 +51,12 @@
         components: {
             svgSearch,
             uiDropdown
+        },
+
+        data() {
+            return {
+                focus: false
+            }
         },
 
         computed: {

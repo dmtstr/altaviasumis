@@ -50,6 +50,7 @@
         white-space: nowrap;
         font-size: 12px;
         padding: 6px 0;
+        color: var(--color-grey);
     }
     .ui-dropdown .popup a:hover {
         color: var(--color-red);
@@ -119,8 +120,7 @@
             activate (field) {
                 this.$store.commit('filter:set', {field});
                 this.popup = false;
-            },
-
+            }
 
         }
 
