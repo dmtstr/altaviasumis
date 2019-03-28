@@ -2,8 +2,12 @@
     Styles
 -->
 
-<style>
-    
+<style scoped>
+
+    .ui-address {
+        margin-bottom: 30px;
+    }
+
 </style>
 
 
@@ -13,15 +17,10 @@
 -->
 
 <template>
-    <div>
-
+    <div class="l-col">
         <form-order v-if="create"></form-order>
-
-        <div class="l-col" v-if="data && !create">
-            <ui-address :data="data.address"></ui-address>
-            <ui-table class="l-flex" :data="data.order"></ui-table>
-        </div>
-
+        <ui-address v-if="data && !create" :data="data.address"></ui-address>
+        <ui-table v-if="data && !create" class="l-flex" :data="data.order"></ui-table>
     </div>
 </template>
 
