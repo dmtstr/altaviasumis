@@ -13,7 +13,7 @@
 -->
 
 <template>
-    <h1>Stock</h1>
+    <ui-table v-if="data" :data="data"></ui-table>
 </template>
 
 
@@ -24,31 +24,30 @@
 
 <script>
 
+
+    import Util from '@/common/util'
+    import uiTable from '@/components/ui/table.vue'
+
+
     export default {
 
-
-
-//        beforeRouteEnter: (to, from, next) => {
-//
-//            next(vm => {
-//                setTimeout(next, 1000)
-//            })
-//
-////            this.$emit('load', 'stocks');
-//        },
-
-        data () {
-            return {
-                stock: 1
-            }
+        components: {
+            uiTable
         },
 
+        computed: {
 
-        mounted () {
+            data () {
+                const index = this.$store.state.items.selected;
+                const item = this.$store.state.items.data[index];
+                if (!item) return null;
+                return Util.csvToTable(item.content);
+            },
 
-            this.$emit('init', {
-                API: 'orders'
-            });
+            create () {
+                return this.$store.state.items.selected === -1;
+            }
+
         }
 
     }
