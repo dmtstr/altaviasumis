@@ -3,16 +3,6 @@
 import Axios from '@/common/axios';
 
 
-// helpers
-
-function params(filter, defaults) {
-    if (!filter || !filter.field && !filter.query) return defaults;
-    if (!filter.field) defaults.q = filter.query;
-    else defaults[`filter[${filter.field}][like]`] = filter.query;
-    return defaults;
-}
-
-
 // exports
 
 export default {
@@ -25,16 +15,15 @@ export default {
         })
     },
 
-    orders (filter, offset) {
+    orders (filter) {
         return Axios.call({
             method: 'GET',
             url: '/items/orders',
             redirect: true,
-            params: params(filter, {
+            params: Object.assign({
                 meta: '*',
-                fields: '*.*',
-                offset: offset
-            })
+                fields: '*.*'
+            }, filter)
         })
 
     },
@@ -44,10 +33,10 @@ export default {
             method: 'GET',
             url: '/items/stocks',
             redirect: true,
-            params: params(filter, {
+            params: Object.assign({
                 meta: '*',
-                fields: '*.*',
-            })
+                fields: '*.*'
+            }, filter)
         })
     }
 

@@ -56,25 +56,25 @@
 -->
 
 <template>
-    <div class="ui-pager l-col">
+    <div class="ui-pager l-col" v-show="pages.length > 1">
 
-        <a :class="{disabled: current === 1}" @click="update(1)">
+        <a :class="{disabled: pager.current === 1}" @click="update(1)">
             <svg-first></svg-first>
         </a>
 
-        <a :class="{disabled: current === 1}" @click="update(current - 1)">
+        <a :class="{disabled: pager.current === 1}" @click="update(pager.current - 1)">
             <svg-prev></svg-prev>
         </a>
 
-        <a v-for="page in pages" :class="{active: page === current}" @click="update(page)">
+        <a v-for="page in pages" :class="{active: page === pager.current}" @click="update(page)">
             <span>{{page}}</span>
         </a>
 
-        <a :class="{disabled: current === total}" @click="update(current + 1)">
+        <a :class="{disabled: pager.current === pager.total}" @click="update(pager.current + 1)">
             <svg-next></svg-next>
         </a>
 
-        <a :class="{disabled: current === total}" @click="update(total)">
+        <a :class="{disabled: pager.current === pager.total}" @click="update(pager.total)">
             <svg-last></svg-last>
         </a>
 
@@ -115,21 +115,14 @@
 
         computed: {
 
-            total () {
-                return Math.ceil(this.$store.state.pager.total / 200);
-            },
-
-            current () {
-                return (this.$store.state.pager.offset || 0) / 200 + 1;
+            pager () {
+                return this.$store.getters.pager
             },
 
             pages () {
-
-                if (this.total === 1) return [];
-                if (this.total === 2) return [1, 2];
-                if (this.current < 3) return pages(1, 3);
-                if (this.current > this.total - 2) return pages(this.total - 2, this.total);
-                return pages(this.current - 1, this.current + 1);
+                if (this.pager.current < 3) return pages(1, Math.min(this.pager.total, 3));
+                if (this.pager.current > this.pager.total - 2) return pages(this.pager.total - 2, this.pager.total);
+                return pages(this.pager.current - 1, this.pager.current + 1);
 
             }
 
@@ -138,7 +131,7 @@
         methods: {
 
             update (page) {
-                this.$store.commit('pager', {offset: (page - 1) * 200})
+                this.$store.commit('filter:set', {offset: (page - 1) * this.pager.limit})
             }
 
         }

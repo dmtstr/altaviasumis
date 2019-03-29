@@ -67,13 +67,13 @@
     async function preload(key, callback) {
         Store.commit('loading', true);
         const config = Config[key];
-        const response = await config.API(Store.state.filter, Store.state.pager.offset);
+        const response = await config.API(Store.getters.params);
         const data = response.data.data;
         const meta = response.data.meta;
         Store.commit('loading', false);
         Store.commit('items:update', data);
         Store.commit('items:select', 0);
-        Store.commit('pager', {count: meta.result_count, total: meta.total_count});
+        Store.commit('filter:set', {count: meta.result_count, total: meta.total_count});
         callback && callback();
     }
 
@@ -88,14 +88,14 @@
         },
 
         beforeRouteEnter (to, from, next) {
-            Store.commit('reset');
+            Store.commit('filter:reset');
             preload(to.name, next);
 
         },
 
         beforeRouteUpdate (to, from, next) {
             this.watch = false;
-            Store.commit('reset');
+            Store.commit('filter:reset');
             preload(to.name, next);
         },
 
@@ -107,23 +107,15 @@
 
         computed: {
 
-            filter () {
-                return this.$store.state.filter;
-            },
-
-            offset () {
-                return this.$store.state.pager.offset;
+            params () {
+                return this.$store.getters.params;
             }
 
         },
 
         watch: {
 
-            filter () {
-                this.load();
-            },
-
-            offset () {
+            params () {
                 this.load();
             },
 
@@ -138,6 +130,7 @@
 
             load () {
                 if (!this.watch) return;
+                console.log(this.params);
                 Axios.abort();
                 preload(this.$route.name);
             }

@@ -10,17 +10,18 @@ export default new Vuex.Store({
         auth: localStorage.getItem('auth'),
         loading: false,
 
-        filter: {},
-
         items: {
             data: [],
             selected: -1
         },
 
-        pager: {
-            count: 200,
-            total: 2429,
-            offset: 0
+        filter: {
+            limit: 200,
+            count: 0,
+            total: 0,
+            offset: 0,
+            query: null,
+            field: null
         }
 
     },
@@ -31,17 +32,16 @@ export default new Vuex.Store({
             state.loading = value;
         },
 
-        reset (state) {
-            state.pager = {};
-            state.filter = {};
-        },
-
-        pager (state, pager) {
-            state.pager = Object.assign({}, state.pager, pager);
-        },
-
         'filter:set' (state, filter) {
-            state.filter = Object.assign({}, state.filter, filter);
+            for (let key in filter) {
+                if (filter.hasOwnProperty(key)) {
+                    Vue.set(state.filter, key, filter[key]);
+                }
+            }
+        },
+
+        'filter:reset' (state) {
+            state.filter = {limit: state.filter.limit};
         },
 
         'items:update' (state, data) {
@@ -60,6 +60,29 @@ export default new Vuex.Store({
         'session:destroy' (state) {
             state.auth = null;
             localStorage.removeItem('auth');
+        }
+
+    },
+
+    getters: {
+
+        params (state) {
+            let data = {offset: state.filter.offset};
+            if (!state.filter.field && !state.filter.query) return data;
+            if (!state.filter.field) data.q = state.filter.query;
+            else data[`filter[${state.filter.field}][like]`] = state.filter.query;
+            return data;
+        },
+
+        pager (state) {
+            const limit = state.filter.limit;
+            const total = state.filter.total;
+            const offset = state.filter.offset;
+            return {
+                limit: limit,
+                total: Math.ceil(total / limit),
+                current: (offset || 0) / limit + 1
+            }
         }
 
     }
