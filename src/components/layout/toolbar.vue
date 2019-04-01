@@ -35,7 +35,7 @@
                     <svg-reload></svg-reload>
                 </a>
 
-                <a class="l-ff button primary" @click="create">
+                <a class="l-ff button primary">
                     <svg-plus></svg-plus>
                     <span>Create</span>
                 </a>
@@ -70,14 +70,6 @@
             svgPlus,
             svgReload,
             uiSearch
-        },
-
-        methods: {
-
-            create () {
-                this.$store.commit('items:create', true);
-            }
-
         }
 
     }

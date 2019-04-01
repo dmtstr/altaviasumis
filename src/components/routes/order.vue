@@ -18,9 +18,8 @@
 
 <template>
     <div class="l-col">
-        <form-order v-if="create" @cancel="cancel()"></form-order>
-        <ui-address v-if="data && !create" :data="data.address"></ui-address>
-        <ui-table v-if="data && !create" class="l-flex" :data="data.order"></ui-table>
+        <ui-address v-if="data" :data="data.address"></ui-address>
+        <ui-table v-if="data" class="l-flex" :data="data.order"></ui-table>
     </div>
 </template>
 
@@ -55,18 +54,6 @@
                 const content = JSON.parse(item.content);
                 content.order = Util.arrayToTable(content.order);
                 return content;
-            },
-
-            create () {
-                return this.$store.state.items.create;
-            }
-
-        },
-
-        methods: {
-
-            cancel () {
-                this.$store.commit('items:create', false);
             }
 
         }

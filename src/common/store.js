@@ -43,8 +43,7 @@ export default new Vuex.Store({
 
         items: {
             data: [],
-            selected: -1,
-            create: false
+            selected: 0
         },
 
         filter: {
@@ -108,10 +107,6 @@ export default new Vuex.Store({
                 state.items.data = data;
                 state.items.selected = 0;
             }
-        },
-
-        'items:create' (state, value) {
-            state.items.create = value;
         },
 
         'items:select' (state, index) {

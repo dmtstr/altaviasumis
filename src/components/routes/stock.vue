@@ -42,10 +42,6 @@
                 const item = this.$store.state.items.data[index];
                 if (!item) return null;
                 return Util.csvToTable(item.content);
-            },
-
-            create () {
-                return this.$store.state.items.selected === -1;
             }
 
         }

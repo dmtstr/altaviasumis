@@ -42,7 +42,7 @@
 
             <ui-tile v-for="(item, index) in items.data"
                      :data="item"
-                     :active="!items.create && index === items.selected"
+                     :active="index === items.selected"
                      :key="item.id"
                      :style="{marginTop: margin + 'px'}"
                      @click.native="select(index)">
