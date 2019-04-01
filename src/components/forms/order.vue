@@ -38,7 +38,6 @@
         <!-- submit -->
 
         <input type="submit" value="Create" class="button primary"/>
-        <a @click="$emit('cancel')">Cancel</a>
 
 
         <!-- error -->
@@ -72,27 +71,9 @@
         methods: {
 
             create () {
-
                 if (!this.id) return (this.error = 'ID is required');
                 if (!this.quantity) return (this.error = 'Quantity is required');
                 if (!+this.quantity) return (this.error = 'Quantity must be a number');
-
-//                this.error = null;
-//                Event.$emit('loading', true);
-//
-//                API.createOrder({
-//                    id: this.id,
-//                    quantity: this.quantity
-//                })
-//                .then((response) => {
-//                    // ???
-//                })
-//                .catch((error) => {
-//                    this.error = error.message;
-//                })
-//                .then(() => {
-//                    Event.$emit('loading', false);
-//                });
             }
 
         }
