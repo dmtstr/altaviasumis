@@ -5,7 +5,6 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Store from '@/common/store';
-import Axios from '@/common/axios';
 
 import routeLogin from '@/components/routes/login.vue';
 import routeError from '@/components/routes/error.vue';
@@ -75,27 +74,7 @@ const routes = [
 
 
 // ------------------
-// Router
-// ------------------
-
-let router = new Router({routes});
-
-
-
-// ------------------
-// Listeners
-// ------------------
-
-router.beforeEach((to, from, next) => {
-    Axios.abort();
-    Store.commit('loading', false);
-    next();
-});
-
-
-
-// ------------------
 // Exports
 // ------------------
 
-export default router
+export default new Router({routes});

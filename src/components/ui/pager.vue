@@ -89,6 +89,7 @@
 
 <script>
 
+
     import svgFirst from '@/assets/icons/first.svg';
     import svgLast from '@/assets/icons/last.svg';
     import svgNext from '@/assets/icons/next.svg';
@@ -116,14 +117,17 @@
         computed: {
 
             pager () {
-                return this.$store.getters.pager
+                return this.$store.state.pager
+            },
+
+            limit () {
+                return this.$store.state.filter.limit
             },
 
             pages () {
                 if (this.pager.current < 3) return pages(1, Math.min(this.pager.total, 3));
                 if (this.pager.current > this.pager.total - 2) return pages(this.pager.total - 2, this.pager.total);
                 return pages(this.pager.current - 1, this.pager.current + 1);
-
             }
 
         },
@@ -131,7 +135,9 @@
         methods: {
 
             update (page) {
-                this.$store.commit('filter:set', {offset: (page - 1) * this.pager.limit})
+                this.$store.commit('filter:set', {offset: (page - 1) * this.limit});
+                this.$store.commit('pager:current', page);
+                this.$store.dispatch('load', {endpoint: this.$route.name});
             }
 
         }

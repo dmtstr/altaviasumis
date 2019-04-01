@@ -9,7 +9,6 @@
 
     .ui-tile {
         background-color: var(--bg-white-dark);
-        margin-bottom: 4px;
         padding: 24px 30px;
         border: 1px solid transparent;
     }

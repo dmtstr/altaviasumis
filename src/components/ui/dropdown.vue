@@ -118,7 +118,9 @@
             },
 
             activate (field) {
-                this.$store.commit('filter:set', {field});
+                this.$store.commit('filter:set', {field: field, offset: 0});
+                this.$store.commit('pager:current', 1);
+                this.$store.dispatch('load', {endpoint: this.$route.name});
                 this.popup = false;
             }
 

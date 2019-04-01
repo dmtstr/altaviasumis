@@ -25,7 +25,7 @@
 -->
 
 <template>
-    <div class="ui-search frame l-clear" :class="{focus: focus}">
+    <div class="ui-search frame l-clear">
         <svg-search class="l-fl"></svg-search>
         <ui-dropdown class="l-fr"></ui-dropdown>
         <div class="l-ff">
@@ -42,7 +42,6 @@
 
 <script>
 
-    import Store from '@/common/store';
     import svgSearch from '@/assets/icons/search.svg';
     import uiDropdown from '@/components/ui/dropdown.vue';
 
@@ -53,19 +52,15 @@
             uiDropdown
         },
 
-        data() {
-            return {
-                focus: false
-            }
-        },
-
         computed: {
             query: {
                 get () {
                     return this.$store.state.filter.query
                 },
                 set (query) {
-                    this.$store.commit('filter:set', {query})
+                    this.$store.commit('filter:set', {query: query, offset: 0});
+                    this.$store.commit('pager:current', 1);
+                    this.$store.dispatch('load', {endpoint: this.$route.name});
                 }
             }
         }

@@ -1,7 +1,38 @@
+// ------------------
+// Imports
+// ------------------
+
 import Vue from 'vue'
 import Vuex from 'vuex'
+import API from '@/common/api';
+import Axois from '@/common/axios';
+
+
+
+// ------------------
+// Config
+// ------------------
 
 Vue.use(Vuex);
+
+
+const Config = {
+
+    orders: {
+        API: API.orders
+    },
+
+    stocks: {
+        API: API.stocks
+    }
+
+};
+
+
+
+// ------------------
+// Exports
+// ------------------
 
 export default new Vuex.Store({
 
@@ -12,16 +43,20 @@ export default new Vuex.Store({
 
         items: {
             data: [],
-            selected: -1
+            selected: -1,
+            create: false
         },
 
         filter: {
-            limit: 200,
-            count: 0,
-            total: 0,
+            limit: 15,
             offset: 0,
             query: null,
             field: null
+        },
+
+        pager: {
+            total: 0,
+            current: 1
         }
 
     },
@@ -31,6 +66,20 @@ export default new Vuex.Store({
         loading (state, value) {
             state.loading = value;
         },
+
+
+        // pager
+
+        'pager:total' (state, value) {
+            Vue.set(state.pager, 'total', Math.ceil(value / state.filter.limit));
+        },
+
+        'pager:current' (state, value) {
+            Vue.set(state.pager, 'current', value);
+        },
+
+
+        // filter
 
         'filter:set' (state, filter) {
             for (let key in filter) {
@@ -44,13 +93,34 @@ export default new Vuex.Store({
             state.filter = {limit: state.filter.limit};
         },
 
-        'items:update' (state, data) {
-            state.items.data = data;
+
+        // items
+
+        'items:update' (state, {data, lazy}) {
+            if (lazy === 1) {
+                state.items.data = state.items.data.concat(data);
+            }
+            if (lazy === -1) {
+                state.items.selected = state.items.selected + data.length;
+                state.items.data = data.concat(state.items.data);
+            }
+            if (!lazy) {
+                state.items.data = data;
+                state.items.selected = 0;
+            }
+        },
+
+        'items:create' (state, value) {
+            state.items.create = value;
         },
 
         'items:select' (state, index) {
             state.items.selected = index;
         },
+
+
+
+        // session
 
         'session:create' (state, token) {
             state.auth = token;
@@ -67,22 +137,29 @@ export default new Vuex.Store({
     getters: {
 
         params (state) {
-            let data = {offset: state.filter.offset};
+            let data = {};
+            data.offset = state.filter.offset;
+            data.limit = state.filter.limit;
             if (!state.filter.field && !state.filter.query) return data;
             if (!state.filter.field) data.q = state.filter.query;
             else data[`filter[${state.filter.field}][like]`] = state.filter.query;
             return data;
-        },
+        }
 
-        pager (state) {
-            const limit = state.filter.limit;
-            const total = state.filter.total;
-            const offset = state.filter.offset;
-            return {
-                limit: limit,
-                total: Math.ceil(total / limit),
-                current: (offset || 0) / limit + 1
-            }
+    },
+
+    actions: {
+
+        load: async function (context, {endpoint, lazy, callback}) {
+            Axois.abort();
+            context.commit('loading', true);
+            const response = await API[endpoint](context.getters.params);
+            const data = response.data.data;
+            const meta = response.data.meta;
+            context.commit('loading', false);
+            context.commit('pager:total', meta.total_count);
+            context.commit('items:update', {data, lazy});
+            callback && callback();
         }
 
     }

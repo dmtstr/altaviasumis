@@ -18,7 +18,7 @@
 
 <template>
     <div class="l-col">
-        <form-order v-if="create"></form-order>
+        <form-order v-if="create" @cancel="cancel()"></form-order>
         <ui-address v-if="data && !create" :data="data.address"></ui-address>
         <ui-table v-if="data && !create" class="l-flex" :data="data.order"></ui-table>
     </div>
@@ -58,7 +58,15 @@
             },
 
             create () {
-                return this.$store.state.items.selected === -1;
+                return this.$store.state.items.create;
+            }
+
+        },
+
+        methods: {
+
+            cancel () {
+                this.$store.commit('items:create', false);
             }
 
         }

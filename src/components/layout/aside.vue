@@ -24,6 +24,7 @@
         background-color: var(--bg-grey-light);
     }
 
+
 </style>
 
 
@@ -37,11 +38,13 @@
 
         <ui-pager></ui-pager>
 
-        <div class="scroll l-flex" @scroll="load" ref="scroll">
+        <div class="scroll l-flex" @scroll="scroll" ref="scroll">
+
             <ui-tile v-for="(item, index) in items.data"
                      :data="item"
-                     :active="index === items.selected"
+                     :active="!items.create && index === items.selected"
                      :key="item.id"
+                     :style="{marginTop: margin + 'px'}"
                      @click.native="select(index)">
             </ui-tile>
         </div>
@@ -69,44 +72,72 @@
             uiTile
         },
 
+        data () {
+            return {
+                top: 0,
+                margin: 4,
+                height: 0
+            }
+        },
+
         computed: {
 
             items () {
                 return this.$store.state.items;
             },
 
-            last () {
-                const total = this.$store.state.pager.total;
-                const offset = this.$store.state.pager.offset;
-                return total - offset < 200;
+            pager () {
+                return this.$store.state.pager;
             },
 
-            first () {
-                return this.$store.state.pager.offset;
+            limit () {
+                return this.$store.state.filter.limit
             }
 
         },
 
-        watch: {
-
-            'items.data' () {
-                this.$refs.scroll.scrollTop = 0;
-            }
-
+        mounted () {
+            this.$refs.scroll.scrollTop = this.margin;
         },
 
         methods: {
 
             select (index) {
                 this.$store.commit('items:select', index);
+                this.$store.commit('items:create', false);
             },
 
-            load () {
+            test () {
+                this.$nextTick(() => {
+                    const sh = this.$refs.scroll.scrollHeight;
+                    const st = sh - this.height;
+                    this.$refs.scroll.scrollTop = st;
+                })
+            },
 
-                if (!this.last && this.$refs.scroll.offsetHeight + this.$refs.scroll.scrollTop === this.$refs.scroll.scrollHeight) {
-                    return this.$store.commit('pager', {offset: (this.$store.state.pager.offset || 0) + 200});
+            scroll (event) {
+
+                const down = this.$refs.scroll.scrollTop > this.top;
+                const first = this.pager.current === 1;
+                const last = this.pager.current === this.pager.total;
+
+                const oh = this.$refs.scroll.offsetHeight;
+                const st = this.$refs.scroll.scrollTop;
+                const sh = this.$refs.scroll.scrollHeight;
+                this.top = event.target.scrollTop;
+
+                if (!last && down && oh + st === sh) {
+                    this.$store.commit('filter:set', {offset: this.pager.current * this.limit});
+                    this.$store.commit('pager:current', this.pager.current + 1);
+                    this.$store.dispatch('load', {endpoint: this.$route.name, lazy: 1});
                 }
+                if (!first && !down && !st) {
+                    this.height = sh;
+                    this.$store.commit('filter:set', {offset: (this.pager.current - 2) * this.limit});
+                    this.$store.commit('pager:current', this.pager.current - 1);
+                    this.$store.dispatch('load', {endpoint: this.$route.name, lazy: -1, callback: this.test});
 
+                }
             }
 
         }

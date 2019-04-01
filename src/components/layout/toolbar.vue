@@ -75,7 +75,7 @@
         methods: {
 
             create () {
-                this.$store.commit('items:select', -1);
+                this.$store.commit('items:create', true);
             }
 
         }
