@@ -10,21 +10,25 @@
 
 
 /*
+    Label
+*/
+
+.f-label {
+    font-weight: 700;
+}
+.f-label.required:after {
+    content: '*';
+    color: var(--color-red);
+    margin-left: 4px;
+}
+
+
+
+/*
     Inputs
 */
 
-input {
-    cursor: pointer;
-    font-size: 14px;
-    padding: 0 20px;
-}
-input:focus {
-    outline: none;
-}
-.frame,
-input[type=text],
-input[type=number],
-input[type=password] {
+.f-input {
     width: 100%;
     height: 42px;
     border: 1px solid transparent;
@@ -32,15 +36,11 @@ input[type=password] {
     background-color: var(--bg-white-dark);
     border-radius: 3px;
     transition: border-color 0.2s;
+    font-size: 14px;
+    padding: 0 20px;
 }
-.frame:hover,
-.frame.focus,
-input[type=text]:focus,
-input[type=text]:hover,
-input[type=number]:focus,
-input[type=number]:hover,
-input[type=password]:focus,
-input[type=password]:hover {
+.f-input:hover,
+.f-input:focus {
     background-color: var(--bg-white);
     border-color: var(--bg-border);
     color: var(--color-black)
@@ -49,55 +49,49 @@ input[type=password]:hover {
 
 
 /*
-    Label
-*/
-
-label {
-    display: block;
-    font-weight: 700;
-}
-
-
-
-/*
     Buttons
 */
 
-.button {
+.f-button {
     height: 42px;
     padding: 10px;
-    font-family: 'Raleway', sans-serif;
+    font-family: var(--font-secondary);
     font-size: 12px;
-    text-transform: uppercase;
     font-weight: 600;
+    line-height: 20px;
+    text-transform: uppercase;
     fill: var(--color-white);
     color: var(--color-white);
     border-radius: 3px;
     border: 1px solid transparent;
     transition: background-color 0.1s;
 }
-.button svg {
+.f-button svg {
     display: inline-block;
     vertical-align: middle;
     width: 20px;
     height: 20px;
 }
-.button span {
+.f-button span {
     display: inline-block;
     vertical-align: middle;
-    padding: 4px 0 3px 4px;
+    margin-left: 4px;
 }
-.button.primary {
+.f-button.primary {
     background-color: var(--bg-red);
 }
-.button.primary:hover {
+.f-button.primary:hover {
     background-color: var(--bg-red-dark);
 }
-.button.secondary {
+.f-button.secondary {
     background-color: var(--bg-black-light);
 }
-.button.secondary:hover {
+.f-button.secondary:hover {
     background-color: var(--bg-red-dark);
+}
+.f-button.wide {
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 
@@ -106,9 +100,14 @@ label {
     Form
 */
 
-.form input {
+.f-form .f-input {
     margin-bottom: 30px;
 }
-.form label {
+.f-form .f-label {
     margin-bottom: 18px;
+}
+.f-form .f-error {
+    color: var(--color-red);
+    font-size: 14px;
+    margin-top: 30px;
 }

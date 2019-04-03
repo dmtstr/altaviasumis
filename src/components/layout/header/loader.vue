@@ -7,30 +7,31 @@
 
     /* main */
 
-    .ui-loader {
+    .c-loader {
         position: absolute;
         left: 0;
         top: 0;
         width: 100%;
         height: 2px;
+        overflow: hidden;
     }
-    .ui-loader span {
+    .c-loader span {
         background-color: var(--bg-red);
     }
 
 
     /* animations */
 
-    .ui-loader .line:nth-child(1) {
+    .c-loader .line:nth-child(1) {
         animation: line1 2s linear infinite;
     }
-    .ui-loader .line:nth-child(1) span {
+    .c-loader .line:nth-child(1) span {
         animation: span1 2s linear infinite;
     }
-    .ui-loader .line:nth-child(2) {
+    .c-loader .line:nth-child(2) {
         animation: line2 2s linear infinite;
     }
-    .ui-loader .line:nth-child(2) span {
+    .c-loader .line:nth-child(2) span {
         animation: span2 2s linear infinite;
     }
 
@@ -116,7 +117,7 @@
 -->
 
 <template>
-    <div class="ui-loader">
+    <div class="c-loader">
         <div class="line l-stretch">
             <span class="l-stretch"></span>
         </div>

@@ -7,38 +7,38 @@
 
     /* contact */
 
-    .ui-address .contact {
+    .c-address .contact {
         margin-right: 30px;
         margin-bottom: 30px;
     }
-    .ui-address .contact .icon {
+    .c-address .contact .icon {
         width: 36px;
         height: 36px;
         background: var(--bg-black-light);
         margin-right: 12px;
         border-radius: 18px;
     }
-    .ui-address .contact .icon svg {
+    .c-address .contact .icon svg {
         fill: var(--bg-white);
         width: 16px;
         height: 16px;
         margin: 10px;
     }
-    .ui-address .contact .text {
+    .c-address .contact .text {
         font-size: 13px;
         line-height: 18px;
     }
-    .ui-address .contact .text a {
+    .c-address .contact .text a {
         color: var(--color-red);
     }
-    .ui-address .contact .text a:hover {
+    .c-address .contact .text a:hover {
         text-decoration: underline;
     }
 
 
     /* heading */
 
-    .ui-address .heading {
+    .c-address .heading {
         font-size: 24px;
         line-height: 32px;
         text-transform: uppercase;
@@ -49,7 +49,7 @@
 
     /* line */
 
-    .ui-address .line {
+    .c-address .line {
         height: 2px;
         width: 70px;
         margin: 16px 0;
@@ -59,7 +59,7 @@
 
     /* address */
 
-    .ui-address .address {
+    .c-address .address {
         font-size: 13px;
         line-height: 18px;
         color: var(--color-grey);
@@ -76,7 +76,7 @@
 -->
 
 <template>
-    <div class="ui-address l-clear">
+    <div class="c-address l-clear">
 
         <div class="contact l-fl l-clear">
             <div class="l-fl icon">

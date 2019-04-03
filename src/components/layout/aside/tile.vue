@@ -7,46 +7,51 @@
 
     /* main */
 
-    .ui-tile {
+    .c-tile {
         background-color: var(--bg-white-dark);
         padding: 24px 30px;
         border: 1px solid transparent;
     }
 
-    .ui-tile p.large {
+    .c-tile p.large {
         font-size: 18px;
+        font-weight: 600;
         margin-bottom: 10px;
         text-transform: uppercase;
     }
-    .ui-tile p.small {
+    .c-tile p.small {
         color: var(--color-grey-light);
         font-size: 12px;
+    }
+    .c-tile p.small span:first-child {
+        font-weight: 600;
     }
 
 
     /* hover state */
 
-    .ui-tile:hover p.large {
+    .c-tile:hover p.large {
         color: var(--color-red)
     }
-    .ui-tile:hover p.small {
+    .c-tile:hover p.small {
         color: var(--color-grey)
     }
 
 
     /* active state */
 
-    .ui-tile.active {
+    .c-tile.active {
         position: relative;
         background: var(--bg-grey-light);
     }
-    .ui-tile.active p.large {
+    .c-tile.active p.large {
         color: var(--color-red);
     }
-    .ui-tile.active p.small {
+    .c-tile.active p.small {
         color: var(--color-grey);
     }
-    
+
+
 </style>
 
 
@@ -56,16 +61,13 @@
 -->
 
 <template>
-    <a class="ui-tile" :class="{active: active}">
-        
-        <p class="large t-bold">{{data.shop_id.name}}</p>
-
+    <a class="c-tile" :class="{active: item === dataActive}" @click="activate(item)">
+        <p class="large">{{item.shop_id.name}}</p>
         <p class="small">
-            <span class="t-bold">{{data.modified_by.first_name}}</span>
+            <span>{{item.modified_by.first_name}}</span>
             <span>-</span>
-            <span>{{data.modified_on}}</span>
+            <span>{{item.modified_on}}</span>
         </p>
-        
     </a>
 </template>
 
@@ -76,13 +78,22 @@
 -->
 
 <script>
-    
+
+    import {mapGetters, mapActions} from 'vuex';
+
     export default {
 
         props: [
-            'data',
-            'active'
-        ]
+            'item'
+        ],
+
+        computed: mapGetters('dashboard', [
+            'dataActive'
+        ]),
+
+        methods: mapActions('dashboard', [
+            'activate'
+        ])
 
     }
 

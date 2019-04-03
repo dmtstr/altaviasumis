@@ -3,7 +3,7 @@
 // ------------------
 
 import axios from 'axios';
-import Store from '@/common/store';
+import Store from '@/common/store/index';
 import Router from '@/common/router';
 
 
@@ -44,7 +44,7 @@ API.interceptors.response.use(undefined, function(data) {
     if (axios.isCancel(data)) return Promise.reject(null);
 
     if (data.response && data.response.status === 401) {
-        Store.commit('session:destroy');
+        Store.dispatch('session/destroy');
         Router.push({name: 'login'});
         return Promise.reject(null);
     }
@@ -76,7 +76,7 @@ export default {
         return API(Object.assign(config, {
             cancelToken: this.canceller.token,
             headers: {
-                'Authorization': 'Bearer ' + Store.state.auth
+                'Authorization': 'Bearer ' + Store.state.session.auth
             }
         }))
     },

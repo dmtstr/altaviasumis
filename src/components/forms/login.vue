@@ -13,39 +13,13 @@
 -->
 
 <template>
-    <form class="form" @submit.prevent="login">
-
-
-        <!-- email -->
-
-        <label>
-            <span>Email</span>
-            <i class="t-red">*</i>
-        </label>
-
-        <input type="text" v-model="email"/>
-
-
-        <!-- password -->
-
-        <label>
-            <span>Password</span>
-            <i class="t-red">*</i>
-        </label>
-
-        <input type="password" v-model="password"/>
-
-
-        <!-- submit -->
-
-        <input type="submit" value="Sign in" class="button primary"/>
-
-
-        <!-- error -->
-
-        <p class="t-small t-red" v-show="error">An error occurred: {{error}}</p>
-
-
+    <form class="f-form" @submit.prevent="login">
+        <label class="f-label required">Email</label>
+        <input class="f-input" type="text" v-model="email"/>
+        <label class="f-label required">Password</label>
+        <input class="f-input" type="password" v-model="password"/>
+        <input class="f-button primary wide" type="submit" value="Sign in"/>
+        <p class="f-error" v-show="error">An error occurred: {{error}}</p>
     </form>
 </template>
 
@@ -57,7 +31,7 @@
 
 <script>
 
-
+    import {mapActions} from 'vuex';
     import API from '@/common/api';
 
 
@@ -73,10 +47,14 @@
 
         methods: {
 
+            ...mapActions([
+                'loading'
+            ]),
+
             login () {
 
                 this.error = null;
-                this.$store.commit('loading', true);
+                this.loading(true);
 
                 API.login({
                         email: this.email,
@@ -88,7 +66,7 @@
                     .catch(error => {
                         if (!error) return;
                         this.error = error.message;
-                        this.$store.commit('loading', false);
+                        this.loading(false);
                     })
 
             }

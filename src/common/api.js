@@ -25,7 +25,6 @@ export default {
                 fields: '*.*'
             }, filter)
         })
-
     },
 
     stocks (filter) {

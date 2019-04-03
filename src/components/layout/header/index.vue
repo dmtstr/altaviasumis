@@ -7,53 +7,53 @@
 
     /* main */
 
-    #header {
+    .c-header {
         height: 72px;
         background: var(--bg-white);
         box-shadow: var(--shadow);
     }
-    #header .container {
+    .c-header .container {
         height: inherit;
     }
 
 
     /* logo */
 
-    #header .logo img {
+    .c-header .logo img {
         height: 14px;
     }
 
 
-    /* nav */
+    /* links */
 
-    #header nav {
-        font-family: var(--font-secondary);
+    .c-header nav a {
+        color: var(--color-black);
+        fill: var(--color-black);
     }
-    #header nav .link {
-        position: relative;
+    .c-header nav a.link {
         margin-left: 28px;
-        padding: 4px 0 2px 0;
+        line-height: 20px;
         font-size: 13px;
         font-weight: 700;
-        text-transform: uppercase;;
-        color: var(--color-black)
+        text-transform: uppercase;
+        font-family: var(--font-secondary);
     }
-    #header nav .icon {
+    .c-header nav a.icon {
         margin-left: 56px;
     }
-    #header nav .icon svg {
+    .c-header nav a.icon svg {
         height: 20px;
     }
 
 
     /* link states */
 
-    #header nav a:hover,
-    #header nav a.router-link-exact-active {
+    .c-header nav a:hover,
+    .c-header nav a.active {
         color: var(--color-red);
         fill: var(--color-red);
     }
-    #header nav a.router-link-exact-active {
+    .c-header nav a.active {
         cursor: default;
     }
 
@@ -67,7 +67,8 @@
 -->
 
 <template>
-    <header id="header">
+    <header class="c-header">
+        <header-loader v-show="loading"></header-loader>
         <div class="container l-container">
 
 
@@ -101,13 +102,20 @@
 
 <script>
 
+    import {mapState} from 'vuex';
     import iconLogout from '@/assets/icons/logout.svg'
+    import headerLoader from './loader.vue'
 
     export default {
 
         components: {
-            iconLogout
-        }
+            iconLogout,
+            headerLoader
+        },
+
+        computed: mapState([
+            'loading'
+        ])
 
     }
 

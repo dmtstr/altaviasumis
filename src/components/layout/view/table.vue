@@ -7,7 +7,7 @@
 
     /* main */
 
-    .ui-table table {
+    .c-table table {
         width: 100%;
         table-layout: fixed;
         border-collapse: collapse;
@@ -17,27 +17,27 @@
 
     /* cells */
 
-    .ui-table td {
+    .c-table td {
         padding: 0 10px;
         height: 36px;
     }
-    .ui-table td:first-child {
+    .c-table td:first-child {
         padding-left: 0;
     }
-    .ui-table td:last-child {
+    .c-table td:last-child {
         padding-right: 0;
     }
 
 
     /* heading */
 
-    .ui-table .heading {
+    .c-table .heading {
         border-bottom: 1px solid var(--bg-border);
     }
-    .ui-table .heading td {
+    .c-table .heading td {
         position: relative;
     }
-    .ui-table .heading span {
+    .c-table .heading span {
         position: absolute;
         top: 10px;
         text-transform: uppercase;
@@ -46,7 +46,7 @@
         transform-origin: 0 0;
         transition: transform 0.2s ease;
     }
-    .ui-table .heading input {
+    .c-table .heading input {
         position: relative;
         height: 100%;
         background: none;
@@ -55,25 +55,25 @@
         z-index: 1;
         color: var(--color-red);
     }
-    .ui-table .heading input:focus + span,
-    .ui-table .heading input:valid + span {
+    .c-table .heading input:focus + span,
+    .c-table .heading input:valid + span {
         transform: translateY(-10px) scale(0.5);
     }
 
 
     /* scroll */
 
-    .ui-table .scroll {
+    .c-table .scroll {
         overflow: auto;
     }
-    .ui-table .scroll::-webkit-scrollbar {
+    .c-table .scroll::-webkit-scrollbar {
         -webkit-appearance: none;
     }
-    .ui-table .scroll::-webkit-scrollbar:vertical {
+    .c-table .scroll::-webkit-scrollbar:vertical {
         width: 4px;
         background: var(--bg-white-dark);
     }
-    .ui-table .scroll::-webkit-scrollbar-thumb {
+    .c-table .scroll::-webkit-scrollbar-thumb {
         border-radius: 2px;
         background-color: var(--bg-red);
     }
@@ -88,7 +88,7 @@
 -->
 
 <template>
-    <div class="ui-table l-col">
+    <div class="c-table l-col">
 
         <table class="heading">
             <tr>

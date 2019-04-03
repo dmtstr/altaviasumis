@@ -2,9 +2,9 @@
     Styles
 -->
 
-<style scoped>
+<style>
 
-    .l-container {
+    .r-dashboard > .l-container {
         padding-top: 30px;
         padding-bottom: 30px;
     }
@@ -18,15 +18,13 @@
 -->
 
 <template>
-
-    <section class="l-col">
+    <section class="r-dashboard l-col">
         <layout-toolbar @reload="load"></layout-toolbar>
         <div class="l-container l-flex l-row">
             <layout-aside></layout-aside>
             <router-view class="l-flex"></router-view>
         </div>
     </section>
-
 </template>
 
 
@@ -38,32 +36,22 @@
 <script>
 
 
-    // modules
+    import API from '@/common/api'
+    import Store from '@/common/store/index'
+    import layoutToolbar from '@/components/layout/toolbar/index.vue'
+    import layoutAside from '@/components/layout/aside/index.vue'
 
-    import Store from '@/common/store';
-    import Axios from '@/common/axios';
-    import layoutAside from '@/components/layout/aside.vue';
-    import layoutToolbar from '@/components/layout/toolbar.vue';
-
-
-    // helpers
 
     function preload(to, from, next) {
-        Store.commit('filter:reset');
-        Store.dispatch('load', {
-            endpoint: to.name,
-            callback: next
-        });
+        Store.dispatch('dashboard/init', to.name).then(next);
     }
 
-
-    // exports
 
     export default {
 
         components: {
-            layoutAside,
-            layoutToolbar
+            layoutToolbar,
+            layoutAside
         },
 
         beforeRouteEnter: preload,
@@ -72,7 +60,7 @@
         methods: {
 
             load () {
-                this.$store.dispatch('load', {endpoint: this.$route.name});
+                Store.dispatch('dashboard/load');
             }
 
         }

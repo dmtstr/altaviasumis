@@ -2,9 +2,9 @@
     Styles
 -->
 
-<style scoped>
-    form {
-        max-width: 640px;
+<style>
+    .r-login {
+        width: 640px;
         margin: 0 auto;
         padding-top: 48px;
         padding-bottom: 48px;
@@ -18,7 +18,7 @@
 -->
 
 <template>
-    <section>
+    <section class="r-login">
         <form-login @success="success"></form-login>
     </section>
 </template>
@@ -31,6 +31,8 @@
 
 <script>
 
+
+    import {mapActions} from 'vuex';
     import formLogin from '@/components/forms/login.vue';
 
     export default {
@@ -40,15 +42,25 @@
         },
 
         methods: {
+
+            ...mapActions('session', [
+                'create',
+                'destroy'
+            ]),
+
+            ...mapActions([
+                'loading'
+            ]),
+
             success (response) {
-                this.$store.commit('session:create', response.data.data.token);
+                this.create(response.data.data.token);
                 this.$router.push('/');
             }
         },
 
         mounted () {
-            this.$store.commit('loading', false);
-            this.$store.commit('session:destroy');
+            this.loading(false);
+            this.destroy();
         }
 
     }
