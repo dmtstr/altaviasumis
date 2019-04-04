@@ -177,8 +177,9 @@ export default {
 
             Axios.abort();
             dispatch('loading', true, {root: true});
+            const params = blank ? {limit: state.filter.limit} : getters.filterParams;
 
-            return API[state.route](!blank && getters.filterParams).then(response => {
+            return API[state.route](params).then(response => {
 
                 const items = response.data.data;
                 const meta = response.data.meta;
