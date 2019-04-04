@@ -154,9 +154,9 @@ export default {
             return dispatch('load');
         },
 
-        filter ({state, dispatch}, {query, field}) {
-            query && (state.filter.query = query);
-            field && (state.filter.field = field);
+        filter ({state, dispatch}, filters) {
+            if (filters.hasOwnProperty('query')) state.filter.query = filters.query;
+            if (filters.hasOwnProperty('field')) state.filter.field = filters.field;
             return dispatch('flip', 1);
         },
 
