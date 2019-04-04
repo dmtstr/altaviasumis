@@ -140,7 +140,6 @@ export default {
 
         move ({state}, offset) {
             state.pager.offset = offset;
-            console.log(state.pager.offset);
         },
 
         lazy ({state, dispatch}, value) {

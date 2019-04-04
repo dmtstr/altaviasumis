@@ -23,10 +23,6 @@
         background-color: var(--bg-grey-light);
     }
 
-    .c-aside .c-tile {
-        margin-top: 4px;
-    }
-
     
 </style>
 
