@@ -110,12 +110,12 @@
 
     export default {
 
-        data () {
+        data() {
             return {
                 popup: false,
                 fields: {
-                    ''            : 'All fields',
-                    'content'     : 'Content',
+                    '': 'All fields',
+                    'content': 'Content',
                     'shop_id.name': 'Shop name'
                 }
             }
@@ -131,15 +131,32 @@
                 'filter'
             ]),
 
-            toggle () {
+            toggle() {
                 this.popup = !this.popup;
             },
 
-            activate (field) {
+            activate(field) {
                 this.popup = false;
                 this.filter(field);
+            },
+
+            outside(event) {
+                let node = event.target;
+                while (node) {
+                    if (node === this.$el) return;
+                    node = node.parentElement;
+                }
+                this.popup = false;
             }
 
+        },
+
+        mounted() {
+            document.addEventListener('click', this.outside);
+        },
+
+        destroyed() {
+            document.removeEventListener('click', this.outside);
         }
 
     }
