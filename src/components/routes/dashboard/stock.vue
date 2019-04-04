@@ -13,7 +13,10 @@
 -->
 
 <template>
-    <view-table :data="item"></view-table>
+    <div class="l-col">
+        <form-stock v-if="creating"></form-stock>
+        <view-table v-show="!creating" :data="item"></view-table>
+    </div>
 </template>
 
 
@@ -27,12 +30,14 @@
     import {mapGetters} from 'vuex'
     import Util from '@/common/util'
     import viewTable from '@/components/layout/view/table.vue'
+    import formStock from '@/components/forms/stock.vue'
 
 
     export default {
 
         components: {
-            viewTable
+            viewTable,
+            formStock
         },
 
         data () {
@@ -43,6 +48,7 @@
 
         computed: mapGetters('dashboard', [
             'route',
+            'creating',
             'dataActive'
         ]),
 

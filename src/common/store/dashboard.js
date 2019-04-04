@@ -55,7 +55,7 @@ export default {
             return route;
         },
 
-        create ({create}) {
+        creating ({create}) {
             return create;
         },
 
@@ -128,6 +128,7 @@ export default {
             state.route = route;
             state.data.lazy = 0;
             return dispatch('load', true).then(() => {
+                state.create = false;
                 state.filter.query = null;
                 state.filter.field = null;
                 state.filter.offset = 0;
@@ -136,8 +137,9 @@ export default {
             })
         },
 
-        activate({state}, item) {
+        activate({state, dispatch}, item) {
             state.data.active = item;
+            dispatch('create', false);
         },
 
         flip ({state, dispatch}, number) {

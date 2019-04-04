@@ -61,7 +61,7 @@
 -->
 
 <template>
-    <a class="c-tile" :class="{active: item === dataActive}" @click="activate(item)">
+    <a class="c-tile" :class="{active: item === dataActive && !creating}" @click="activate(item)">
         <p class="large">{{item.shop_id.name}}</p>
         <p class="small">
             <span>{{item.modified_by.first_name}}</span>
@@ -88,6 +88,7 @@
         ],
 
         computed: mapGetters('dashboard', [
+            'creating',
             'dataActive'
         ]),
 

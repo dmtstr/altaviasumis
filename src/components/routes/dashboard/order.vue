@@ -18,9 +18,9 @@
 
 <template>
     <div class="r-order l-col">
-        <form-order v-if="create"></form-order>
-        <view-address v-show="!create" class="address" :data="item.address"></view-address>
-        <view-table v-show="!create" class="l-flex" :data="item.order"></view-table>
+        <form-order v-if="creating"></form-order>
+        <view-address v-show="!creating" class="address" :data="item.address"></view-address>
+        <view-table v-show="!creating" class="l-flex" :data="item.order"></view-table>
     </div>
 </template>
 
@@ -54,7 +54,7 @@
 
         computed: mapGetters('dashboard', [
             'route',
-            'create',
+            'creating',
             'dataActive'
         ]),
 
