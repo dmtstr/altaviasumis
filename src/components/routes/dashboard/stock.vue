@@ -35,14 +35,26 @@
             viewTable
         },
 
-        computed: {
+        data () {
+            return {
+                item: {}
+            }
+        },
 
-            ...mapGetters('dashboard', [
-                'dataActive'
-            ]),
+        computed: mapGetters('dashboard', [
+            'route',
+            'dataActive'
+        ]),
 
-            item () {
-                return Util.csvToTable(this.dataActive.content);
+        watch: {
+
+            dataActive: {
+                immediate: true,
+                handler (value) {
+                    if (this.route !== this.$route.name) return;
+                    this.item = Util.csvToTable(this.dataActive.content);
+                }
+
             }
 
         }

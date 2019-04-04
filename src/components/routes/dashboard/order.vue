@@ -18,8 +18,9 @@
 
 <template>
     <div class="r-order l-col">
-        <view-address class="address" :data="item.address"></view-address>
-        <view-table class="l-flex" :data="item.order"></view-table>
+        <form-order v-if="create"></form-order>
+        <view-address v-show="!create" class="address" :data="item.address"></view-address>
+        <view-table v-show="!create" class="l-flex" :data="item.order"></view-table>
     </div>
 </template>
 
@@ -35,24 +36,38 @@
     import Util from '@/common/util'
     import viewAddress from '@/components/layout/view/address.vue'
     import viewTable from '@/components/layout/view/table.vue'
+    import formOrder from '@/components/forms/order.vue'
 
     export default {
 
         components: {
             viewAddress,
-            viewTable
+            viewTable,
+            formOrder
         },
 
-        computed: {
+        data () {
+            return {
+                item: {}
+            }
+        },
 
-            ...mapGetters('dashboard', [
-                'dataActive'
-            ]),
+        computed: mapGetters('dashboard', [
+            'route',
+            'create',
+            'dataActive'
+        ]),
 
-            item () {
-                const item = JSON.parse(this.dataActive.content);
-                item.order = Util.arrayToTable(item.order);
-                return item;
+        watch: {
+
+            dataActive: {
+                immediate: true,
+                handler (value) {
+                    if (this.route !== this.$route.name) return;
+                    this.item = JSON.parse(this.dataActive.content);
+                    this.item.order = Util.arrayToTable(this.item.order);
+                }
+
             }
 
         }

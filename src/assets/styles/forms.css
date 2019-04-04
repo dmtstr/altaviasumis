@@ -89,10 +89,15 @@
 .f-button.secondary:hover {
     background-color: var(--bg-red-dark);
 }
+.f-button.blank {
+    background: none;
+    color: var(--color-red);
+}
 .f-button.wide {
     padding-left: 20px;
     padding-right: 20px;
 }
+
 
 
 
@@ -110,4 +115,7 @@
     color: var(--color-red);
     font-size: 14px;
     margin-top: 30px;
+}
+.f-form .buttons .f-button {
+    margin-right: 12px;
 }

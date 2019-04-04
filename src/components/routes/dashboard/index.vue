@@ -4,9 +4,15 @@
 
 <style>
 
+    .r-dashboard > .c-toolbar {
+        position: relative;
+        z-index: 2;
+    }
     .r-dashboard > .l-container {
+        position: relative;
         padding-top: 30px;
         padding-bottom: 30px;
+        z-index: 1;
     }
 
 </style>
@@ -41,11 +47,9 @@
     import layoutToolbar from '@/components/layout/toolbar/index.vue'
     import layoutAside from '@/components/layout/aside/index.vue'
 
-
     function preload(to, from, next) {
         Store.dispatch('dashboard/init', to.name).then(next);
     }
-
 
     export default {
 

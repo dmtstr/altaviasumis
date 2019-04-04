@@ -54,7 +54,7 @@
                 <a class="l-fl f-button secondary" @click="$emit('reload')">
                     <svg-reload></svg-reload>
                 </a>
-                <a class="l-ff f-button primary">
+                <a class="l-ff f-button primary" @click="create(true)">
                     <svg-plus></svg-plus>
                     <span>Create</span>
                 </a>
@@ -107,7 +107,8 @@
         methods: {
 
             ...mapActions('dashboard', [
-                'filter'
+                'filter',
+                'create'
             ]),
 
             input (event) {

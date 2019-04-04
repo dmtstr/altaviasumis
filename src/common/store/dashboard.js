@@ -49,6 +49,17 @@ export default {
     getters: {
 
 
+        // common
+
+        route ({route}) {
+            return route;
+        },
+
+        create ({create}) {
+            return create;
+        },
+
+
         // filter
 
         filterParams ({filter}) {
@@ -115,9 +126,14 @@ export default {
 
         init ({state, dispatch}, route) {
             state.route = route;
-            state.filter.query = null;
-            state.filter.field = null;
-            return dispatch('flip', 1);
+            state.data.lazy = 0;
+            return dispatch('load', true).then(() => {
+                state.filter.query = null;
+                state.filter.field = null;
+                state.filter.offset = 0;
+                state.pager.active = 1;
+                state.pager.offset = 0;
+            })
         },
 
         activate({state}, item) {
@@ -147,16 +163,20 @@ export default {
             state.filter.offset = state.filter.offset + state.filter.limit * value;
             return dispatch('load');
         },
+
+        create ({state}, value) {
+            state.create = value;
+        },
         
 
         // load
 
-        load ({state, dispatch, getters}) {
+        load ({state, dispatch, getters}, blank) {
 
             Axios.abort();
             dispatch('loading', true, {root: true});
 
-            return API[state.route](getters.filterParams).then(response => {
+            return API[state.route](!blank && getters.filterParams).then(response => {
 
                 const items = response.data.data;
                 const meta = response.data.meta;
