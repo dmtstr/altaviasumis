@@ -26,10 +26,14 @@
 <template>
     <section class="r-dashboard l-col">
         <layout-toolbar @reload="load"></layout-toolbar>
-        <div class="l-container l-flex l-row">
+
+        <form-error class="l-container" :error="error" @repeat="load" v-show="!dataLength"></form-error>
+
+        <div class="l-container l-flex l-row" v-if="dataLength">
             <layout-aside></layout-aside>
             <router-view class="l-flex"></router-view>
         </div>
+
     </section>
 </template>
 
@@ -42,10 +46,12 @@
 <script>
 
 
+    import {mapGetters, mapActions} from 'vuex';
     import API from '@/common/api'
     import Store from '@/common/store/index'
     import layoutToolbar from '@/components/layout/toolbar/index.vue'
     import layoutAside from '@/components/layout/aside/index.vue'
+    import formError from '@/components/forms/error.vue'
 
     function preload(to, from, next) {
         Store.dispatch('dashboard/init', to.name).then(next);
@@ -55,19 +61,29 @@
 
         components: {
             layoutToolbar,
-            layoutAside
+            layoutAside,
+            formError
         },
 
         beforeRouteEnter: preload,
         beforeRouteUpdate: preload,
 
-        methods: {
-
-            load () {
-                Store.dispatch('dashboard/load');
+        data () {
+            return {
+                error: {
+                    code: 404,
+                    message: 'No results were found'
+                }
             }
+        },
 
-        }
+        computed: mapGetters('dashboard', [
+            'dataLength'
+        ]),
+
+        methods: mapActions('dashboard', [
+            'load'
+        ])
 
     }
 

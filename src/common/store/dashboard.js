@@ -101,6 +101,10 @@ export default {
 
         // data
 
+        dataLength ({data}) {
+            return data.items.length;
+        },
+
         dataChunk({data, filter}) {
             return Util.chunk(data.items, filter.limit);
         },

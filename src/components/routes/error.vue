@@ -4,23 +4,6 @@
 
 <style>
 
-    .r-error {
-        text-align: center;
-        padding: 48px 0;
-    }
-    .r-error .code {
-        font-size: 128px;
-        font-weight: 500;
-    }
-    .r-error .message {
-        margin: 0 0 24px 0;
-        font-size: 14px;
-    }
-    .r-error a {
-        display: inline-block;
-        vertical-align: top;
-    }
-
 </style>
 
 
@@ -30,13 +13,7 @@
 -->
 
 <template>
-    <section class="r-error">
-        <p class="code">{{error.code}}</p>
-        <p class="message">{{error.message}}</p>
-        <a class="f-button primary wide" @click="back">
-            <span>Try again</span>
-        </a>
-    </section>
+    <form-error :error="error" @repeat="back"></form-error>
 </template>
 
 
@@ -46,8 +23,14 @@
 -->
 
 <script>
+
+    import formError from '@/components/forms/error.vue'
     
     export default {
+
+        components: {
+            formError
+        },
 
         props: [
             'error'
