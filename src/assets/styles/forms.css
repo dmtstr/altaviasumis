@@ -119,3 +119,27 @@
 .f-form .buttons .f-button {
     margin-right: 12px;
 }
+
+
+
+/*
+    Toogle
+*/
+
+.f-toggle .f-button {
+    height: 32px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 90px;
+    text-align: center;
+}
+.f-toggle .f-button:first-child {
+    border-radius: 3px 0 0 3px;
+}
+.f-toggle .f-button:last-child {
+    border-radius: 0 3px 3px 0;
+}
+.f-toggle .f-button.active {
+    background: var(--bg-grey-light);
+    color: var(--color-black);
+}
