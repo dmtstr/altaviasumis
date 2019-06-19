@@ -18,9 +18,9 @@
 
 <template>
     <div class="r-order l-col">
-        <form-order v-if="creating"></form-order>
-        <view-address v-show="!creating" class="address" :data="item.address"></view-address>
-        <view-table v-show="!creating" class="l-flex" :data="item.order"></view-table>
+        <!--<form-order v-if="creating"></form-order>-->
+        <view-address v-show="!creating" class="address" :data="dataActive"></view-address>
+        <view-table v-show="!creating" class="l-flex" :data="table"></view-table>
     </div>
 </template>
 
@@ -48,7 +48,7 @@
 
         data () {
             return {
-                item: {}
+                table: []
             }
         },
 
@@ -64,8 +64,7 @@
                 immediate: true,
                 handler (value) {
                     if (this.route !== this.$route.name) return;
-                    this.item = JSON.parse(this.dataActive.content);
-                    this.item.order = Util.arrayToTable(this.item.order);
+                    this.table = Util.jsonToTable(this.dataActive.content.LINES);
                 }
 
             }

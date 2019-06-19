@@ -83,8 +83,8 @@
                 <svg-email></svg-email>
             </div>
             <div class="l-fl text">
-                <p>{{data.contact.email.name || '&mdash;'}}</p>
-                <a :href="`mailto:${data.contact.email.value}`">{{data.contact.email.value}}</a>
+                <p>{{'???' || '&mdash;'}}</p>
+                <a>{{data.email}}</a>
             </div>
         </div>
 
@@ -93,18 +93,18 @@
                 <svg-phone></svg-phone>
             </div>
             <div class="l-fl text">
-                <p>{{data.contact.telephone.name || '&mdash;'}}</p>
-                <a :href="`tel:${data.contact.telephone.value}`">{{data.contact.telephone.value}}</a>
+                <p>{{'???' || '&mdash;'}}</p>
+                <a>{{data.telephone}}</a>
             </div>
         </div>
 
         <div class="l-clear"></div>
-        <p class="heading">{{data.name}}</p>
+        <p class="heading">{{data.t_a_v}}</p>
         <div class="line"></div>
 
         <div class="address">
-            <p>{{data.street}} {{data.house_number}} {{data.house_add}}</p>
-            <p>{{data.zip}} {{data.city}}, {{data.country_code}}</p>
+            <p>{{data.street}} {{data.house_no}} {{data.house_ext}}</p>
+            <p>{{data.zip_code}} {{data.city}}, {{data.country_code}}</p>
         </div>
 
     </div>

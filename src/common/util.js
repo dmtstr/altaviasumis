@@ -25,6 +25,12 @@ export default {
         let res = arr.map(item => Object.values(item));
         res.unshift(Object.keys(arr[0]));
         return res;
+    },
+
+    jsonToTable (arr) {
+        let headings = Object.keys(arr[0]);
+        let results = arr.map(data => Object.values(data));
+        return [headings, ...results]
     }
 
 }

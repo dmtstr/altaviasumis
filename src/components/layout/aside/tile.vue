@@ -9,19 +9,20 @@
 
     .c-tile {
         background-color: var(--bg-white-dark);
-        padding: 24px 30px;
+        padding: 16px 24px;
         border: 1px solid transparent;
     }
 
     .c-tile p.large {
-        font-size: 18px;
+        font-size: 14px;
         font-weight: 600;
-        margin-bottom: 10px;
+        margin-bottom: 8px;
         text-transform: uppercase;
     }
     .c-tile p.small {
         color: var(--color-grey-light);
-        font-size: 12px;
+        font-size: 11px;
+        line-height: 14px;
     }
     .c-tile p.small span:first-child {
         font-weight: 600;
@@ -51,7 +52,6 @@
         color: var(--color-grey);
     }
 
-
 </style>
 
 
@@ -62,12 +62,11 @@
 
 <template>
     <a class="c-tile" :class="{active: item === dataActive && !creating}" @click="activate(item)">
-        <p class="large">{{item.shop_id.name}}</p>
-        <p class="small">
-            <span>{{item.modified_by.first_name}}</span>
-            <span>-</span>
-            <span>{{item.modified_on}}</span>
-        </p>
+        <p class="large">{{item.order_no}}</p>
+        <p class="small">date: <b>{{item.order_date}}</b></p>
+        <p class="small">type: <b>{{item.order_type}}</b></p>
+        <p class="small">customer: <b>{{item.customer_id}}</b></p>
+        <p class="small">state: <b>{{item.state}}</b></p>
     </a>
 </template>
 
