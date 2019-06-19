@@ -39,8 +39,8 @@
 
         data () {
             return {
-                email: 'dmitriy@dmitriy.com',
-                password: 'test',
+                email: null,
+                password: null,
                 error: null
             }
         },
