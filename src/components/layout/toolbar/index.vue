@@ -64,7 +64,7 @@
             <!-- search -->
 
             <div class="search f-input l-flex">
-                <toolbar-dropdown class="l-fr"></toolbar-dropdown>
+                <!--<toolbar-dropdown class="l-fr"></toolbar-dropdown>-->
                 <svg-search class="l-fl"></svg-search>
                 <div class="l-ff">
                     <input type="text" class="f-input" placeholder="Search..." :value="filterQuery" @input="input"/>
