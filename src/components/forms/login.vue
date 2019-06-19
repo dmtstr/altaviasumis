@@ -39,8 +39,8 @@
 
         data () {
             return {
-                email: null,
-                password: null,
+                email: EMAIL,
+                password: PASSWORD,
                 error: null
             }
         },

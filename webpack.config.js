@@ -8,6 +8,16 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 
 
+// ------------------
+// Constants
+// ------------------
+
+const API_ORIGIN = 'https://admin.sumislogistics.nl/_';
+const EMAIL = 'dmitriy@dmitriy.com';
+const PASSWORD = 'test';
+
+
+
 // ----------------
 // Common
 // ----------------
@@ -37,7 +47,7 @@ const Common = {
     plugins: [
         new VueLoaderPlugin(),
         new webpack.DefinePlugin({
-            API_ORIGIN: JSON.stringify('https://admin.sumislogistics.nl/_')
+            API_ORIGIN: JSON.stringify(API_ORIGIN)
         })
     ],
 
@@ -67,7 +77,15 @@ const Dev = {
         contentBase: path.join(__dirname, 'dist'),
         compress: true,
         port: 9000
-    }
+    },
+
+    plugins: [
+        ...Common.plugins,
+        new webpack.DefinePlugin({
+            EMAIL: JSON.stringify(EMAIL),
+            PASSWORD: JSON.stringify(PASSWORD),
+        })
+    ]
 
 };
 
@@ -79,7 +97,15 @@ const Dev = {
 
 const Prod = {
 
-    mode: 'production'
+    mode: 'production',
+
+    plugins: [
+        ...Common.plugins,
+        new webpack.DefinePlugin({
+            EMAIL: JSON.stringify(''),
+            PASSWORD: JSON.stringify(''),
+        })
+    ]
 
 };
 
