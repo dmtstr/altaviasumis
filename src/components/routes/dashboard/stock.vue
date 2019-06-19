@@ -58,7 +58,7 @@
                 immediate: true,
                 handler (value) {
                     if (this.route !== this.$route.name) return;
-                    this.item = Util.csvToTable(this.dataActive.content);
+                    this.item = Util.jsonToTable(this.dataActive.content);
                 }
 
             }
