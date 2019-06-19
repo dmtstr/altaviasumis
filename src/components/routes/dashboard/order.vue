@@ -18,7 +18,7 @@
 
 <template>
     <div class="r-order l-col">
-        <!--<form-order v-if="creating"></form-order>-->
+        <form-order v-if="creating"></form-order>
         <view-details v-show="!creating" class="details" :data="dataActive"></view-details>
         <view-table v-show="!creating" class="l-flex" :data="table"></view-table>
     </div>
@@ -65,6 +65,7 @@
                 handler (value) {
                     if (this.route !== this.$route.name) return;
                     this.table = Util.jsonToTable(this.dataActive.lines);
+
                 }
 
             }

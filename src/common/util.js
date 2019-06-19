@@ -29,7 +29,11 @@ export default {
 
     jsonToTable (arr) {
         let headings = Object.keys(arr[0]);
-        let results = arr.map(data => Object.values(data));
+        let results = arr.map(data => {
+            return Object.values(data).map(value => {
+                return value.toString();
+            })
+        });
         return [headings, ...results]
     }
 
