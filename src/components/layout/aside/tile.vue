@@ -62,11 +62,8 @@
 
 <template>
     <a class="c-tile" :class="{active: item === dataActive && !creating}" @click="activate(item)">
-        <p class="large">{{item.order_no}}</p>
-        <p class="small">date: <b>{{item.order_date}}</b></p>
-        <p class="small">type: <b>{{item.order_type}}</b></p>
-        <p class="small">customer: <b>{{item.customer_id}}</b></p>
-        <p class="small">state: <b>{{item.state}}</b></p>
+        <p class="large">{{item[config.title]}}</p>
+        <p class="small" v-for="field in config.fields">{{field}}: <b>{{item[field]}}</b></p>
     </a>
 </template>
 
@@ -83,12 +80,14 @@
     export default {
 
         props: [
-            'item'
+            'item',
+            'config'
         ],
 
         computed: mapGetters('dashboard', [
             'creating',
-            'dataActive'
+            'dataActive',
+            'route'
         ]),
 
         methods: mapActions('dashboard', [

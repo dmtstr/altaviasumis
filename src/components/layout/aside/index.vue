@@ -42,7 +42,7 @@
              ref="scroll">
 
             <aside-page v-for="(page, index) in dataChunk" :key="index" :page="index" :view="view">
-                <aside-tile v-for="item in page" :item="item" :key="item.id"></aside-tile>
+                <aside-tile v-for="item in page" :key="item.id" :item="item" :config="fields"></aside-tile>
             </aside-page>
 
         </div>
@@ -67,6 +67,26 @@
     import asideTile from './tile.vue'
 
 
+    // constants
+
+    const FIELDS = {
+
+        orders: {
+            title: 'order_no',
+            fields: ['order_date', 'order_type', 'customer_id', 'state']
+        },
+
+        stocks: {
+            title: 'customer_id',
+            fields: ['modified_on']
+        },
+
+    };
+
+
+
+    // exports
+
     export default {
 
         components: {
@@ -77,6 +97,7 @@
 
         data () {
             return {
+                fields: null,
                 view: {
                     st: 0,
                     sh: 0,
@@ -98,6 +119,13 @@
                 immediate: true,
                 handler () {
                     this.$nextTick(this.align);
+                }
+            },
+
+            $route: {
+                immediate: true,
+                handler (route) {
+                    this.fields = FIELDS[route.name];
                 }
             }
 
