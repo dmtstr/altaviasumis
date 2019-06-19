@@ -37,7 +37,7 @@ const Common = {
     plugins: [
         new VueLoaderPlugin(),
         new webpack.DefinePlugin({
-            API_ORIGIN: JSON.stringify('https://altaviasumis.projects.dynconnect.com/_')
+            API_ORIGIN: JSON.stringify('https://admin.sumislogistics.nl/_')
         })
     ],
 
