@@ -9,7 +9,6 @@
 
     .c-table table {
         width: 100%;
-        table-layout: fixed;
         border-collapse: collapse;
         font-size: 14px;
     }
@@ -17,36 +16,39 @@
 
     /* cells */
 
-    .c-table td {
+    .c-table td,
+    .c-table th {
         padding: 0 10px;
         height: 36px;
     }
-    .c-table td:first-child {
+    .c-table td:first-child,
+    .c-table th:first-child {
         padding-left: 0;
     }
-    .c-table td:last-child {
+    .c-table td:last-child,
+    .c-table th:last-child {
         padding-right: 0;
     }
 
 
     /* heading */
 
-    .c-table .heading {
-        border-bottom: 1px solid var(--bg-border);
-    }
-    .c-table .heading td {
+
+    .c-table th {
         position: relative;
-    }
-    .c-table .heading span {
-        position: absolute;
-        top: 10px;
+        text-align: left;
         text-transform: uppercase;
         font-weight: 600;
         line-height: 16px;
+    }
+    .c-table th span {
+        position: absolute;
+        top: 10px;
+
         transform-origin: 0 0;
         transition: transform 0.2s ease;
     }
-    .c-table .heading input {
+    .c-table th input {
         position: relative;
         height: 100%;
         background: none;
@@ -55,8 +57,8 @@
         z-index: 1;
         color: var(--color-red);
     }
-    .c-table .heading input:focus + span,
-    .c-table .heading input:valid + span {
+    .c-table th input:focus + span,
+    .c-table th input:valid + span {
         transform: translateY(-10px) scale(0.5);
     }
 
@@ -65,6 +67,12 @@
 
     .c-table .scroll {
         overflow: auto;
+    }
+    .c-table .scroll th {
+        visibility: hidden;
+        height: 0;
+        padding: 0;
+        line-height: 10px;
     }
     .c-table .scroll::-webkit-scrollbar {
         -webkit-appearance: none;
@@ -79,6 +87,12 @@
     }
 
 
+    /* heading */
+
+    .c-table .heading {
+        border-bottom: 1px solid var(--bg-border);
+    }
+
 </style>
 
 
@@ -92,15 +106,20 @@
 
         <table class="heading">
             <tr>
-                <td v-for="(heading, index) in headings">
+                <th v-for="(heading, index) in headings" :style="{width: widths[index]}">
                     <input type="text" required v-model="filters[index]"/>
                     <span>{{heading}}</span>
-                </td>
+                </th>
             </tr>
         </table>
 
         <div class="l-flex scroll" ref="scroll">
             <table>
+                <tr>
+                    <th v-for="(heading, index) in headings">
+                        {{heading}}
+                    </th>
+                </tr>
                 <tr v-for="row in filtered" ref="row">
                     <td v-for="cell in row">{{cell}}</td>
                 </tr>
@@ -128,7 +147,8 @@
             return {
                 results: [],
                 headings: [],
-                filters: []
+                filters: [],
+                widths: []
             }
         },
 
@@ -136,6 +156,14 @@
 
             scrollTop () {
                 this.$refs.scroll.scrollTop = 0;
+            },
+
+            resize () {
+                this.widths = [];
+                const $td = this.$refs.row[0].children;
+                for (let i = 0; i < $td.length; i++) {
+                    this.widths.push($td[i].offsetWidth + 'px');
+                }
             }
 
         },
@@ -161,6 +189,14 @@
                     this.results = this.data.slice(1, this.data.length);
                     this.$nextTick(this.scrollTop);
                 }
+            },
+
+            filtered: {
+                immediate: true,
+                handler () {
+                    this.$nextTick(this.resize);
+                }
+
             }
 
         }
