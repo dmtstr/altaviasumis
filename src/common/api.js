@@ -23,7 +23,7 @@ export default {
             params: Object.assign({
                 meta: '*',
                 fields: '*.*',
-                sort: 'order_date'
+                sort: '-order_date'
             }, filter)
         })
     },
@@ -36,7 +36,7 @@ export default {
             params: Object.assign({
                 meta: '*',
                 fields: '*.*',
-                sort: 'modified_on'
+                sort: '-modified_on'
             }, filter)
         })
     }
