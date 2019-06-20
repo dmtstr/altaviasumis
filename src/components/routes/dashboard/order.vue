@@ -65,9 +65,7 @@
                 handler (value) {
                     if (this.route !== this.$route.name) return;
                     this.table = Util.jsonToTable(this.dataActive.lines);
-
                 }
-
             }
 
         }
