@@ -22,7 +22,8 @@ export default {
             redirect: true,
             params: Object.assign({
                 meta: '*',
-                fields: '*.*'
+                fields: '*.*',
+                sort: 'order_date'
             }, filter)
         })
     },
@@ -34,7 +35,8 @@ export default {
             redirect: true,
             params: Object.assign({
                 meta: '*',
-                fields: '*.*'
+                fields: '*.*',
+                sort: 'modified_on'
             }, filter)
         })
     }
