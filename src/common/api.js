@@ -21,7 +21,7 @@ export default {
         return Axios.call({
             method: 'GET',
             // url: '/items/orders',
-            url: encodeURIComponent(`/orders?offset=${filter.offset || 0}.json`),
+            url: `/orders_offset${filter.offset || 0}.json`,
             redirect: true,
             params: Object.assign({
                 meta: '*',
@@ -35,7 +35,7 @@ export default {
         return Axios.call({
             method: 'GET',
             // url: '/items/stocks',
-            url: encodeURIComponent(`/stocks?offset=${filter.offset || 0}.json`),
+            url: `/stocks_offset${filter.offset || 0}.json`,
             redirect: true,
             params: Object.assign({
                 meta: '*',
