@@ -13,7 +13,8 @@ import Router from '@/common/router';
 // ------------------
 
 const API = axios.create({
-    baseURL: API_ORIGIN
+    // baseURL: API_ORIGIN,
+    baseURL: '/api'
 });
 
 

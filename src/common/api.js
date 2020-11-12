@@ -9,8 +9,10 @@ export default {
 
     login (data) {
         return Axios.call({
-            method: 'POST',
-            url: '/auth/authenticate',
+            // method: 'POST',
+            // url: '/auth/authenticate',
+            method: 'GET',
+            url: '/auth.json',
             data: data
         })
     },
@@ -18,7 +20,8 @@ export default {
     orders (filter) {
         return Axios.call({
             method: 'GET',
-            url: '/items/orders',
+            // url: '/items/orders',
+            url: encodeURIComponent(`/orders?offset=${filter.offset || 0}.json`),
             redirect: true,
             params: Object.assign({
                 meta: '*',
@@ -31,7 +34,8 @@ export default {
     stocks (filter) {
         return Axios.call({
             method: 'GET',
-            url: '/items/stocks',
+            // url: '/items/stocks',
+            url: encodeURIComponent(`/stocks?offset=${filter.offset || 0}.json`),
             redirect: true,
             params: Object.assign({
                 meta: '*',

@@ -1,0 +1,1973 @@
+{
+  "meta": {
+    "collection": "orders",
+    "type": "collection",
+    "result_count": 20,
+    "total_count": 240,
+    "filter_count": 240,
+    "limit": 20,
+    "offset": 220,
+    "page": 12,
+    "page_count": 12,
+    "links": {
+      "self": "https:\/\/admin.sumislogistics.nl\/_\/items\/orders",
+      "current": "https:\/\/admin.sumislogistics.nl\/_\/items\/orders?meta=*&fields=*.*&sort=-order_date&offset=220&limit=20&page=12",
+      "next": "https:\/\/admin.sumislogistics.nl\/_\/items\/orders?meta=*&fields=*.*&sort=-order_date&offset=240&limit=20&page=13",
+      "previous": "https:\/\/admin.sumislogistics.nl\/_\/items\/orders?meta=*&fields=*.*&sort=-order_date&offset=200&limit=20&page=11",
+      "first": "https:\/\/admin.sumislogistics.nl\/_\/items\/orders?meta=*&fields=*.*&sort=-order_date&offset=0&limit=20&page=1",
+      "last": "https:\/\/admin.sumislogistics.nl\/_\/items\/orders?meta=*&fields=*.*&sort=-order_date&offset=10020&limit=20&page=502"
+    }
+  },
+  "data": [
+    {
+      "id": 9823,
+      "customer_id": "210850",
+      "state": "READ",
+      "order_no": "110008",
+      "order_type": "WEBSHOP",
+      "order_date": "2020-06-08 13:20:02",
+      "branch_code": "",
+      "cost_center": "",
+      "customer_ref": "Numansdorp",
+      "sender_ref": "Hema",
+      "email": "FM-624@hema.nl",
+      "telephone": "(0186) 65 35 56",
+      "vat": "",
+      "client_payment_number": "",
+      "address_name": "HEMA - Numansdorp",
+      "t_a_v": "FM-0624",
+      "street": "Voorstraat",
+      "house_no": "36",
+      "house_ext": "",
+      "zip_code": "3281 AV",
+      "city": "Numansdorp",
+      "country_code": "NL",
+      "lines": [
+        {
+          "INT_NO": "2012-87295-NLNL",
+          "QUANTITY": "5",
+          "DESCRIPTION": ""
+        },
+        {
+          "INT_NO": "1931-52382-NLNL",
+          "QUANTITY": "1",
+          "DESCRIPTION": ""
+        }
+      ],
+      "content": {
+        "HEAD": {
+          "ORDER_NO": "110008",
+          "ORDER_TYPE": "WEBSHOP",
+          "BRANCH_CODE": "",
+          "COST_CENTER": "",
+          "CUSTOMER_REF": "Numansdorp",
+          "SENDER_REF": "Hema",
+          "EMAIL": "FM-624@hema.nl",
+          "TELEPHONE": "(0186) 65 35 56",
+          "VAT": "",
+          "CLIENT_PAYMENT_NUMBER": "",
+          "SHIPPING_ADDRESS": {
+            "ADDRESS_NAME": "HEMA - Numansdorp",
+            "T_A_V": "FM-0624",
+            "STREET": "Voorstraat",
+            "HOUSE_NO": "36",
+            "HOUSE_EXT": "",
+            "ZIP_CODE": "3281 AV",
+            "CITY": "Numansdorp",
+            "COUNTRY_CODE": "NL"
+          }
+        },
+        "LINES": [
+          {
+            "INT_NO": "2012-87295-NLNL",
+            "QUANTITY": "5",
+            "DESCRIPTION": ""
+          },
+          {
+            "INT_NO": "1931-52382-NLNL",
+            "QUANTITY": "1",
+            "DESCRIPTION": ""
+          }
+        ]
+      },
+      "modified_by": {
+        "id": 2,
+        "status": "active",
+        "first_name": "system",
+        "last_name": "system",
+        "email": "system@wms.com",
+        "token": null,
+        "last_access_on": "2019-11-07T08:41:07+00:00",
+        "last_page": "\/collections\/orders",
+        "external_id": "6f6845e1-73a1-4eca-bcec-9e741623c25a",
+        "2fa_secret": null,
+        "timezone": "Europe\/Amsterdam",
+        "locale": "en-US",
+        "locale_options": null,
+        "avatar": null,
+        "company": null,
+        "title": null,
+        "email_notifications": true
+      },
+      "modified_on": "2020-06-08 15:30:32"
+    },
+    {
+      "id": 9821,
+      "customer_id": "660",
+      "state": "READ",
+      "order_no": "1300006371",
+      "order_type": "SAF",
+      "order_date": "2020-06-08 13:09:50",
+      "branch_code": "NN001070",
+      "cost_center": "101070",
+      "customer_ref": "Total Retail",
+      "sender_ref": "Total Retail",
+      "email": "vandeputbv@online.nl",
+      "telephone": "0578-691609",
+      "vat": null,
+      "client_payment_number": null,
+      "address_name": "",
+      "t_a_v": "TOTAL HEERDE INZ VAN DE PUT",
+      "street": "HAGESTRAAT",
+      "house_no": "8",
+      "house_ext": "-10",
+      "zip_code": "8181 EB",
+      "city": "HEERDE",
+      "country_code": "NL",
+      "lines": [
+        {
+          "DESCRIPTION": "Happy Fuel Card EUR 25",
+          "INT_NO": "17894",
+          "QUANTITY": 10
+        },
+        {
+          "DESCRIPTION": "Happy Fuel Card EUR 50",
+          "INT_NO": "17895",
+          "QUANTITY": 5
+        },
+        {
+          "DESCRIPTION": "Happy Fuel Card EUR 15",
+          "INT_NO": "17893",
+          "QUANTITY": 5
+        }
+      ],
+      "content": {
+        "HEAD": {
+          "ORDER_NO": "1300006371",
+          "ORDER_TYPE": "SAF",
+          "BRANCH_CODE": "NN001070",
+          "COST_CENTER": "101070",
+          "CUSTOMER_REF": "Total Retail",
+          "SENDER_REF": "Total Retail",
+          "EMAIL": "vandeputbv@online.nl",
+          "TELEPHONE": "0578-691609",
+          "VAT": null,
+          "CLIENT_PAYMENT_NUMBER": null,
+          "SHIPPING_ADDRESS": {
+            "ADDRESS_NAME": "",
+            "T_A_V": "TOTAL HEERDE INZ VAN DE PUT",
+            "STREET": "HAGESTRAAT",
+            "HOUSE_NO": "8",
+            "HOUSE_EXT": "-10",
+            "ZIP_CODE": "8181 EB",
+            "CITY": "HEERDE",
+            "COUNTRY_CODE": "NL"
+          }
+        },
+        "LINES": [
+          {
+            "DESCRIPTION": "Happy Fuel Card EUR 25",
+            "INT_NO": "17894",
+            "QUANTITY": 10
+          },
+          {
+            "DESCRIPTION": "Happy Fuel Card EUR 50",
+            "INT_NO": "17895",
+            "QUANTITY": 5
+          },
+          {
+            "DESCRIPTION": "Happy Fuel Card EUR 15",
+            "INT_NO": "17893",
+            "QUANTITY": 5
+          }
+        ]
+      },
+      "modified_by": {
+        "id": 2,
+        "status": "active",
+        "first_name": "system",
+        "last_name": "system",
+        "email": "system@wms.com",
+        "token": null,
+        "last_access_on": "2019-11-07T08:41:07+00:00",
+        "last_page": "\/collections\/orders",
+        "external_id": "6f6845e1-73a1-4eca-bcec-9e741623c25a",
+        "2fa_secret": null,
+        "timezone": "Europe\/Amsterdam",
+        "locale": "en-US",
+        "locale_options": null,
+        "avatar": null,
+        "company": null,
+        "title": null,
+        "email_notifications": true
+      },
+      "modified_on": "2020-06-08 15:10:59"
+    },
+    {
+      "id": 9818,
+      "customer_id": "70482",
+      "state": "READ",
+      "order_no": "2200000034",
+      "order_type": "STD",
+      "order_date": "2020-06-08 13:06:44",
+      "branch_code": "not relevant",
+      "cost_center": null,
+      "customer_ref": "Toolstation",
+      "sender_ref": "Toolstation",
+      "email": "retailmarketing@toolstation.nl",
+      "telephone": "071-7470239",
+      "vat": null,
+      "client_payment_number": null,
+      "address_name": "",
+      "t_a_v": "Toolstation Katwijk AN",
+      "street": "Ambachtsweg",
+      "house_no": "11",
+      "house_ext": null,
+      "zip_code": "2222 AH",
+      "city": "Katwijk",
+      "country_code": "NL",
+      "lines": [
+        {
+          "DESCRIPTION": "Insteekhoes A4 tbv Grab bin",
+          "INT_NO": "TS2019080013",
+          "QUANTITY": 10
+        },
+        {
+          "DESCRIPTION": "Insteekhoes A5 tbv Counter top",
+          "INT_NO": "TS2019080014",
+          "QUANTITY": 10
+        }
+      ],
+      "content": {
+        "HEAD": {
+          "ORDER_NO": "2200000034",
+          "ORDER_TYPE": "STD",
+          "BRANCH_CODE": "not relevant",
+          "COST_CENTER": null,
+          "CUSTOMER_REF": "Toolstation",
+          "SENDER_REF": "Toolstation",
+          "EMAIL": "retailmarketing@toolstation.nl",
+          "TELEPHONE": "071-7470239",
+          "VAT": null,
+          "CLIENT_PAYMENT_NUMBER": null,
+          "SHIPPING_ADDRESS": {
+            "ADDRESS_NAME": "",
+            "T_A_V": "Toolstation Katwijk AN",
+            "STREET": "Ambachtsweg",
+            "HOUSE_NO": "11",
+            "HOUSE_EXT": null,
+            "ZIP_CODE": "2222 AH",
+            "CITY": "Katwijk",
+            "COUNTRY_CODE": "NL"
+          }
+        },
+        "LINES": [
+          {
+            "DESCRIPTION": "Insteekhoes A4 tbv Grab bin",
+            "INT_NO": "TS2019080013",
+            "QUANTITY": 10
+          },
+          {
+            "DESCRIPTION": "Insteekhoes A5 tbv Counter top",
+            "INT_NO": "TS2019080014",
+            "QUANTITY": 10
+          }
+        ]
+      },
+      "modified_by": {
+        "id": 2,
+        "status": "active",
+        "first_name": "system",
+        "last_name": "system",
+        "email": "system@wms.com",
+        "token": null,
+        "last_access_on": "2019-11-07T08:41:07+00:00",
+        "last_page": "\/collections\/orders",
+        "external_id": "6f6845e1-73a1-4eca-bcec-9e741623c25a",
+        "2fa_secret": null,
+        "timezone": "Europe\/Amsterdam",
+        "locale": "en-US",
+        "locale_options": null,
+        "avatar": null,
+        "company": null,
+        "title": null,
+        "email_notifications": true
+      },
+      "modified_on": "2020-06-08 15:10:56"
+    },
+    {
+      "id": 9819,
+      "customer_id": "660",
+      "state": "READ",
+      "order_no": "1300006370",
+      "order_type": "SAF",
+      "order_date": "2020-06-08 13:06:44",
+      "branch_code": "NN001626",
+      "cost_center": "101626",
+      "customer_ref": "Total Retail",
+      "sender_ref": "Total Retail",
+      "email": "manager.nieuweweg@retailbnl.com",
+      "telephone": "0229-573880",
+      "vat": null,
+      "client_payment_number": null,
+      "address_name": "",
+      "t_a_v": "TOTAL WOGNUM INZ NIEUWEWEG",
+      "street": "NIEUWEWEG",
+      "house_no": "24",
+      "house_ext": "A",
+      "zip_code": "1687 BA",
+      "city": "WOGNUM",
+      "country_code": "NL",
+      "lines": [
+        {
+          "DESCRIPTION": "Happy Fuel Card EUR 50",
+          "INT_NO": "17895",
+          "QUANTITY": 10
+        },
+        {
+          "DESCRIPTION": "Happy Fuel Card EUR 15",
+          "INT_NO": "17893",
+          "QUANTITY": 10
+        }
+      ],
+      "content": {
+        "HEAD": {
+          "ORDER_NO": "1300006370",
+          "ORDER_TYPE": "SAF",
+          "BRANCH_CODE": "NN001626",
+          "COST_CENTER": "101626",
+          "CUSTOMER_REF": "Total Retail",
+          "SENDER_REF": "Total Retail",
+          "EMAIL": "manager.nieuweweg@retailbnl.com",
+          "TELEPHONE": "0229-573880",
+          "VAT": null,
+          "CLIENT_PAYMENT_NUMBER": null,
+          "SHIPPING_ADDRESS": {
+            "ADDRESS_NAME": "",
+            "T_A_V": "TOTAL WOGNUM INZ NIEUWEWEG",
+            "STREET": "NIEUWEWEG",
+            "HOUSE_NO": "24",
+            "HOUSE_EXT": "A",
+            "ZIP_CODE": "1687 BA",
+            "CITY": "WOGNUM",
+            "COUNTRY_CODE": "NL"
+          }
+        },
+        "LINES": [
+          {
+            "DESCRIPTION": "Happy Fuel Card EUR 50",
+            "INT_NO": "17895",
+            "QUANTITY": 10
+          },
+          {
+            "DESCRIPTION": "Happy Fuel Card EUR 15",
+            "INT_NO": "17893",
+            "QUANTITY": 10
+          }
+        ]
+      },
+      "modified_by": {
+        "id": 2,
+        "status": "active",
+        "first_name": "system",
+        "last_name": "system",
+        "email": "system@wms.com",
+        "token": null,
+        "last_access_on": "2019-11-07T08:41:07+00:00",
+        "last_page": "\/collections\/orders",
+        "external_id": "6f6845e1-73a1-4eca-bcec-9e741623c25a",
+        "2fa_secret": null,
+        "timezone": "Europe\/Amsterdam",
+        "locale": "en-US",
+        "locale_options": null,
+        "avatar": null,
+        "company": null,
+        "title": null,
+        "email_notifications": true
+      },
+      "modified_on": "2020-06-08 15:10:57"
+    },
+    {
+      "id": 9820,
+      "customer_id": "660",
+      "state": "READ",
+      "order_no": "1300006370_2",
+      "order_type": "STD",
+      "order_date": "2020-06-08 13:06:44",
+      "branch_code": "NN001626",
+      "cost_center": "101626",
+      "customer_ref": "Total Retail",
+      "sender_ref": "Total Retail",
+      "email": "manager.nieuweweg@retailbnl.com",
+      "telephone": "0229-573880",
+      "vat": null,
+      "client_payment_number": null,
+      "address_name": "",
+      "t_a_v": "TOTAL WOGNUM INZ NIEUWEWEG",
+      "street": "NIEUWEWEG",
+      "house_no": "24",
+      "house_ext": "A",
+      "zip_code": "1687 BA",
+      "city": "WOGNUM",
+      "country_code": "NL",
+      "lines": [
+        {
+          "DESCRIPTION": "Total prepaid waskaart (bundel 100 exemplaren)",
+          "INT_NO": "23117",
+          "QUANTITY": 1
+        }
+      ],
+      "content": {
+        "HEAD": {
+          "ORDER_NO": "1300006370_2",
+          "ORDER_TYPE": "STD",
+          "BRANCH_CODE": "NN001626",
+          "COST_CENTER": "101626",
+          "CUSTOMER_REF": "Total Retail",
+          "SENDER_REF": "Total Retail",
+          "EMAIL": "manager.nieuweweg@retailbnl.com",
+          "TELEPHONE": "0229-573880",
+          "VAT": null,
+          "CLIENT_PAYMENT_NUMBER": null,
+          "SHIPPING_ADDRESS": {
+            "ADDRESS_NAME": "",
+            "T_A_V": "TOTAL WOGNUM INZ NIEUWEWEG",
+            "STREET": "NIEUWEWEG",
+            "HOUSE_NO": "24",
+            "HOUSE_EXT": "A",
+            "ZIP_CODE": "1687 BA",
+            "CITY": "WOGNUM",
+            "COUNTRY_CODE": "NL"
+          }
+        },
+        "LINES": [
+          {
+            "DESCRIPTION": "Total prepaid waskaart (bundel 100 exemplaren)",
+            "INT_NO": "23117",
+            "QUANTITY": 1
+          }
+        ]
+      },
+      "modified_by": {
+        "id": 2,
+        "status": "active",
+        "first_name": "system",
+        "last_name": "system",
+        "email": "system@wms.com",
+        "token": null,
+        "last_access_on": "2019-11-07T08:41:07+00:00",
+        "last_page": "\/collections\/orders",
+        "external_id": "6f6845e1-73a1-4eca-bcec-9e741623c25a",
+        "2fa_secret": null,
+        "timezone": "Europe\/Amsterdam",
+        "locale": "en-US",
+        "locale_options": null,
+        "avatar": null,
+        "company": null,
+        "title": null,
+        "email_notifications": true
+      },
+      "modified_on": "2020-06-08 15:10:58"
+    },
+    {
+      "id": 9822,
+      "customer_id": "70482",
+      "state": "READ",
+      "order_no": "2200000033",
+      "order_type": "STD",
+      "order_date": "2020-06-08 13:06:43",
+      "branch_code": "not relevant",
+      "cost_center": null,
+      "customer_ref": "Toolstation",
+      "sender_ref": "Toolstation",
+      "email": "retailmarketing@toolstation.nl",
+      "telephone": "071-7470239",
+      "vat": null,
+      "client_payment_number": null,
+      "address_name": "",
+      "t_a_v": "Toolstation Heerhugowaard H1",
+      "street": "J.J.P. Oudweg",
+      "house_no": "8",
+      "house_ext": "A",
+      "zip_code": "1703 DE",
+      "city": "Heerhugowaard",
+      "country_code": "NL",
+      "lines": [
+        {
+          "DESCRIPTION": "Grab bin",
+          "INT_NO": "TS2019080010",
+          "QUANTITY": 2
+        },
+        {
+          "DESCRIPTION": "Insteekhoes A5 tbv Counter top",
+          "INT_NO": "TS2019080014",
+          "QUANTITY": 6
+        },
+        {
+          "DESCRIPTION": "Leesbril",
+          "INT_NO": "TS2019080025",
+          "QUANTITY": 3
+        }
+      ],
+      "content": {
+        "HEAD": {
+          "ORDER_NO": "2200000033",
+          "ORDER_TYPE": "STD",
+          "BRANCH_CODE": "not relevant",
+          "COST_CENTER": null,
+          "CUSTOMER_REF": "Toolstation",
+          "SENDER_REF": "Toolstation",
+          "EMAIL": "retailmarketing@toolstation.nl",
+          "TELEPHONE": "071-7470239",
+          "VAT": null,
+          "CLIENT_PAYMENT_NUMBER": null,
+          "SHIPPING_ADDRESS": {
+            "ADDRESS_NAME": "",
+            "T_A_V": "Toolstation Heerhugowaard H1",
+            "STREET": "J.J.P. Oudweg",
+            "HOUSE_NO": "8",
+            "HOUSE_EXT": "A",
+            "ZIP_CODE": "1703 DE",
+            "CITY": "Heerhugowaard",
+            "COUNTRY_CODE": "NL"
+          }
+        },
+        "LINES": [
+          {
+            "DESCRIPTION": "Grab bin",
+            "INT_NO": "TS2019080010",
+            "QUANTITY": 2
+          },
+          {
+            "DESCRIPTION": "Insteekhoes A5 tbv Counter top",
+            "INT_NO": "TS2019080014",
+            "QUANTITY": 6
+          },
+          {
+            "DESCRIPTION": "Leesbril",
+            "INT_NO": "TS2019080025",
+            "QUANTITY": 3
+          }
+        ]
+      },
+      "modified_by": {
+        "id": 2,
+        "status": "active",
+        "first_name": "system",
+        "last_name": "system",
+        "email": "system@wms.com",
+        "token": null,
+        "last_access_on": "2019-11-07T08:41:07+00:00",
+        "last_page": "\/collections\/orders",
+        "external_id": "6f6845e1-73a1-4eca-bcec-9e741623c25a",
+        "2fa_secret": null,
+        "timezone": "Europe\/Amsterdam",
+        "locale": "en-US",
+        "locale_options": null,
+        "avatar": null,
+        "company": null,
+        "title": null,
+        "email_notifications": true
+      },
+      "modified_on": "2020-06-08 15:10:59"
+    },
+    {
+      "id": 9817,
+      "customer_id": "70482",
+      "state": "READ",
+      "order_no": "2200000032",
+      "order_type": "STD",
+      "order_date": "2020-06-08 12:57:39",
+      "branch_code": "not relevant",
+      "cost_center": null,
+      "customer_ref": "Toolstation",
+      "sender_ref": "Toolstation",
+      "email": "retailmarketing@toolstation.nl",
+      "telephone": "071-7470239",
+      "vat": null,
+      "client_payment_number": null,
+      "address_name": "",
+      "t_a_v": "Toolstation Harderwijk BF",
+      "street": "Lorentzstraat",
+      "house_no": "37",
+      "house_ext": "A",
+      "zip_code": "3846 AV",
+      "city": "Harderwijk",
+      "country_code": "NL",
+      "lines": [
+        {
+          "DESCRIPTION": "Vlag 400x120cm",
+          "INT_NO": "TS2019080030",
+          "QUANTITY": 2
+        }
+      ],
+      "content": {
+        "HEAD": {
+          "ORDER_NO": "2200000032",
+          "ORDER_TYPE": "STD",
+          "BRANCH_CODE": "not relevant",
+          "COST_CENTER": null,
+          "CUSTOMER_REF": "Toolstation",
+          "SENDER_REF": "Toolstation",
+          "EMAIL": "retailmarketing@toolstation.nl",
+          "TELEPHONE": "071-7470239",
+          "VAT": null,
+          "CLIENT_PAYMENT_NUMBER": null,
+          "SHIPPING_ADDRESS": {
+            "ADDRESS_NAME": "",
+            "T_A_V": "Toolstation Harderwijk BF",
+            "STREET": "Lorentzstraat",
+            "HOUSE_NO": "37",
+            "HOUSE_EXT": "A",
+            "ZIP_CODE": "3846 AV",
+            "CITY": "Harderwijk",
+            "COUNTRY_CODE": "NL"
+          }
+        },
+        "LINES": [
+          {
+            "DESCRIPTION": "Vlag 400x120cm",
+            "INT_NO": "TS2019080030",
+            "QUANTITY": 2
+          }
+        ]
+      },
+      "modified_by": {
+        "id": 2,
+        "status": "active",
+        "first_name": "system",
+        "last_name": "system",
+        "email": "system@wms.com",
+        "token": null,
+        "last_access_on": "2019-11-07T08:41:07+00:00",
+        "last_page": "\/collections\/orders",
+        "external_id": "6f6845e1-73a1-4eca-bcec-9e741623c25a",
+        "2fa_secret": null,
+        "timezone": "Europe\/Amsterdam",
+        "locale": "en-US",
+        "locale_options": null,
+        "avatar": null,
+        "company": null,
+        "title": null,
+        "email_notifications": true
+      },
+      "modified_on": "2020-06-08 15:00:36"
+    },
+    {
+      "id": 9816,
+      "customer_id": "70482",
+      "state": "READ",
+      "order_no": "2200000031",
+      "order_type": "STD",
+      "order_date": "2020-06-08 12:53:25",
+      "branch_code": "not relevant",
+      "cost_center": null,
+      "customer_ref": "Toolstation",
+      "sender_ref": "Toolstation",
+      "email": "retailmarketing@toolstation.nl",
+      "telephone": "071-7470239",
+      "vat": null,
+      "client_payment_number": null,
+      "address_name": "",
+      "t_a_v": "Toolstation Eindhoven AS",
+      "street": "Hurksestraat",
+      "house_no": "44",
+      "house_ext": null,
+      "zip_code": "5652 AL",
+      "city": "Eindhoven",
+      "country_code": "NL",
+      "lines": [
+        {
+          "DESCRIPTION": "Schutvel tbv stoepbord A0",
+          "INT_NO": "TS2019080032",
+          "QUANTITY": 2
+        }
+      ],
+      "content": {
+        "HEAD": {
+          "ORDER_NO": "2200000031",
+          "ORDER_TYPE": "STD",
+          "BRANCH_CODE": "not relevant",
+          "COST_CENTER": null,
+          "CUSTOMER_REF": "Toolstation",
+          "SENDER_REF": "Toolstation",
+          "EMAIL": "retailmarketing@toolstation.nl",
+          "TELEPHONE": "071-7470239",
+          "VAT": null,
+          "CLIENT_PAYMENT_NUMBER": null,
+          "SHIPPING_ADDRESS": {
+            "ADDRESS_NAME": "",
+            "T_A_V": "Toolstation Eindhoven AS",
+            "STREET": "Hurksestraat",
+            "HOUSE_NO": "44",
+            "HOUSE_EXT": null,
+            "ZIP_CODE": "5652 AL",
+            "CITY": "Eindhoven",
+            "COUNTRY_CODE": "NL"
+          }
+        },
+        "LINES": [
+          {
+            "DESCRIPTION": "Schutvel tbv stoepbord A0",
+            "INT_NO": "TS2019080032",
+            "QUANTITY": 2
+          }
+        ]
+      },
+      "modified_by": {
+        "id": 2,
+        "status": "active",
+        "first_name": "system",
+        "last_name": "system",
+        "email": "system@wms.com",
+        "token": null,
+        "last_access_on": "2019-11-07T08:41:07+00:00",
+        "last_page": "\/collections\/orders",
+        "external_id": "6f6845e1-73a1-4eca-bcec-9e741623c25a",
+        "2fa_secret": null,
+        "timezone": "Europe\/Amsterdam",
+        "locale": "en-US",
+        "locale_options": null,
+        "avatar": null,
+        "company": null,
+        "title": null,
+        "email_notifications": true
+      },
+      "modified_on": "2020-06-08 15:00:35"
+    },
+    {
+      "id": 9815,
+      "customer_id": "70482",
+      "state": "READ",
+      "order_no": "2200000030",
+      "order_type": "STD",
+      "order_date": "2020-06-08 12:50:52",
+      "branch_code": "not relevant",
+      "cost_center": null,
+      "customer_ref": "Toolstation",
+      "sender_ref": "Toolstation",
+      "email": "retailmarketing@toolstation.nl",
+      "telephone": "071-7470239",
+      "vat": null,
+      "client_payment_number": null,
+      "address_name": "",
+      "t_a_v": "Toolstation Nijverdal BH",
+      "street": "Bedrijvenweg",
+      "house_no": "30",
+      "house_ext": null,
+      "zip_code": "7442 CX",
+      "city": "Nijverdal",
+      "country_code": "NL",
+      "lines": [
+        {
+          "DESCRIPTION": "Frame Stoepbord A0",
+          "INT_NO": "TS2019080031",
+          "QUANTITY": 1
+        },
+        {
+          "DESCRIPTION": "Voet tbv Stoepbord A0",
+          "INT_NO": "TS2019080040",
+          "QUANTITY": 1
+        }
+      ],
+      "content": {
+        "HEAD": {
+          "ORDER_NO": "2200000030",
+          "ORDER_TYPE": "STD",
+          "BRANCH_CODE": "not relevant",
+          "COST_CENTER": null,
+          "CUSTOMER_REF": "Toolstation",
+          "SENDER_REF": "Toolstation",
+          "EMAIL": "retailmarketing@toolstation.nl",
+          "TELEPHONE": "071-7470239",
+          "VAT": null,
+          "CLIENT_PAYMENT_NUMBER": null,
+          "SHIPPING_ADDRESS": {
+            "ADDRESS_NAME": "",
+            "T_A_V": "Toolstation Nijverdal BH",
+            "STREET": "Bedrijvenweg",
+            "HOUSE_NO": "30",
+            "HOUSE_EXT": null,
+            "ZIP_CODE": "7442 CX",
+            "CITY": "Nijverdal",
+            "COUNTRY_CODE": "NL"
+          }
+        },
+        "LINES": [
+          {
+            "DESCRIPTION": "Frame Stoepbord A0",
+            "INT_NO": "TS2019080031",
+            "QUANTITY": 1
+          },
+          {
+            "DESCRIPTION": "Voet tbv Stoepbord A0",
+            "INT_NO": "TS2019080040",
+            "QUANTITY": 1
+          }
+        ]
+      },
+      "modified_by": {
+        "id": 2,
+        "status": "active",
+        "first_name": "system",
+        "last_name": "system",
+        "email": "system@wms.com",
+        "token": null,
+        "last_access_on": "2019-11-07T08:41:07+00:00",
+        "last_page": "\/collections\/orders",
+        "external_id": "6f6845e1-73a1-4eca-bcec-9e741623c25a",
+        "2fa_secret": null,
+        "timezone": "Europe\/Amsterdam",
+        "locale": "en-US",
+        "locale_options": null,
+        "avatar": null,
+        "company": null,
+        "title": null,
+        "email_notifications": true
+      },
+      "modified_on": "2020-06-08 15:00:35"
+    },
+    {
+      "id": 9814,
+      "customer_id": "1000008",
+      "state": "READ",
+      "order_no": "order_852",
+      "order_type": "WEBSHOP",
+      "order_date": "2020-06-08 12:50:01",
+      "branch_code": "",
+      "cost_center": "",
+      "customer_ref": "Maureen Quist",
+      "sender_ref": "nabestelling , ",
+      "email": "maureen.quist@etos.nl",
+      "telephone": "0031 (0)6 23003727",
+      "vat": "",
+      "client_payment_number": "",
+      "address_name": "Etos Filiaal 7594",
+      "t_a_v": "Etos Filiaal 7594",
+      "street": "Stationsplein",
+      "house_no": "154",
+      "house_ext": "",
+      "zip_code": "6811 KL",
+      "city": "Arnhem",
+      "country_code": "NL",
+      "lines": [
+        {
+          "INT_NO": "8710198367497",
+          "QUANTITY": "1",
+          "DESCRIPTION": "Vloersticker Corona pijl"
+        },
+        {
+          "INT_NO": "8710198367404",
+          "QUANTITY": "1",
+          "DESCRIPTION": "Vloerstickers "
+        },
+        {
+          "INT_NO": "8710198367558",
+          "QUANTITY": "1",
+          "DESCRIPTION": "Vloerstickers ingang \/ uitgang"
+        },
+        {
+          "INT_NO": "8710198369910",
+          "QUANTITY": "1",
+          "DESCRIPTION": "A4 mondkapjes handleiding"
+        },
+        {
+          "INT_NO": "8710198369903",
+          "QUANTITY": "1",
+          "DESCRIPTION": "30x30 kaart winkelmandje"
+        }
+      ],
+      "content": {
+        "HEAD": {
+          "ORDER_NO": "order_852",
+          "ORDER_TYPE": "WEBSHOP",
+          "BRANCH_CODE": "",
+          "COST_CENTER": "",
+          "CUSTOMER_REF": "Maureen Quist",
+          "SENDER_REF": "nabestelling , ",
+          "EMAIL": "maureen.quist@etos.nl",
+          "TELEPHONE": "0031 (0)6 23003727",
+          "VAT": "",
+          "CLIENT_PAYMENT_NUMBER": "",
+          "SHIPPING_ADDRESS": {
+            "ADDRESS_NAME": "Etos Filiaal 7594",
+            "T_A_V": "Etos Filiaal 7594",
+            "STREET": "Stationsplein",
+            "HOUSE_NO": "154",
+            "HOUSE_EXT": "",
+            "ZIP_CODE": "6811 KL",
+            "CITY": "Arnhem",
+            "COUNTRY_CODE": "NL"
+          }
+        },
+        "LINES": [
+          {
+            "INT_NO": "8710198367497",
+            "QUANTITY": "1",
+            "DESCRIPTION": "Vloersticker Corona pijl"
+          },
+          {
+            "INT_NO": "8710198367404",
+            "QUANTITY": "1",
+            "DESCRIPTION": "Vloerstickers "
+          },
+          {
+            "INT_NO": "8710198367558",
+            "QUANTITY": "1",
+            "DESCRIPTION": "Vloerstickers ingang \/ uitgang"
+          },
+          {
+            "INT_NO": "8710198369910",
+            "QUANTITY": "1",
+            "DESCRIPTION": "A4 mondkapjes handleiding"
+          },
+          {
+            "INT_NO": "8710198369903",
+            "QUANTITY": "1",
+            "DESCRIPTION": "30x30 kaart winkelmandje"
+          }
+        ]
+      },
+      "modified_by": {
+        "id": 2,
+        "status": "active",
+        "first_name": "system",
+        "last_name": "system",
+        "email": "system@wms.com",
+        "token": null,
+        "last_access_on": "2019-11-07T08:41:07+00:00",
+        "last_page": "\/collections\/orders",
+        "external_id": "6f6845e1-73a1-4eca-bcec-9e741623c25a",
+        "2fa_secret": null,
+        "timezone": "Europe\/Amsterdam",
+        "locale": "en-US",
+        "locale_options": null,
+        "avatar": null,
+        "company": null,
+        "title": null,
+        "email_notifications": true
+      },
+      "modified_on": "2020-06-08 14:50:33"
+    },
+    {
+      "id": 9812,
+      "customer_id": "660",
+      "state": "READ",
+      "order_no": "1300006369_2",
+      "order_type": "STD",
+      "order_date": "2020-06-08 12:43:45",
+      "branch_code": "NN001853",
+      "cost_center": "101853",
+      "customer_ref": "Total Retail",
+      "sender_ref": "Total Retail",
+      "email": "manager.caland2@retailbnl.com",
+      "telephone": "0703881131",
+      "vat": null,
+      "client_payment_number": null,
+      "address_name": "",
+      "t_a_v": "TOTAL DEN HAAG INZ CALAND 2",
+      "street": "CALANDSTRAAT",
+      "house_no": "301",
+      "house_ext": null,
+      "zip_code": "2521 BW",
+      "city": "S-GRAVENHAGE",
+      "country_code": "NL",
+      "lines": [
+        {
+          "DESCRIPTION": "Total papieren tas (energizing life visual)",
+          "INT_NO": "66714",
+          "QUANTITY": 1
+        },
+        {
+          "DESCRIPTION": "Schapkaarthouder Olie 300 x 110 mm",
+          "INT_NO": "18040",
+          "QUANTITY": 5
+        }
+      ],
+      "content": {
+        "HEAD": {
+          "ORDER_NO": "1300006369_2",
+          "ORDER_TYPE": "STD",
+          "BRANCH_CODE": "NN001853",
+          "COST_CENTER": "101853",
+          "CUSTOMER_REF": "Total Retail",
+          "SENDER_REF": "Total Retail",
+          "EMAIL": "manager.caland2@retailbnl.com",
+          "TELEPHONE": "0703881131",
+          "VAT": null,
+          "CLIENT_PAYMENT_NUMBER": null,
+          "SHIPPING_ADDRESS": {
+            "ADDRESS_NAME": "",
+            "T_A_V": "TOTAL DEN HAAG INZ CALAND 2",
+            "STREET": "CALANDSTRAAT",
+            "HOUSE_NO": "301",
+            "HOUSE_EXT": null,
+            "ZIP_CODE": "2521 BW",
+            "CITY": "S-GRAVENHAGE",
+            "COUNTRY_CODE": "NL"
+          }
+        },
+        "LINES": [
+          {
+            "DESCRIPTION": "Total papieren tas (energizing life visual)",
+            "INT_NO": "66714",
+            "QUANTITY": 1
+          },
+          {
+            "DESCRIPTION": "Schapkaarthouder Olie 300 x 110 mm",
+            "INT_NO": "18040",
+            "QUANTITY": 5
+          }
+        ]
+      },
+      "modified_by": {
+        "id": 2,
+        "status": "active",
+        "first_name": "system",
+        "last_name": "system",
+        "email": "system@wms.com",
+        "token": null,
+        "last_access_on": "2019-11-07T08:41:07+00:00",
+        "last_page": "\/collections\/orders",
+        "external_id": "6f6845e1-73a1-4eca-bcec-9e741623c25a",
+        "2fa_secret": null,
+        "timezone": "Europe\/Amsterdam",
+        "locale": "en-US",
+        "locale_options": null,
+        "avatar": null,
+        "company": null,
+        "title": null,
+        "email_notifications": true
+      },
+      "modified_on": "2020-06-08 14:50:31"
+    },
+    {
+      "id": 9813,
+      "customer_id": "70482",
+      "state": "READ",
+      "order_no": "2200000029",
+      "order_type": "STD",
+      "order_date": "2020-06-08 12:43:45",
+      "branch_code": "not relevant",
+      "cost_center": null,
+      "customer_ref": "Toolstation",
+      "sender_ref": "Toolstation",
+      "email": "retailmarketing@toolstation.nl",
+      "telephone": "071-7470239",
+      "vat": null,
+      "client_payment_number": null,
+      "address_name": "",
+      "t_a_v": "Toolstation Hoogvliet BN",
+      "street": "Nieuwe Langeweg",
+      "house_no": "20",
+      "house_ext": null,
+      "zip_code": "3194 DB",
+      "city": "Hoogvliet",
+      "country_code": "NL",
+      "lines": [
+        {
+          "DESCRIPTION": "Insteekhoes A5 tbv Counter top",
+          "INT_NO": "TS2019080014",
+          "QUANTITY": 10
+        },
+        {
+          "DESCRIPTION": "Aisle ends prijskaart A4 leeg",
+          "INT_NO": "TS2019080026",
+          "QUANTITY": 20
+        },
+        {
+          "DESCRIPTION": "Aisle ends prijskaart A4 aantallen",
+          "INT_NO": "TS2019080027",
+          "QUANTITY": 2
+        }
+      ],
+      "content": {
+        "HEAD": {
+          "ORDER_NO": "2200000029",
+          "ORDER_TYPE": "STD",
+          "BRANCH_CODE": "not relevant",
+          "COST_CENTER": null,
+          "CUSTOMER_REF": "Toolstation",
+          "SENDER_REF": "Toolstation",
+          "EMAIL": "retailmarketing@toolstation.nl",
+          "TELEPHONE": "071-7470239",
+          "VAT": null,
+          "CLIENT_PAYMENT_NUMBER": null,
+          "SHIPPING_ADDRESS": {
+            "ADDRESS_NAME": "",
+            "T_A_V": "Toolstation Hoogvliet BN",
+            "STREET": "Nieuwe Langeweg",
+            "HOUSE_NO": "20",
+            "HOUSE_EXT": null,
+            "ZIP_CODE": "3194 DB",
+            "CITY": "Hoogvliet",
+            "COUNTRY_CODE": "NL"
+          }
+        },
+        "LINES": [
+          {
+            "DESCRIPTION": "Insteekhoes A5 tbv Counter top",
+            "INT_NO": "TS2019080014",
+            "QUANTITY": 10
+          },
+          {
+            "DESCRIPTION": "Aisle ends prijskaart A4 leeg",
+            "INT_NO": "TS2019080026",
+            "QUANTITY": 20
+          },
+          {
+            "DESCRIPTION": "Aisle ends prijskaart A4 aantallen",
+            "INT_NO": "TS2019080027",
+            "QUANTITY": 2
+          }
+        ]
+      },
+      "modified_by": {
+        "id": 2,
+        "status": "active",
+        "first_name": "system",
+        "last_name": "system",
+        "email": "system@wms.com",
+        "token": null,
+        "last_access_on": "2019-11-07T08:41:07+00:00",
+        "last_page": "\/collections\/orders",
+        "external_id": "6f6845e1-73a1-4eca-bcec-9e741623c25a",
+        "2fa_secret": null,
+        "timezone": "Europe\/Amsterdam",
+        "locale": "en-US",
+        "locale_options": null,
+        "avatar": null,
+        "company": null,
+        "title": null,
+        "email_notifications": true
+      },
+      "modified_on": "2020-06-08 14:50:32"
+    },
+    {
+      "id": 9811,
+      "customer_id": "660",
+      "state": "READ",
+      "order_no": "1300006369",
+      "order_type": "SAF",
+      "order_date": "2020-06-08 12:43:44",
+      "branch_code": "NN001853",
+      "cost_center": "101853",
+      "customer_ref": "Total Retail",
+      "sender_ref": "Total Retail",
+      "email": "manager.caland2@retailbnl.com",
+      "telephone": "0703881131",
+      "vat": null,
+      "client_payment_number": null,
+      "address_name": "",
+      "t_a_v": "TOTAL DEN HAAG INZ CALAND 2",
+      "street": "CALANDSTRAAT",
+      "house_no": "301",
+      "house_ext": null,
+      "zip_code": "2521 BW",
+      "city": "S-GRAVENHAGE",
+      "country_code": "NL",
+      "lines": [
+        {
+          "DESCRIPTION": "Happy Fuel Card EUR 50",
+          "INT_NO": "17895",
+          "QUANTITY": 20
+        },
+        {
+          "DESCRIPTION": "Happy Fuel Card EUR 15",
+          "INT_NO": "17893",
+          "QUANTITY": 15
+        }
+      ],
+      "content": {
+        "HEAD": {
+          "ORDER_NO": "1300006369",
+          "ORDER_TYPE": "SAF",
+          "BRANCH_CODE": "NN001853",
+          "COST_CENTER": "101853",
+          "CUSTOMER_REF": "Total Retail",
+          "SENDER_REF": "Total Retail",
+          "EMAIL": "manager.caland2@retailbnl.com",
+          "TELEPHONE": "0703881131",
+          "VAT": null,
+          "CLIENT_PAYMENT_NUMBER": null,
+          "SHIPPING_ADDRESS": {
+            "ADDRESS_NAME": "",
+            "T_A_V": "TOTAL DEN HAAG INZ CALAND 2",
+            "STREET": "CALANDSTRAAT",
+            "HOUSE_NO": "301",
+            "HOUSE_EXT": null,
+            "ZIP_CODE": "2521 BW",
+            "CITY": "S-GRAVENHAGE",
+            "COUNTRY_CODE": "NL"
+          }
+        },
+        "LINES": [
+          {
+            "DESCRIPTION": "Happy Fuel Card EUR 50",
+            "INT_NO": "17895",
+            "QUANTITY": 20
+          },
+          {
+            "DESCRIPTION": "Happy Fuel Card EUR 15",
+            "INT_NO": "17893",
+            "QUANTITY": 15
+          }
+        ]
+      },
+      "modified_by": {
+        "id": 2,
+        "status": "active",
+        "first_name": "system",
+        "last_name": "system",
+        "email": "system@wms.com",
+        "token": null,
+        "last_access_on": "2019-11-07T08:41:07+00:00",
+        "last_page": "\/collections\/orders",
+        "external_id": "6f6845e1-73a1-4eca-bcec-9e741623c25a",
+        "2fa_secret": null,
+        "timezone": "Europe\/Amsterdam",
+        "locale": "en-US",
+        "locale_options": null,
+        "avatar": null,
+        "company": null,
+        "title": null,
+        "email_notifications": true
+      },
+      "modified_on": "2020-06-08 14:50:30"
+    },
+    {
+      "id": 9810,
+      "customer_id": "210850",
+      "state": "READ",
+      "order_no": "69005",
+      "order_type": "WEBSHOP",
+      "order_date": "2020-06-08 12:30:01",
+      "branch_code": "",
+      "cost_center": "",
+      "customer_ref": "Mortsel",
+      "sender_ref": "Hema",
+      "email": "FM-442@hema.nl",
+      "telephone": "0032 34519310",
+      "vat": "",
+      "client_payment_number": "",
+      "address_name": "HEMA - Mortsel",
+      "t_a_v": "FM-0442",
+      "street": "Statielei,",
+      "house_no": "69",
+      "house_ext": "",
+      "zip_code": "2640",
+      "city": "Mortsel (BE)",
+      "country_code": "BE",
+      "lines": [
+        {
+          "INT_NO": "1901-65054-NLNL",
+          "QUANTITY": "2",
+          "DESCRIPTION": ""
+        },
+        {
+          "INT_NO": "1901-57358-NLNL",
+          "QUANTITY": "2",
+          "DESCRIPTION": ""
+        },
+        {
+          "INT_NO": "1901-57349-NLNL",
+          "QUANTITY": "2",
+          "DESCRIPTION": ""
+        },
+        {
+          "INT_NO": "1901-57351-NLNL",
+          "QUANTITY": "2",
+          "DESCRIPTION": ""
+        },
+        {
+          "INT_NO": "1937-57560-BENL",
+          "QUANTITY": "10",
+          "DESCRIPTION": ""
+        },
+        {
+          "INT_NO": "1925-47191-NLNL",
+          "QUANTITY": "10",
+          "DESCRIPTION": ""
+        },
+        {
+          "INT_NO": "1925-47176-NLNL",
+          "QUANTITY": "10",
+          "DESCRIPTION": ""
+        },
+        {
+          "INT_NO": "1925-47163-NLNL",
+          "QUANTITY": "10",
+          "DESCRIPTION": ""
+        },
+        {
+          "INT_NO": "1925-47101-NLNL",
+          "QUANTITY": "10",
+          "DESCRIPTION": ""
+        },
+        {
+          "INT_NO": "1901-58836-NLNL",
+          "QUANTITY": "1",
+          "DESCRIPTION": ""
+        },
+        {
+          "INT_NO": "1931-49793-NLNL",
+          "QUANTITY": "1",
+          "DESCRIPTION": ""
+        }
+      ],
+      "content": {
+        "HEAD": {
+          "ORDER_NO": "69005",
+          "ORDER_TYPE": "WEBSHOP",
+          "BRANCH_CODE": "",
+          "COST_CENTER": "",
+          "CUSTOMER_REF": "Mortsel",
+          "SENDER_REF": "Hema",
+          "EMAIL": "FM-442@hema.nl",
+          "TELEPHONE": "0032 34519310",
+          "VAT": "",
+          "CLIENT_PAYMENT_NUMBER": "",
+          "SHIPPING_ADDRESS": {
+            "ADDRESS_NAME": "HEMA - Mortsel",
+            "T_A_V": "FM-0442",
+            "STREET": "Statielei,",
+            "HOUSE_NO": "69",
+            "HOUSE_EXT": "",
+            "ZIP_CODE": "2640",
+            "CITY": "Mortsel (BE)",
+            "COUNTRY_CODE": "BE"
+          }
+        },
+        "LINES": [
+          {
+            "INT_NO": "1901-65054-NLNL",
+            "QUANTITY": "2",
+            "DESCRIPTION": ""
+          },
+          {
+            "INT_NO": "1901-57358-NLNL",
+            "QUANTITY": "2",
+            "DESCRIPTION": ""
+          },
+          {
+            "INT_NO": "1901-57349-NLNL",
+            "QUANTITY": "2",
+            "DESCRIPTION": ""
+          },
+          {
+            "INT_NO": "1901-57351-NLNL",
+            "QUANTITY": "2",
+            "DESCRIPTION": ""
+          },
+          {
+            "INT_NO": "1937-57560-BENL",
+            "QUANTITY": "10",
+            "DESCRIPTION": ""
+          },
+          {
+            "INT_NO": "1925-47191-NLNL",
+            "QUANTITY": "10",
+            "DESCRIPTION": ""
+          },
+          {
+            "INT_NO": "1925-47176-NLNL",
+            "QUANTITY": "10",
+            "DESCRIPTION": ""
+          },
+          {
+            "INT_NO": "1925-47163-NLNL",
+            "QUANTITY": "10",
+            "DESCRIPTION": ""
+          },
+          {
+            "INT_NO": "1925-47101-NLNL",
+            "QUANTITY": "10",
+            "DESCRIPTION": ""
+          },
+          {
+            "INT_NO": "1901-58836-NLNL",
+            "QUANTITY": "1",
+            "DESCRIPTION": ""
+          },
+          {
+            "INT_NO": "1931-49793-NLNL",
+            "QUANTITY": "1",
+            "DESCRIPTION": ""
+          }
+        ]
+      },
+      "modified_by": {
+        "id": 2,
+        "status": "active",
+        "first_name": "system",
+        "last_name": "system",
+        "email": "system@wms.com",
+        "token": null,
+        "last_access_on": "2019-11-07T08:41:07+00:00",
+        "last_page": "\/collections\/orders",
+        "external_id": "6f6845e1-73a1-4eca-bcec-9e741623c25a",
+        "2fa_secret": null,
+        "timezone": "Europe\/Amsterdam",
+        "locale": "en-US",
+        "locale_options": null,
+        "avatar": null,
+        "company": null,
+        "title": null,
+        "email_notifications": true
+      },
+      "modified_on": "2020-06-08 14:30:29"
+    },
+    {
+      "id": 9809,
+      "customer_id": "660",
+      "state": "READ",
+      "order_no": "1300006368",
+      "order_type": "SAF",
+      "order_date": "2020-06-08 12:28:53",
+      "branch_code": "NN001041",
+      "cost_center": "101041",
+      "customer_ref": "Total Retail",
+      "sender_ref": "Total Retail",
+      "email": "nn001041.manager@retailbnl.com",
+      "telephone": "046-4755280",
+      "vat": null,
+      "client_payment_number": null,
+      "address_name": "",
+      "t_a_v": "TOTAL GELEEN INZ DE KRAWINKEL",
+      "street": "RIJKSWEG ZUID",
+      "house_no": "340",
+      "house_ext": null,
+      "zip_code": "6161 BZ",
+      "city": "GELEEN",
+      "country_code": "NL",
+      "lines": [
+        {
+          "DESCRIPTION": "Happy Fuel Card EUR 15",
+          "INT_NO": "17893",
+          "QUANTITY": 10
+        }
+      ],
+      "content": {
+        "HEAD": {
+          "ORDER_NO": "1300006368",
+          "ORDER_TYPE": "SAF",
+          "BRANCH_CODE": "NN001041",
+          "COST_CENTER": "101041",
+          "CUSTOMER_REF": "Total Retail",
+          "SENDER_REF": "Total Retail",
+          "EMAIL": "nn001041.manager@retailbnl.com",
+          "TELEPHONE": "046-4755280",
+          "VAT": null,
+          "CLIENT_PAYMENT_NUMBER": null,
+          "SHIPPING_ADDRESS": {
+            "ADDRESS_NAME": "",
+            "T_A_V": "TOTAL GELEEN INZ DE KRAWINKEL",
+            "STREET": "RIJKSWEG ZUID",
+            "HOUSE_NO": "340",
+            "HOUSE_EXT": null,
+            "ZIP_CODE": "6161 BZ",
+            "CITY": "GELEEN",
+            "COUNTRY_CODE": "NL"
+          }
+        },
+        "LINES": [
+          {
+            "DESCRIPTION": "Happy Fuel Card EUR 15",
+            "INT_NO": "17893",
+            "QUANTITY": 10
+          }
+        ]
+      },
+      "modified_by": {
+        "id": 2,
+        "status": "active",
+        "first_name": "system",
+        "last_name": "system",
+        "email": "system@wms.com",
+        "token": null,
+        "last_access_on": "2019-11-07T08:41:07+00:00",
+        "last_page": "\/collections\/orders",
+        "external_id": "6f6845e1-73a1-4eca-bcec-9e741623c25a",
+        "2fa_secret": null,
+        "timezone": "Europe\/Amsterdam",
+        "locale": "en-US",
+        "locale_options": null,
+        "avatar": null,
+        "company": null,
+        "title": null,
+        "email_notifications": true
+      },
+      "modified_on": "2020-06-08 14:30:28"
+    },
+    {
+      "id": 9808,
+      "customer_id": "661",
+      "state": "READ",
+      "order_no": "1200000536",
+      "order_type": "STD",
+      "order_date": "2020-06-08 12:06:38",
+      "branch_code": "Total Nederland",
+      "cost_center": null,
+      "customer_ref": "",
+      "sender_ref": "",
+      "email": "jos.alblas@total.com",
+      "telephone": "0343431483",
+      "vat": null,
+      "client_payment_number": null,
+      "address_name": "Wiksol BV",
+      "t_a_v": "Roelof van Wikselaar",
+      "street": "Ambachtsweg",
+      "house_no": "16",
+      "house_ext": null,
+      "zip_code": "3953 BZ",
+      "city": "Maarsbergen",
+      "country_code": "NL",
+      "lines": [
+        {
+          "DESCRIPTION": "Speedy grease gun – Orange pipe incl nippel en afdekdopje",
+          "INT_NO": "49420",
+          "QUANTITY": 10
+        }
+      ],
+      "content": {
+        "HEAD": {
+          "ORDER_NO": "1200000536",
+          "ORDER_TYPE": "STD",
+          "BRANCH_CODE": "Total Nederland",
+          "COST_CENTER": null,
+          "CUSTOMER_REF": "",
+          "SENDER_REF": "",
+          "EMAIL": "jos.alblas@total.com",
+          "TELEPHONE": "0343431483",
+          "VAT": null,
+          "CLIENT_PAYMENT_NUMBER": null,
+          "SHIPPING_ADDRESS": {
+            "ADDRESS_NAME": "Wiksol BV",
+            "T_A_V": "Roelof van Wikselaar",
+            "STREET": "Ambachtsweg",
+            "HOUSE_NO": "16",
+            "HOUSE_EXT": null,
+            "ZIP_CODE": "3953 BZ",
+            "CITY": "Maarsbergen",
+            "COUNTRY_CODE": "NL"
+          }
+        },
+        "LINES": [
+          {
+            "DESCRIPTION": "Speedy grease gun – Orange pipe incl nippel en afdekdopje",
+            "INT_NO": "49420",
+            "QUANTITY": 10
+          }
+        ]
+      },
+      "modified_by": {
+        "id": 2,
+        "status": "active",
+        "first_name": "system",
+        "last_name": "system",
+        "email": "system@wms.com",
+        "token": null,
+        "last_access_on": "2019-11-07T08:41:07+00:00",
+        "last_page": "\/collections\/orders",
+        "external_id": "6f6845e1-73a1-4eca-bcec-9e741623c25a",
+        "2fa_secret": null,
+        "timezone": "Europe\/Amsterdam",
+        "locale": "en-US",
+        "locale_options": null,
+        "avatar": null,
+        "company": null,
+        "title": null,
+        "email_notifications": true
+      },
+      "modified_on": "2020-06-08 14:10:31"
+    },
+    {
+      "id": 9807,
+      "customer_id": "660",
+      "state": "READ",
+      "order_no": "1300006367",
+      "order_type": "STD",
+      "order_date": "2020-06-08 11:58:51",
+      "branch_code": "NN001541",
+      "cost_center": "101541",
+      "customer_ref": "Total Retail",
+      "sender_ref": "Total Retail",
+      "email": "manager.schiphol@retailbnl.com",
+      "telephone": "0206015233",
+      "vat": null,
+      "client_payment_number": null,
+      "address_name": "",
+      "t_a_v": "TOTAL SCHIPHOL",
+      "street": "WESTELIJKE RANDWEG",
+      "house_no": "1",
+      "house_ext": null,
+      "zip_code": "1118 CR",
+      "city": "SCHIPHOL",
+      "country_code": "NL",
+      "lines": [
+        {
+          "DESCRIPTION": "A0 Windmaster voorzetfolie",
+          "INT_NO": "18167",
+          "QUANTITY": 3
+        },
+        {
+          "DESCRIPTION": "Total prepaid waskaart (bundel 100 exemplaren)",
+          "INT_NO": "23117",
+          "QUANTITY": 1
+        },
+        {
+          "DESCRIPTION": "Total Clubkaart (excl flyer, seal van 250 ex)",
+          "INT_NO": "23833",
+          "QUANTITY": 1
+        }
+      ],
+      "content": {
+        "HEAD": {
+          "ORDER_NO": "1300006367",
+          "ORDER_TYPE": "STD",
+          "BRANCH_CODE": "NN001541",
+          "COST_CENTER": "101541",
+          "CUSTOMER_REF": "Total Retail",
+          "SENDER_REF": "Total Retail",
+          "EMAIL": "manager.schiphol@retailbnl.com",
+          "TELEPHONE": "0206015233",
+          "VAT": null,
+          "CLIENT_PAYMENT_NUMBER": null,
+          "SHIPPING_ADDRESS": {
+            "ADDRESS_NAME": "",
+            "T_A_V": "TOTAL SCHIPHOL",
+            "STREET": "WESTELIJKE RANDWEG",
+            "HOUSE_NO": "1",
+            "HOUSE_EXT": null,
+            "ZIP_CODE": "1118 CR",
+            "CITY": "SCHIPHOL",
+            "COUNTRY_CODE": "NL"
+          }
+        },
+        "LINES": [
+          {
+            "DESCRIPTION": "A0 Windmaster voorzetfolie",
+            "INT_NO": "18167",
+            "QUANTITY": 3
+          },
+          {
+            "DESCRIPTION": "Total prepaid waskaart (bundel 100 exemplaren)",
+            "INT_NO": "23117",
+            "QUANTITY": 1
+          },
+          {
+            "DESCRIPTION": "Total Clubkaart (excl flyer, seal van 250 ex)",
+            "INT_NO": "23833",
+            "QUANTITY": 1
+          }
+        ]
+      },
+      "modified_by": {
+        "id": 2,
+        "status": "active",
+        "first_name": "system",
+        "last_name": "system",
+        "email": "system@wms.com",
+        "token": null,
+        "last_access_on": "2019-11-07T08:41:07+00:00",
+        "last_page": "\/collections\/orders",
+        "external_id": "6f6845e1-73a1-4eca-bcec-9e741623c25a",
+        "2fa_secret": null,
+        "timezone": "Europe\/Amsterdam",
+        "locale": "en-US",
+        "locale_options": null,
+        "avatar": null,
+        "company": null,
+        "title": null,
+        "email_notifications": true
+      },
+      "modified_on": "2020-06-08 14:00:34"
+    },
+    {
+      "id": 9806,
+      "customer_id": "210850",
+      "state": "READ",
+      "order_no": "82885",
+      "order_type": "WEBSHOP",
+      "order_date": "2020-06-08 11:50:01",
+      "branch_code": "",
+      "cost_center": "",
+      "customer_ref": "Assen",
+      "sender_ref": "Hema",
+      "email": "FM-060@hema.nl",
+      "telephone": "(0592) 31 70 55",
+      "vat": "",
+      "client_payment_number": "",
+      "address_name": "HEMA - Assen",
+      "t_a_v": "FM-0060",
+      "street": "Koopmansplein",
+      "house_no": "1",
+      "house_ext": "",
+      "zip_code": "9401 EL",
+      "city": "Assen",
+      "country_code": "NL",
+      "lines": [
+        {
+          "INT_NO": "2012-87295-NLNL",
+          "QUANTITY": "1",
+          "DESCRIPTION": ""
+        }
+      ],
+      "content": {
+        "HEAD": {
+          "ORDER_NO": "82885",
+          "ORDER_TYPE": "WEBSHOP",
+          "BRANCH_CODE": "",
+          "COST_CENTER": "",
+          "CUSTOMER_REF": "Assen",
+          "SENDER_REF": "Hema",
+          "EMAIL": "FM-060@hema.nl",
+          "TELEPHONE": "(0592) 31 70 55",
+          "VAT": "",
+          "CLIENT_PAYMENT_NUMBER": "",
+          "SHIPPING_ADDRESS": {
+            "ADDRESS_NAME": "HEMA - Assen",
+            "T_A_V": "FM-0060",
+            "STREET": "Koopmansplein",
+            "HOUSE_NO": "1",
+            "HOUSE_EXT": "",
+            "ZIP_CODE": "9401 EL",
+            "CITY": "Assen",
+            "COUNTRY_CODE": "NL"
+          }
+        },
+        "LINES": [
+          {
+            "INT_NO": "2012-87295-NLNL",
+            "QUANTITY": "1",
+            "DESCRIPTION": ""
+          }
+        ]
+      },
+      "modified_by": {
+        "id": 2,
+        "status": "active",
+        "first_name": "system",
+        "last_name": "system",
+        "email": "system@wms.com",
+        "token": null,
+        "last_access_on": "2019-11-07T08:41:07+00:00",
+        "last_page": "\/collections\/orders",
+        "external_id": "6f6845e1-73a1-4eca-bcec-9e741623c25a",
+        "2fa_secret": null,
+        "timezone": "Europe\/Amsterdam",
+        "locale": "en-US",
+        "locale_options": null,
+        "avatar": null,
+        "company": null,
+        "title": null,
+        "email_notifications": true
+      },
+      "modified_on": "2020-06-08 13:50:34"
+    },
+    {
+      "id": 9805,
+      "customer_id": "660",
+      "state": "READ",
+      "order_no": "1300006366",
+      "order_type": "STD",
+      "order_date": "2020-06-08 11:43:40",
+      "branch_code": "NN001822",
+      "cost_center": "101822",
+      "customer_ref": "Total Retail",
+      "sender_ref": "Total Retail",
+      "email": "manager.heerlen@retailbnl.com",
+      "telephone": "0611012788",
+      "vat": null,
+      "client_payment_number": null,
+      "address_name": "",
+      "t_a_v": "TOTAL HEERLEN INZAKE BEERSDALWEG",
+      "street": "Beersdalweg",
+      "house_no": "2",
+      "house_ext": null,
+      "zip_code": "6412 PE",
+      "city": "Heerlen",
+      "country_code": "NL",
+      "lines": [
+        {
+          "DESCRIPTION": "Kassa Bonrol OPT - DIT",
+          "INT_NO": "66982",
+          "QUANTITY": 3
+        },
+        {
+          "DESCRIPTION": "Vel 20 isis-labels",
+          "INT_NO": "18219",
+          "QUANTITY": 4
+        }
+      ],
+      "content": {
+        "HEAD": {
+          "ORDER_NO": "1300006366",
+          "ORDER_TYPE": "STD",
+          "BRANCH_CODE": "NN001822",
+          "COST_CENTER": "101822",
+          "CUSTOMER_REF": "Total Retail",
+          "SENDER_REF": "Total Retail",
+          "EMAIL": "manager.heerlen@retailbnl.com",
+          "TELEPHONE": "0611012788",
+          "VAT": null,
+          "CLIENT_PAYMENT_NUMBER": null,
+          "SHIPPING_ADDRESS": {
+            "ADDRESS_NAME": "",
+            "T_A_V": "TOTAL HEERLEN INZAKE BEERSDALWEG",
+            "STREET": "Beersdalweg",
+            "HOUSE_NO": "2",
+            "HOUSE_EXT": null,
+            "ZIP_CODE": "6412 PE",
+            "CITY": "Heerlen",
+            "COUNTRY_CODE": "NL"
+          }
+        },
+        "LINES": [
+          {
+            "DESCRIPTION": "Kassa Bonrol OPT - DIT",
+            "INT_NO": "66982",
+            "QUANTITY": 3
+          },
+          {
+            "DESCRIPTION": "Vel 20 isis-labels",
+            "INT_NO": "18219",
+            "QUANTITY": 4
+          }
+        ]
+      },
+      "modified_by": {
+        "id": 2,
+        "status": "active",
+        "first_name": "system",
+        "last_name": "system",
+        "email": "system@wms.com",
+        "token": null,
+        "last_access_on": "2019-11-07T08:41:07+00:00",
+        "last_page": "\/collections\/orders",
+        "external_id": "6f6845e1-73a1-4eca-bcec-9e741623c25a",
+        "2fa_secret": null,
+        "timezone": "Europe\/Amsterdam",
+        "locale": "en-US",
+        "locale_options": null,
+        "avatar": null,
+        "company": null,
+        "title": null,
+        "email_notifications": true
+      },
+      "modified_on": "2020-06-08 13:50:34"
+    },
+    {
+      "id": 9804,
+      "customer_id": "660",
+      "state": "READ",
+      "order_no": "1300006365",
+      "order_type": "STD",
+      "order_date": "2020-06-08 11:36:18",
+      "branch_code": "NN001016",
+      "cost_center": "101037",
+      "customer_ref": "Total Retail",
+      "sender_ref": "Total Retail",
+      "email": "fritse1@xs4all.nl",
+      "telephone": "0522253850",
+      "vat": null,
+      "client_payment_number": null,
+      "address_name": "Total Werkhorst inz. Fritse",
+      "t_a_v": "JW Fritse",
+      "street": "Werkhorst",
+      "house_no": "60",
+      "house_ext": null,
+      "zip_code": "7944AV",
+      "city": "meppel",
+      "country_code": "NL",
+      "lines": [
+        {
+          "DESCRIPTION": "Vloersticker 1,5 mtr",
+          "INT_NO": "76424",
+          "QUANTITY": 5
+        },
+        {
+          "DESCRIPTION": "A0 tijdelijk gesloten",
+          "INT_NO": "66963",
+          "QUANTITY": 3
+        },
+        {
+          "DESCRIPTION": "A1 poster Total tijdelijk gesloten (met invulveld)",
+          "INT_NO": "66661",
+          "QUANTITY": 3
+        }
+      ],
+      "content": {
+        "HEAD": {
+          "ORDER_NO": "1300006365",
+          "ORDER_TYPE": "STD",
+          "BRANCH_CODE": "NN001016",
+          "COST_CENTER": "101037",
+          "CUSTOMER_REF": "Total Retail",
+          "SENDER_REF": "Total Retail",
+          "EMAIL": "fritse1@xs4all.nl",
+          "TELEPHONE": "0522253850",
+          "VAT": null,
+          "CLIENT_PAYMENT_NUMBER": null,
+          "SHIPPING_ADDRESS": {
+            "ADDRESS_NAME": "Total Werkhorst inz. Fritse",
+            "T_A_V": "JW Fritse",
+            "STREET": "Werkhorst",
+            "HOUSE_NO": "60",
+            "HOUSE_EXT": null,
+            "ZIP_CODE": "7944AV",
+            "CITY": "meppel",
+            "COUNTRY_CODE": "NL"
+          }
+        },
+        "LINES": [
+          {
+            "DESCRIPTION": "Vloersticker 1,5 mtr",
+            "INT_NO": "76424",
+            "QUANTITY": 5
+          },
+          {
+            "DESCRIPTION": "A0 tijdelijk gesloten",
+            "INT_NO": "66963",
+            "QUANTITY": 3
+          },
+          {
+            "DESCRIPTION": "A1 poster Total tijdelijk gesloten (met invulveld)",
+            "INT_NO": "66661",
+            "QUANTITY": 3
+          }
+        ]
+      },
+      "modified_by": {
+        "id": 2,
+        "status": "active",
+        "first_name": "system",
+        "last_name": "system",
+        "email": "system@wms.com",
+        "token": null,
+        "last_access_on": "2019-11-07T08:41:07+00:00",
+        "last_page": "\/collections\/orders",
+        "external_id": "6f6845e1-73a1-4eca-bcec-9e741623c25a",
+        "2fa_secret": null,
+        "timezone": "Europe\/Amsterdam",
+        "locale": "en-US",
+        "locale_options": null,
+        "avatar": null,
+        "company": null,
+        "title": null,
+        "email_notifications": true
+      },
+      "modified_on": "2020-06-08 13:40:34"
+    }
+  ]
+}
